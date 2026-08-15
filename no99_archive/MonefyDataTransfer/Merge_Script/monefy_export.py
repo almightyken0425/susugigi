@@ -18,6 +18,7 @@ Monefy Database Export Script
 import sqlite3
 import csv
 from datetime import datetime, timedelta
+from decimal import Decimal, InvalidOperation, ROUND_HALF_UP
 from pathlib import Path
 import sys
 import calendar
@@ -25,6 +26,27 @@ import calendar
 # 設定路徑
 SCRIPT_DIR = Path(__file__).parent
 DATA_DIR = SCRIPT_DIR / "../Original_DB_Data"
+STORAGE_QUANTUM = Decimal("0.0001")
+
+
+def parse_source_amount(amount_str: str) -> Decimal:
+    """Parse an exact source amount and reject precision SuSuGiGi cannot store."""
+    try:
+        amount = Decimal(amount_str.replace(',', ''))
+    except (InvalidOperation, AttributeError) as exc:
+        raise ValueError(f"Invalid source amount: {amount_str}") from exc
+
+    if amount != amount.quantize(STORAGE_QUANTUM):
+        raise ValueError(f"Source amount exceeds 4 decimal places: {amount_str}")
+    return amount
+
+
+def format_storage_amount(amount) -> str:
+    """Format with SuSuGiGi's 4-decimal storage precision without trailing zeros."""
+    value = amount if isinstance(amount, Decimal) else Decimal(str(amount))
+    value = value.quantize(STORAGE_QUANTUM, rounding=ROUND_HALF_UP)
+    text = format(value, 'f')
+    return text.rstrip('0').rstrip('.') if '.' in text else text
 
 def get_latest_file(directory: Path, pattern: str) -> Path | None:
     files = list(directory.glob(pattern))
@@ -83,9 +105,9 @@ def build_raw_transfer_pool(raw_csv_path: Path) -> list:
             cat = row.get('category', '')
             if cat in ('ExpenseTransfer', 'IncomeTransfer'):
                 try:
-                    amount = float(row['amount'].replace(',', ''))
+                    amount = parse_source_amount(row['amount'])
                 except (ValueError, KeyError):
-                    amount = 0.0
+                    amount = Decimal('0')
                 pool.append({
                     'date': normalize_date(row.get('date', '')),
                     'account': row.get('account', ''),
@@ -103,11 +125,12 @@ def match_actual_amount(pool: list, date: str, account: str, category: str, appr
     沿用 merge_for_reconciliation.py 驗證過、可達 zero-discrepancy 的配對策略。
     """
     target_date = normalize_date(date)
-    best_idx, min_diff = -1, float('inf')
+    approx = approx_amount if isinstance(approx_amount, Decimal) else Decimal(str(approx_amount))
+    best_idx, min_diff = -1, Decimal('Infinity')
     for i, r in enumerate(pool):
         if (not r['used'] and r['date'] == target_date
                 and r['account'] == account and r['category'] == category):
-            diff = abs(r['amount'] - approx_amount)
+            diff = abs(r['amount'] - approx)
             if diff < min_diff:
                 min_diff, best_idx = diff, i
     if best_idx != -1:
@@ -241,8 +264,7 @@ def export_transactions_from_csv(csv_path: Path, output_path: Path) -> int:
             # Parse Amount
             try:
                 # Remove commas if any (e.g. "1,000.00")
-                amount_clean = amount_str.replace(',', '')
-                amount = float(amount_clean)
+                amount = parse_source_amount(amount_str)
             except ValueError:
                  print(f"Warning: Could not parse amount {amount_str}, skipping.")
                  continue
@@ -274,7 +296,7 @@ def export_transactions_from_csv(csv_path: Path, output_path: Path) -> int:
                 tx['datetime_str'],
                 tx['category'],
                 tx['account'],
-                f"{tx['amount']:.2f}",
+                format_storage_amount(tx['amount']),
                 tx['currency'],
                 tx['note'],
                 tx['is_virtual'],
@@ -353,8 +375,8 @@ def export_transfers(cursor, output_path: Path, raw_csv_path: Path) -> int:
             # Smart Match：用估算值撈 raw CSV 的實際金額，DB 只負責配對(誰轉誰)
             m_from = match_actual_amount(pool, datetime_str, from_account, 'ExpenseTransfer', -abs(from_est))
             m_to = match_actual_amount(pool, datetime_str, to_account, 'IncomeTransfer', abs(to_est))
-            from_amount = abs(m_from) if m_from is not None else from_est
-            to_amount = abs(m_to) if m_to is not None else to_est
+            from_amount = abs(m_from) if m_from is not None else Decimal(str(from_est))
+            to_amount = abs(m_to) if m_to is not None else Decimal(str(to_est))
             matched_legs += (m_from is not None) + (m_to is not None)
             if m_from is not None and m_to is not None:
                 source = 'RawCSV'
@@ -372,10 +394,10 @@ def export_transfers(cursor, output_path: Path, raw_csv_path: Path) -> int:
                 datetime_str,
                 from_account or '',
                 from_currency_code or '',
-                f'{from_amount:.2f}',
+                format_storage_amount(from_amount),
                 to_account or '',
                 to_currency_code or '',
-                f'{to_amount:.2f}',
+                format_storage_amount(to_amount),
                 f'{exchange_rate:.5f}',
                 source,
                 note or ''
