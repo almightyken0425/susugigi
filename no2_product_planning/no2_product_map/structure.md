@@ -68,13 +68,16 @@ Platform: App — 行動端 React Native
 └── LocalDatabase
 
 Platform: Web Console
-├── WebConsole
-│   ├── QueryEngine
-│   │   ├── JQLInterface
-│   │   └── SavedViews
-│   └── ReportBuilder
-│       ├── CustomDimensions
-│       └── ExportFunction
+├── SupportSite
+│   ├── ContactFAQ
+│   ├── WebConsole
+│   │   ├── QueryEngine
+│   │   │   ├── JQLInterface
+│   │   │   └── SavedViews
+│   │   └── ReportBuilder
+│   │       ├── CustomDimensions
+│   │       └── ExportFunction
+│   └── Blog
 └── AIAdvisor / WebClient
     ├── FinancialInsightsUI
     └── ConversationInterface
@@ -134,7 +137,9 @@ ExcludedModule
 | LogicEngine           | App      | 規則引擎與時光機，LEVEL_2，未實作               | [app/logic_engine.md](app/logic_engine.md)           |
 | Payment / AppClient   | App      | Paywall、原生 IAP 訂閱狀態         | [app/payment.md](app/payment.md)           |
 | LocalDatabase         | App      | WatermelonDB 本機資料層，Local-First 基礎設施   | [app/local_database.md](app/local_database.md) |
-| WebConsole            | Web      | 桌面版進階查詢與報表，LEVEL_2，未實作                   | [web_console.md](web_console/web_console.md) |
+| ContactFAQ            | Web      | 支援官網的聯絡信箱與 FAQ                        | [contact_faq.md](web_console/contact_faq.md) |
+| WebConsole            | Web      | 桌面版進階查詢與報表，LEVEL_2，MVP 實作中          | [web_console.md](web_console/web_console.md) |
+| Blog                  | Web      | 支援官網的 SEO 內容部落格                       | [blog.md](web_console/blog.md) |
 | AIAdvisor / WebClient | Web      | AI 財務顧問前端，LEVEL_3，未實作                | [ai_advisor_web_client.md](web_console/ai_advisor_web_client.md) |
 | Authentication        | Firebase | Firebase 身份驗證服務                          | [authentication.md](firebase/authentication.md) |
 | Storage               | Firebase | Firebase 資料備份儲存，待定義                          | [storage.md](firebase/storage.md) |
