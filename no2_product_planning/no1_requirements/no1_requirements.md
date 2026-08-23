@@ -343,14 +343,18 @@
         - 此蒐集僅供伺服器端意外時的災難復原
         - 不作為 user 端可取回的資料來源
         - 任何超出履約的使用走 consent 基礎
-        - 超出履約的使用包含個人化分析、AI 顧問訓練、B2B 聚合資料變現
+        - 超出履約的使用包含四類
+        - 個人化分析
+        - AI 顧問訓練
+        - B2B 聚合資料變現
+        - 使用行為分析
       - **效益:**
         - 符合歐盟 GDPR 與加州 CCPA 的分層合法基礎要求
         - 蒐集與分析使用權責分明
       - **風險:**
         - Privacy Policy 與 onboarding 必須明確揭露此分層
 
-## 分析使用退出機制
+## 財務內容分析退出機制
 
 - **問題根源：**
     - 角度：營運與法務
@@ -360,6 +364,7 @@
 - **評估方案:**
     - analyticsConsent flag 全球統一 toggle ★ 選用
       - **描述:**
+        - 此 flag 僅控制財務內容分析
         - 在 Settings 之下 Privacy 提供 toggle
         - flag 預設 true 即 opt-out 預設加入
         - flag 同步至 Firestore `users/{uid}/preferences.analyticsConsent`
@@ -371,6 +376,46 @@
         - 單一 toggle 控制三種用途，UX 簡潔
       - **風險:**
         - 未來新增分析用途時必須確認在 analyticsConsent 涵蓋範圍內
+
+---
+
+## 使用行為分析
+
+- **問題根源:**
+    - 角度為產品決策
+    - 正式版缺乏使用證據
+    - 無法辨識關鍵流程流失
+    - 記帳內容不得進入自訂事件
+- **評估方案:**
+    - Firebase Analytics 首方分析 ★ 選用
+      - **描述:**
+        - 新增 `usageAnalyticsConsent`
+        - 預設值為 false
+        - 同意前停用自動蒐集
+        - 同意狀態只存本機
+        - 不上傳 Firebase uid
+        - 不設定 Analytics User ID
+        - 不啟用廣告識別能力
+        - 自訂事件不帶業務欄位
+        - 蒐集 `first_entry_started`
+        - 蒐集 `first_entry_completed`
+        - 蒐集 `recurring_created`
+        - 蒐集 `export_used`
+        - 蒐集 `paywall_viewed`
+        - 啟用時仍有 SDK 自動事件
+        - 自動事件含生命週期與購買
+      - **效益:**
+        - 能辨識核心流程流失
+        - 能校正功能優先級
+        - 同意範圍保持單純
+      - **風險:**
+        - Firebase 仍建立裝置實例
+        - Firebase 仍處理網路資訊
+        - Firebase 仍處理購買紀錄
+        - 商店隱私揭露需更新
+        - 公開隱私政策需更新
+
+---
 
 ## 對外資料輸出的隱私合規
 
@@ -418,7 +463,8 @@
 - **問題根源：**
     - 角度：營運與工程
     - 接續上述雲端同步架構與訂閱層級與資料機制的關係
-    - preference 含 theme、語言、主要幣別、時區、啟動模式、analyticsConsent 六項
+    - preference 含七項本機設定
+    - `usageAnalyticsConsent` 只存本機
     - 雲端同步架構已收斂為單向上傳備份，preference 是否一併上傳、是否回灌本機，須定義
     - 認證方案節提到的多裝置同步措辭，在此一併收斂為只上傳備份，無雲端即時同步
 - **評估方案:**
@@ -434,6 +480,7 @@
         - 上傳目的僅供資料分析維度
         - BigQuery mirror 不納入 preference，分析管線當前未接，上傳目的為未來分析，不宣稱現在就在分析
         - analyticsConsent 不做 consent 特例，同走一般覆寫
+        - `usageAnalyticsConsent` 不上傳
       - **效益:**
         - 本機讀寫不等雲端，preference 套用無延遲
         - 無下載回灌即無 LWW 與衝突解決，工程大幅簡化

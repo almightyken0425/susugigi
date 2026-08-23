@@ -117,7 +117,8 @@
     - 外觀：配色主題、啟動模式。
     - 貨幣與財務：基礎貨幣、幣別顯示格式、匯率管理。
     - 語言與時區：語言切換、時區設定、週起始日。
-    - 分析同意：analyticsConsent 開關，控制記帳資料是否納入分析用途。
+    - 財務分析同意由 `analyticsConsent` 控制。
+    - 使用分析同意由 `usageAnalyticsConsent` 控制。
 - **目的：**
     - 管理所有影響全 App 呈現與行為的個人化偏好設定。
 - **做法：**
@@ -126,8 +127,15 @@
     - 上傳為欄位級覆寫，無 Last-Write-Wins、無衝突解決、不設 device 欄位；接受 Firestore 與各裝置欄位級不一致。
     - 跨裝置一致由使用者主動匯出匯入銜接，無雲端即時同步。
     - analyticsConsent 預設開啟、opt-out 預設加入；寫入 `users/{uid}/preferences.analyticsConsent`，同走一般偏好覆寫上傳，不做 consent 特例。關閉後個人化分析、AI 顧問訓練、B2B 聚合三條管線跳過此 user，記帳備份不受影響。
+    - `usageAnalyticsConsent` 預設關閉。
+    - 使用者同意後才啟用事件蒐集。
+    - 同意狀態只存本機。
+    - 使用行為不含記帳內容。
+    - 使用行為不設定 user id。
 - **上游對應：**
-    - analyticsConsent 對應需求層分析使用退出機制，與整合層 cloud 側 `cloud_service/analytics_pipeline.md` 的偏好上傳軌。
+    - analyticsConsent 對應財務內容分析退出機制。
+    - `usageAnalyticsConsent` 對應使用行為分析。
+    - 兩者對應 AnalyticsPipeline。
 - **排除：**
     - 使用者自訂調色盤
     - 自動依裝置地區選擇時區
