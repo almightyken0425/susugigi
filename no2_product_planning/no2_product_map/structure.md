@@ -45,7 +45,8 @@ Platform: App — 行動端 React Native
 │   │   ├── RegionAndLanguage
 │   │   │   ├── LanguageSetting
 │   │   │   └── TimeZoneSetting
-│   │   └── AnalyticsConsent
+│   │   ├── FinancialAnalyticsConsent
+│   │   └── UsageAnalyticsConsent
 │   └── Plan
 │       └── PlanUpgradeEntry
 ├── CloudSync / AppClient
@@ -102,6 +103,7 @@ Platform: Cloud Service
 │   ├── HealthScoreEngine
 │   └── NaturalLanguageQAEngine
 ├── AnalyticsPipeline
+│   ├── UsageTelemetry
 │   ├── FirestoreToBigQueryMirror
 │   ├── ActivationTrigger
 │   ├── AnalyticsAPI
@@ -147,5 +149,5 @@ ExcludedModule
 | CloudFunctions        | Firebase | IAP 交易登記、App Store Server Notifications、寫 entitlement、資料清除 | [cloud_functions.md](firebase/cloud_functions.md) |
 | AIAdvisor / Backend   | Cloud    | AI 財務顧問後端，LEVEL_3，架構待定              | [ai_advisor_backend.md](cloud_service/ai_advisor_backend.md) |
 | MacroData             | Cloud    | 總體資料服務，LEVEL_B，未實作                   | [macro_data.md](cloud_service/macro_data.md) |
-| AnalyticsPipeline     | Cloud    | 分析資料管道，R1 拍板、未啟動                   | [analytics_pipeline.md](cloud_service/analytics_pipeline.md) |
+| AnalyticsPipeline     | Cloud    | 使用行為事件上線，財務分析管道未啟動           | [analytics_pipeline.md](cloud_service/analytics_pipeline.md) |
 | LLM Provider          | 外部服務 | AI 推理 API 服務                               | [llm_provider.md](external_service/llm_provider.md) |

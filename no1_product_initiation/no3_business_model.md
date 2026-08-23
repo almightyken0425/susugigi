@@ -12,7 +12,9 @@
         - 資料匯入與匯出, CSV
         - Widget 小工具
         - 資料蒐集, 系統端內部備份且 user 不取回
-          - 分析用途採 opt-out, 依 Root Value 隱私承諾
+          - 財務內容分析採 opt-out
+          - 使用行為分析採 opt-in
+          - 使用行為不含記帳內容
           - 所有 LEVEL 皆可在 Settings 之下 Privacy 關閉
     - **限制:**
       - 帳戶數上限 3 個
