@@ -18,7 +18,10 @@
     - 觀察付費牆觸及
 - **做法：**
     - 預設停用自動蒐集
+    - 首次啟動顯示同意詢問
     - 同意後才啟用蒐集
+    - 拒絕後維持停用
+    - 已選擇後不重複詢問
     - 同意狀態只存本機
     - 不設定 Analytics User ID
     - 不使用廣告識別能力
@@ -139,24 +142,18 @@
 ## ConsentSync — analyticsConsent 同步
 
 - **功能：**
-    - 將 App 端 Settings 之下 Privacy 的 toggle 狀態同步到 Firestore
+    - 保留財務分析同意欄位
 - **目的：**
-    - 讓 BigQuery extension filter 可基於 flag 判斷是否 mirror
-    - 提供 user 隨時開關的單一控制點
+    - 確保尚未啟用的管線不處理財務內容
 - **做法：**
-    - toggle 變更時寫入 `users/{uid}/preferences.analyticsConsent`
-    - 預設值為 true
-    - opt-out 預設加入
+    - 預設值為 false
+    - 既有本機值統一重設為 false
+    - 偏好設定不顯示此開關
+    - 欄位仍同步至 Firestore
     - BigQuery extension 讀取該 flag 作 filter
-    - analyticsConsent 走一般欄位覆寫上傳，不做 consent 特例
-    - 多裝置間 Firestore 保留最後寫入的值，接受不一致
+    - 財務管線啟用前另行詢問
 - **排除：**
-    - 多裝置 analyticsConsent 一致保證
-- **合規風險留痕：**
-    - 一裝置 opt-out 可能被另一裝置 opt-in 覆寫
-    - 也可能被全量上傳無聲恢復為 opt-in
-    - GDPR 撤回可能因此被覆寫，接受此風險
+    - 目前不接受財務分析同意
 - **利弊：**
-    - 單一 flag 控制 filter 行為
-    - 邏輯簡單
-    - 詳細 UX 設計屬 Privacy 設定子頁專屬規格
+    - 保留未來 filter 接口
+    - 未來啟用時需要新增同意流程
