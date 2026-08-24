@@ -362,20 +362,20 @@
     - consent 基礎的使用必須提供 user 隨時撤回的機制
     - 撤回後三條下游管線必須立即停止
 - **評估方案:**
-    - analyticsConsent flag 全球統一 toggle ★ 選用
+    - analyticsConsent 保留停用 ★ 選用
       - **描述:**
-        - 此 flag 僅控制財務內容分析
-        - 在 Settings 之下 Privacy 提供 toggle
-        - flag 預設 true 即 opt-out 預設加入
-        - flag 同步至 Firestore `users/{uid}/preferences.analyticsConsent`
-        - flag false 時 firestore-bigquery-export 跳過此 user
-        - 跳過後個人化分析、AI 顧問訓練、B2B 聚合三條管線皆拿不到此 user 資料
-        - TransactionBackup 不受此 flag 影響
+        - 財務內容分析目前停用
+        - `analyticsConsent` 預設為 false
+        - 偏好設定不顯示此開關
+        - 既有同意值統一重設為 false
+        - 財務分析管線啟用前另行詢問
+        - 同意不得與使用行為分析合併
+        - TransactionBackup 不受此欄位影響
       - **效益:**
-        - 全球統一遵守歐盟 GDPR 與加州 CCPA 等規範
-        - 單一 toggle 控制三種用途，UX 簡潔
+        - 避免未啟用功能製造隱私焦慮
+        - 避免未來管線沿用無聲授權
       - **風險:**
-        - 未來新增分析用途時必須確認在 analyticsConsent 涵蓋範圍內
+        - 未來啟用時需要新增同意流程
 
 ---
 
@@ -390,8 +390,14 @@
     - Firebase Analytics 首方分析 ★ 選用
       - **描述:**
         - 新增 `usageAnalyticsConsent`
+        - 新增 `usageAnalyticsConsentDecided`
         - 預設值為 false
-        - 同意前停用自動蒐集
+        - 首次啟動顯示同意詢問
+        - 尚未選擇時停用自動蒐集
+        - 同意後立即啟用蒐集
+        - 拒絕後維持停用
+        - 已選擇後不重複詢問
+        - 偏好設定提供撤回開關
         - 同意狀態只存本機
         - 不上傳 Firebase uid
         - 不設定 Analytics User ID
@@ -463,8 +469,8 @@
 - **問題根源：**
     - 角度：營運與工程
     - 接續上述雲端同步架構與訂閱層級與資料機制的關係
-    - preference 含七項本機設定
-    - `usageAnalyticsConsent` 只存本機
+    - preference 含分析同意狀態
+    - 使用分析同意欄位只存本機
     - 雲端同步架構已收斂為單向上傳備份，preference 是否一併上傳、是否回灌本機，須定義
     - 認證方案節提到的多裝置同步措辭，在此一併收斂為只上傳備份，無雲端即時同步
 - **評估方案:**
@@ -479,15 +485,17 @@
         - 跨裝置使用場景由 user 主動匯出匯入銜接，無雲端即時同步
         - 上傳目的僅供資料分析維度
         - BigQuery mirror 不納入 preference，分析管線當前未接，上傳目的為未來分析，不宣稱現在就在分析
-        - analyticsConsent 不做 consent 特例，同走一般覆寫
+        - analyticsConsent 預設為 false
+        - analyticsConsent 同走一般覆寫
         - `usageAnalyticsConsent` 不上傳
+        - `usageAnalyticsConsentDecided` 不上傳
       - **效益:**
         - 本機讀寫不等雲端，preference 套用無延遲
         - 無下載回灌即無 LWW 與衝突解決，工程大幅簡化
         - 未來具備 preference 的分析維度來源
       - **風險:**
         - 多裝置 preference 欄位級覆寫，Firestore 與各裝置可能三份不一致，使用者無從察覺
-        - analyticsConsent 同走一般覆寫，GDPR 撤回後的 false 值可能被另一裝置的 true 值全量上傳無聲恢復，屬合規風險
+        - 未來財務分析啟用前需重建同意流程
 
 ## 標準化標記與預設資料的取捨
 
