@@ -25,7 +25,7 @@ import calendar
 
 # 設定路徑
 SCRIPT_DIR = Path(__file__).parent
-DATA_DIR = SCRIPT_DIR / "../Original_DB_Data"
+DATA_DIR = SCRIPT_DIR / "../original_db_data"
 STORAGE_QUANTUM = Decimal("0.0001")
 
 
@@ -429,13 +429,13 @@ def main(db_path: Path = None):
     
     try:
         # 1. 匯出 Transactions (From Raw CSV)
-        transactions_path = SCRIPT_DIR / "../Export_Data/transactions.csv"
+        transactions_path = SCRIPT_DIR / "../export_data/transactions.csv"
         print(f"\n[1/2] 匯出交易記錄 (來源: Raw CSV)...")
         tx_count = export_transactions_from_csv(RAW_CSV_PATH, transactions_path)
         print(f"✓ 已匯出 {tx_count} 筆交易到 {transactions_path.name}")
         
         # 2. 匯出 Transfers (From DB)
-        transfers_path = SCRIPT_DIR / "../Export_Data/transfers.csv"
+        transfers_path = SCRIPT_DIR / "../export_data/transfers.csv"
         print(f"\n[2/2] 匯出轉帳記錄 (來源: DB)...")
         tr_count = export_transfers(cursor, transfers_path, RAW_CSV_PATH)
         print(f"✓ 已匯出 {tr_count} 筆轉帳到 {transfers_path.name}")

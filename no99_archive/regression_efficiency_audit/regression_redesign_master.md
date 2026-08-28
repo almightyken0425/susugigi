@@ -2,7 +2,7 @@
 
 本檔統整兩份方案：場次腳本層方案處理 13 場 228 步的重排與手段改掛，impl 與機制層方案處理 marker 補齊、測試假綠、兩支工具強化與原生機制修正。以下是合併後的全局判斷、施工批次、完成判準、效益估算、風險取捨與否決清單。
 
-路徑一律以 `~/` 為錨。impl 指 `~/Doc/ai-company/product/SuSuGiGi/no5_product_development/no2_accounting_app`，後端 impl 指同層的 `no3_cloud_functions`，quality 指 `~/Doc/ai-company/product/SuSuGiGi/no6_product_quality/no2_accounting_app`，設定 repo 指 `~/.claude`。
+路徑一律以 `~/` 為錨。impl 指 `~/Doc/ai-company/product/susugigi/no5_product_development/no2_accounting_app`，後端 impl 指同層的 `no3_cloud_functions`，quality 指 `~/Doc/ai-company/product/susugigi/no6_product_quality/no2_accounting_app`，設定 repo 指 `~/.claude`。
 
 ---
 

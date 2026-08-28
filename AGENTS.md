@@ -14,6 +14,16 @@
 - 配對 commit 使用相同內容。
 - 合併一律等待使用者明示。
 
+## 命名規則
+
+- 產品顯示名稱維持 `SuSuGiGi`。
+- GitHub repository 與正式 checkout 資料夾使用 `susugigi`。
+- 自建資料夾與檔名使用 `snake_case`。
+- 前後關係使用不補零的 `noN_` 前綴。
+- `no0_` 保留給入口與總覽。
+- `no99_` 保留給封存內容。
+- 原始匯入資料保留來源檔名，避免失去稽核依據。
+
 ## 動工路由
 
 - 改動前必須使用 `decision_framework_router`。

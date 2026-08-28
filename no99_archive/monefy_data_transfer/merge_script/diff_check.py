@@ -15,8 +15,8 @@ from typing import NamedTuple
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-DATA_DIR = SCRIPT_DIR.parent / "Original_DB_Data"
-EXPORT_DIR = SCRIPT_DIR.parent / "Export_Data"
+DATA_DIR = SCRIPT_DIR.parent / "original_db_data"
+EXPORT_DIR = SCRIPT_DIR.parent / "export_data"
 TRANSACTIONS_PATH = EXPORT_DIR / "transactions.csv"
 TRANSFERS_PATH = EXPORT_DIR / "transfers.csv"
 
