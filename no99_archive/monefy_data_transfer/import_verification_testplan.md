@@ -12,7 +12,7 @@
 
 ## 測資快照（2026-06-03 匯出，已抽出）
 
-- 來源：`Original_DB_Data/monefy-2026-06-03_11-11-06.csv` + `monefy_database-2026-06-03_23-11-49.db`
+- 來源：`original_db_data/monefy-2026-06-03_11-11-06.csv` + `monefy_database-2026-06-03_23-11-49.db`
 - 交易 17,206 筆、可匯入轉帳 282 筆（DB 共 317；其中 35 筆是已刪除帳戶之間的轉帳、不匯入，對現役帳戶零影響）、日期 2015-12-31 → 2026-06-03
 - 資料保真已驗：export 腳本經 Smart Match 從 raw CSV 撈跨幣別轉帳的實際轉入金額（不再用匯率估算），`diff_check.py` 對六月資料 zero-discrepancy（17,770＝17,770）；每帳戶餘額算出來與 Monefy 全對、0 帳戶有差
 - 8 幣別全在 `Currency.json`：TWD / USD / IDR / PEN / THB 為 2 位小數；JPY / KRW 為 0 位小數；MYR 2 位、僅 馬幣 帳戶在轉帳用
@@ -44,7 +44,7 @@ native 幣別。因初始餘額皆 0，此表等於 Monefy 顯示餘額，也是
 
 ## 前置
 
-- **P1（已完成）**：跑 `monefy_export.py` 產生 `Export_Data/transactions.csv`（17,206）、`transfers.csv`（282）。
+- **P1（已完成）**：跑 `monefy_export.py` 產生 `export_data/transactions.csv`（17,206）、`transfers.csv`（282）。
 - **P2**：`/sim-review` 切 Metro 到 `feat/datamgmt-currency-fidelity` worktree（約 30 秒），讓 simulator 跑修正後匯入。
 - **P3**：把 `transactions.csv` 與 `transfers.csv` 拖進 simulator 視窗，選 Save to Files → On My iPhone。
 - **P4**：SuSuGiGi → 設定 → 資料管理 → 清除資料庫 → 重啟 app，得到乾淨起點。注意重啟後 `createInitialUserData` 會自動建 1 個預設現金帳戶 + 標準類別；對帳時略過該預設帳戶。

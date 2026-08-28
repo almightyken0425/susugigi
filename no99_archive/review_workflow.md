@@ -1,8 +1,8 @@
-# 2026-06-10 · 記帳 App 多軸 Review Workflow Prompt 草稿（第 1–7 軸）
+# 2026-06-10 · 記帳 App 多軸 Review Workflow Prompt 草稿：第 1–7 軸
 
 ## Context
 
-SuSuGiGi 記帳 app（module `no2_accounting_app`）分軸 review 的 workflow prompt 草稿。
+SuSuGiGi 記帳 app 的 module `no2_accounting_app` 分軸 review workflow prompt 草稿。
 
 ## 軸索引
 
@@ -18,7 +18,7 @@ SuSuGiGi 記帳 app（module `no2_accounting_app`）分軸 review 的 workflow p
 
 ---
 
-## 第 1 軸 · 各層各自審查 + 四層對齊（整包版）
+## 第 1 軸 · 各層各自審查 + 四層對齊：整包版
 
 ```
 用 workflow 對 SuSuGiGi no2_accounting_app 一次做完各層各自審查 + 四層對齊審查。
@@ -47,7 +47,7 @@ SuSuGiGi 記帳 app（module `no2_accounting_app`）分軸 review 的 workflow p
   ② component_tokens 完整：每個 20_components 元件有沒有對應 component token
   ③ 元件純度：components.jsx 是否完全從 foundations 構成、有無 raw number 硬寫值
   ④ screen 純度：30_screens 的 26 個 screen 是否完全由 foundations + components 組成（30_screens/CLAUDE.md 純度規則）
-  ⑤ canvas 可運行：components-showcase 是否覆蓋所有元件、visualizers/15_fixtures 齊全
+  ⑤ canvas 可運行：components_showcase 是否覆蓋所有元件、visualizers/15_fixtures 齊全
 
 【Product】審規劃邏輯內在品質，不是 code：
   ① 提案層自洽：no1_root_mentality（心智模型）/no2_root_value（不可取代性）/no3_business_model（商業模式）三者邏輯連貫、互不矛盾
@@ -77,7 +77,7 @@ SuSuGiGi 記帳 app（module `no2_accounting_app`）分軸 review 的 workflow p
 ```
 用一個 workflow（多 agent 編排）審 SuSuGiGi 記帳 app 的 Spec 層品質。純 review：只讀、不改檔、輸出報告。
 
-範圍：product/SuSuGiGi/no3_product_specs/no2_accounting_app/，約 47 份 md：
+範圍：product/susugigi/no3_product_specs/no2_accounting_app/，約 47 份 md：
 - no1_data_models/no1_data_models.md，Model 層
 - no2_screens/，26 份，View 層
 - no3_logics/，20 份，Logic 層
@@ -103,7 +103,7 @@ fan-out：每份 spec 一個 agent，各查兩件事：
 ```
 用一個 workflow（多 agent 編排）做 SuSuGiGi 記帳 app 的 impl 程式 review，找 runtime correctness bug。純 review：只讀、不改檔、輸出報告。不查架構與分層與共用抽取（另一軸），也不查安全繞過（另一軸）。
 
-範圍：product/SuSuGiGi/no5_product_development/no2_accounting_app/src/。
+範圍：product/susugigi/no5_product_development/no2_accounting_app/src/。
 
 fan-out 用 find→adversarial verify。第一段每個維度一個 finder agent：
 1. 並發與生命週期：race、stale closure、useEffect 依賴錯、未取消 async、listener 與 timer 洩漏
@@ -190,7 +190,7 @@ fan-out：每條 logic 一個 agent、data model 另一組 agent，各自比對 
 ```
 用一個 workflow（多 agent 編排）做 SuSuGiGi 記帳 app 的 impl 架構與分層 review，從零查。純 review：只讀、不改檔、輸出報告。查 code 組織與抽象，不查 runtime bug（另一軸）。
 
-範圍：product/SuSuGiGi/no5_product_development/no2_accounting_app/src/。對照分層意圖：View=screens、Logic=contexts/services/hooks、Model=database/models。
+範圍：product/susugigi/no5_product_development/no2_accounting_app/src/。對照分層意圖：View=screens、Logic=contexts/services/hooks、Model=database/models。
 
 fan-out 用 find→verify。第一段每個維度一個 finder agent：
 1. 分層歸位：domain 與 business logic 跑進 screen 或 component，如畫面內直接做資料庫讀寫、金額或業務計算寫在 UI 元件裡，該下放 hooks/services/logic 層
@@ -213,7 +213,7 @@ fan-out 用 find→verify。第一段每個維度一個 finder agent：
 ```
 用一個 workflow（多 agent 編排）做 SuSuGiGi 記帳 app 的 impl 安全性 review。純 review：只讀、不改檔、輸出報告。技術棧 RN + Firebase Auth/Firestore + Google Sign-In + IAP。
 
-範圍：product/SuSuGiGi/no5_product_development/no2_accounting_app/，含 src/、firestore.rules、ios/、android/、.gitignore、package.json。
+範圍：product/susugigi/no5_product_development/no2_accounting_app/，含 src/、firestore.rules、ios/、android/、.gitignore、package.json。
 
 重要前提避免假陽性：Firebase client 設定金鑰（GoogleService-Info.plist 與 google-services.json 內的 AIza key）與 WEB_CLIENT_ID 是 public-by-design、不是 secret，且已被 .gitignore 排除，不要報這些為漏洞。真正要查的是後端規則與信任邊界。
 

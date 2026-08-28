@@ -1,6 +1,6 @@
 # impl 與機制層改造方案
 
-本方案把三層盤查的 findings 轉成可直接動工的施工單。路徑一律以 git root 為錨：impl 指 `~/Doc/ai-company/product/SuSuGiGi/no5_product_development/no2_accounting_app`，backend 指 `~/Doc/ai-company/product/SuSuGiGi/no5_product_development/no3_cloud_functions/functions`，quality 指 `~/Doc/ai-company/product/SuSuGiGi/no6_product_quality/no2_accounting_app`，設定 repo 指 `~/.claude`。
+本方案把三層盤查的 findings 轉成可直接動工的施工單。路徑一律以 git root 為錨：impl 指 `~/Doc/ai-company/product/susugigi/no5_product_development/no2_accounting_app`，backend 指 `~/Doc/ai-company/product/susugigi/no5_product_development/no3_cloud_functions/functions`，quality 指 `~/Doc/ai-company/product/susugigi/no6_product_quality/no2_accounting_app`，設定 repo 指 `~/.claude`。
 
 施工單分六包，包與包之間有順序相依，最後一節逐項標 git 與層。
 
@@ -795,7 +795,7 @@ SELECT COUNT(*) FROM (
 
 ### impl git 的 app module
 
-路徑 `~/Doc/ai-company/product/SuSuGiGi/no5_product_development/no2_accounting_app`，層為 impl、module 為 `no2_accounting_app`。承載：
+路徑 `~/Doc/ai-company/product/susugigi/no5_product_development/no2_accounting_app`，層為 impl、module 為 `no2_accounting_app`。承載：
 
 - MRK-01 加 MRK-02、MRK-03、MRK-08、MRK-09、MRK-10、MRK-11、MRK-12、MRK-14 的全部 marker 落點
 - `__DEV__` 閘修正的全部 30 餘條
@@ -806,11 +806,11 @@ SELECT COUNT(*) FROM (
 
 ### impl git 的後端 module
 
-路徑 `~/Doc/ai-company/product/SuSuGiGi/no5_product_development/no3_cloud_functions`，層為 impl、module 為 `no3_cloud_functions`。承載 MRK-04、MRK-05、MRK-06、MRK-07 四條後端 log。與 app module 同名 feat branch、同 subject 加 body 的配對 commit。
+路徑 `~/Doc/ai-company/product/susugigi/no5_product_development/no3_cloud_functions`，層為 impl、module 為 `no3_cloud_functions`。承載 MRK-04、MRK-05、MRK-06、MRK-07 四條後端 log。與 app module 同名 feat branch、同 subject 加 body 的配對 commit。
 
 ### Quality git
 
-路徑 `~/Doc/ai-company/product/SuSuGiGi/no6_product_quality/no2_accounting_app`，層為 quality。承載：
+路徑 `~/Doc/ai-company/product/susugigi/no6_product_quality/no2_accounting_app`，層為 quality。承載：
 
 - `no1_capability_profile.md`：刪 `QA FINDING`、加 `QA RATE`、命名空間清單同步
 - `no2_regression_plan/`：10 條 qa-markers 檢查點驗證者改 Claude；PM-04、CU-05、AS 匯入、HD-02、LD-01 各新增一條日誌層 qa-markers 檢查點；LD-01 至 LD-03 與 RC-01、RC-06、EN-04、AS-04 新增落庫層 sqlite-local 檢查點

@@ -17,12 +17,12 @@ from pathlib import Path
 
 # 檔案路徑
 SCRIPT_DIR = Path(__file__).parent
-TRANSACTIONS_PATH = SCRIPT_DIR / "../Export_Data/transactions.csv"
-TRANSFERS_PATH = SCRIPT_DIR / "../Export_Data/transfers.csv"
-OUTPUT_PATH = SCRIPT_DIR / "../Export_Data/reconciliation.csv"
-COMPARISON_OUTPUT_PATH = SCRIPT_DIR / "../Export_Data/monefy_raw_comparison.csv"
+TRANSACTIONS_PATH = SCRIPT_DIR / "../export_data/transactions.csv"
+TRANSFERS_PATH = SCRIPT_DIR / "../export_data/transfers.csv"
+OUTPUT_PATH = SCRIPT_DIR / "../export_data/reconciliation.csv"
+COMPARISON_OUTPUT_PATH = SCRIPT_DIR / "../export_data/monefy_raw_comparison.csv"
 
-DATA_DIR = SCRIPT_DIR / "../Original_DB_Data"
+DATA_DIR = SCRIPT_DIR / "../original_db_data"
 files = list(DATA_DIR.glob("*.csv"))
 if not files:
     print(f"Error: No .csv file found in {DATA_DIR}")

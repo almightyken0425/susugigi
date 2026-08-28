@@ -4,8 +4,8 @@ import sys
 
 # 設定路徑
 SCRIPT_DIR = Path(__file__).parent
-INPUT_FILE = SCRIPT_DIR / "../Export_Data/reconciliation.csv"
-OUTPUT_FILE = SCRIPT_DIR / "../Export_Data/pivot_summary.csv"
+INPUT_FILE = SCRIPT_DIR / "../export_data/reconciliation.csv"
+OUTPUT_FILE = SCRIPT_DIR / "../export_data/pivot_summary.csv"
 
 def main():
     # 檢查輸入檔案是否存在
