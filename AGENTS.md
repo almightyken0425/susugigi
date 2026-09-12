@@ -26,12 +26,12 @@
 
 ## 動工路由
 
-- 改動前必須使用 `decision_framework_router`。
+- 改動前必須使用 `product-scope`。
 - 先回答上游 review 四問。
 - 設定遷移不改產品語意。
-- 所有 Markdown 必須使用 `universal_writing_linter`。
-- Spec 路徑另使用 `spec_writer`。
-- Quality 路徑另使用 `test_plan_writer`。
+- 所有 Markdown 必須使用 `doc-markdown`。
+- Spec 路徑另使用 `code-spec`。
+- Quality 路徑另使用 `test-define`。
 
 ## 產品術語
 
