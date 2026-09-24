@@ -16,7 +16,8 @@
 
 ## 命名規則
 
-- 產品顯示名稱維持 `SuSuGiGi`。
+- 對外產品顯示名稱為 `Swish`，所有語系一致。
+- `SuSuGiGi` 維持內部產品識別，改名依據見 `no1_product_initiation/no4_brand_name.md`。
 - GitHub repository 與正式 checkout 資料夾使用 `susugigi`。
 - 自建資料夾與檔名使用 `snake_case`。
 - 前後關係使用不補零的 `noN_` 前綴。
