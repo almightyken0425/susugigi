@@ -32,7 +32,8 @@
 - 設定遷移不改產品語意。
 - 所有 Markdown 必須使用 `doc-markdown`。
 - Spec 路徑另使用 `code-spec`。
-- Quality 路徑另使用 `test-define`。
+- 記帳 App 的 Quality Git 保留 repository 與歷史，工作內容已清空。
+- Quality 與舊測試 Skills 統一封存於 `no99_archive/manual_qa/no99_archive/`，不得當作使用中的方法。
 
 ## 產品術語
 

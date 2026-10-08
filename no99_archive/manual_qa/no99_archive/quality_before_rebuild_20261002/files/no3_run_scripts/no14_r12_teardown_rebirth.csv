@@ -1,0 +1,17 @@
+﻿序,測項,類型,動作,預期,驗證者,手段,已驗,說明
+1,AS-07,操作,確認裝置連網、開啟 app 落地主畫面、檢視首頁清單與帳戶管理,首頁列出匯入的交易、帳戶管理列出錢包與悠遊卡帳戶,使用者,manual-ui,,清除前資料基線；isolated sim-review rebirth profile 未成立時不得執行本列
+2,AS-07,Claude節點,Claude 以 sqlite-local 明確傳 qaBundleId 列舉 canonical bundle 的 SQLite users.id、候選只由 command substitution 捕獲並以本機 SHA-256 與 READY identityHash exact-one 綁定 QA_SESSION_UID、raw uid 只留在 sim-review shell memory 且不輸出,exact-one 成立、QA_SESSION_UID 與清除前 identityHash 只留 shell memory、可見證據只記 binding pass,Claude,sqlite-local,,供雲端滅盡與墓碑 exact path 比對
+3,CF-03,Claude節點,Claude 呼叫 capture_qa_original_transaction_id_from_session_entitlement 以 firestore-read 精確查 entitlements/${QA_SESSION_UID}、原始回應留暫存並由 command substitution 捕獲 original_transaction_id、只在 shell memory 設定 QA_ORIGINAL_TRANSACTION_ID 與 QA_ORIGINAL_TRANSACTION_ID_PROVENANCE=session-entitlement-exact-doc 且 ID 必須是 5 至 32 位十進位數字、同步設定 QA_ORIGINAL_TRANSACTION_OWNER_HASH=READY identityHash、可見 uid 固定遮罩為 [QA_SESSION_UID]、不記錄 transaction ID 後刪除暫存,QA_ORIGINAL_TRANSACTION_ID、provenance 與 owner hash 只留 shell memory 且對應本 session entitlement,Claude,firestore-read,,供清除後 typed txnIndex exact-doc probe
+4,AS-07,操作,進設定頁點資料管理,資料管理畫面開啟、清除所有資料入口可點,使用者,manual-ui,,
+5,AS-07,操作,點清除所有資料,說明對話框出現、說明段預告雲端與本機資料及身分全滅不可復原,使用者,manual-ui,,
+6,AS-07,操作,於說明對話框點繼續,最終確認對話框出現、確認鈕為破壞性樣式,使用者,manual-ui,,
+7,AS-07,操作,於最終確認對話框點破壞性樣式的確認鈕、清除進行中試點資料管理各入口,清除進度顯示中、各入口停用不可點,使用者,manual-ui,AS-07 說明段預告雲端本機身分全滅不可復原，清除中入口停用並顯示進度,本步同時觸發 CF-03 的後端 deleteUserAccount
+8,AS-07,操作,等待清除完成,自動落回主畫面、全程無登入畫面與帳號欄位,使用者,manual-ui,,
+9,AS-07,Claude節點,isolated sim-review rebirth profile 以新 root 完成 token-bound bootstrap、READY 原文由 command substitution 捕獲並只在 shell memory 比較新舊 identityHash,新 identityHash 與清除前不同、可見證據只記 verdict 且不含 raw uid,Claude,qa-markers,,不得從 Metro 或 dev log 讀取 raw uid
+10,AS-07,操作,檢視首頁清單、進帳戶管理與類別管理逐一查看,首頁無任何交易、帳戶管理無錢包與悠遊卡帳戶、類別管理無餐飲與交通,使用者,manual-ui,AS-07 完成後回主畫面路線，新匿名身分直接續用，本機舊資料清空,
+11,AS-07,操作,完全關閉 app 後重新開啟,直接落地主畫面、不出現重試畫面、資料仍為空、沿用新 READY identityHash 綁定的匿名身分,使用者,manual-ui,,
+12,AS-07、CF-03,Claude節點,Claude 以 firestore-read 精確查 users/${QA_SESSION_UID}、users/${QA_SESSION_UID}/accounts、users/${QA_SESSION_UID}/categories、users/${QA_SESSION_UID}/transactions、users/${QA_SESSION_UID}/transfers、users/${QA_SESSION_UID}/currency_rates、users/${QA_SESSION_UID}/schedules、accountDeletions/${QA_SESSION_UID} 與 entitlements/${QA_SESSION_UID}、並以單一 absent mode 呼叫 run_qa_txn_index_exact_doc_probe 驗 canonical exact-document not-found 且不宣稱 owner uid 已驗、原始回應留暫存、可見 uid 固定遮罩為 [QA_SESSION_UID]、不記錄 transaction ID 後刪除暫存,users 文件與六個 session-scoped 子集合查無、墓碑標記刪除完成、entitlements 與 typed txnIndex exact-doc 查無,Claude,firestore-read,AS-07 雲端 users/${QA_SESSION_UID} 文件與 session-scoped 子集合全滅；AS-07 accountDeletions/${QA_SESSION_UID} 留存墓碑並標記刪除完成；CF-03 entitlements/${QA_SESSION_UID} 與 txnIndex/${QA_ORIGINAL_TRANSACTION_ID} 全數刪除,
+13,AS-07,Claude節點,Claude 以 cloud-logging 查 deleteUserAccount 的 functions log,有執行完成訊息、無刪除未完成錯誤,Claude,cloud-logging,AS-07 Cloud Logging 有 deleteUserAccount 執行完成訊息，無刪除未完成錯誤,
+14,CF-04,操作,於 GCP console 對 billing-alerts topic 發布一則成本值低於預算值的測試訊息,訊息發布成功,使用者,manual-ui,,超標路徑不主動實測、斷計費為不可逆營運動作
+15,CF-04,Claude節點,Claude 以 cloud-logging 查 capBilling 的 functions log,函式受訊息觸發執行後直接結束、無錯誤、無解除計費綁定動作,Claude,cloud-logging,CF-04 未超標訊息觸發函式執行後直接結束，無錯誤、不斷計費,
+16,,還原,於 GCP console 確認專案計費綁定仍為啟用、若已被解除則重新綁定,專案計費綁定為啟用狀態,使用者,manual-ui,,保護後續回歸與雲端手段可用

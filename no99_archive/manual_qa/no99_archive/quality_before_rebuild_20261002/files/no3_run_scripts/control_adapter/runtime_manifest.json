@@ -1,0 +1,191 @@
+{
+  "schema_version": 2,
+  "profile": "susugigi-accounting-ios-v1",
+  "owner": "SuSuGiGi/no2_accounting_app",
+  "sections": [
+    {
+      "section": "阻斷場次邊界",
+      "program": "no3_run_scripts/control_adapter/ios_runtime/blocked_scenes_1.sh",
+      "sha256": "a51b65e1ae9bbc49c5d22cbc81a13bcee4294a33bcacba22592987b467585307",
+      "baseline_sha256": "17b93ff28024dd3026ec0364d7903b9131c1bc0bfcfbb9e275b736b0a159e4c0"
+    },
+    {
+      "section": "Target 驗證",
+      "program": "no3_run_scripts/control_adapter/ios_runtime/target_1.sh",
+      "sha256": "705851bdcb195178b0059498e1e1d07c8583cc16c39debaa70656c04c38e47f2",
+      "baseline_sha256": "705851bdcb195178b0059498e1e1d07c8583cc16c39debaa70656c04c38e47f2"
+    },
+    {
+      "section": "Session temporary cleanup",
+      "program": "no3_run_scripts/control_adapter/ios_runtime/session_cleanup_1.sh",
+      "sha256": "af7ce52c32c5f16c37e8229dcbde7bb322bee06cd1663f02ebf46bd81d858e8e",
+      "baseline_sha256": "9a91b53598b054a07572e96af2b39ba67603d06d4bff4a1f284c55cfcc474919"
+    },
+    {
+      "section": "Topic synthetic target",
+      "program": "no3_run_scripts/control_adapter/ios_runtime/synthetic_target_1.sh",
+      "sha256": "6ea3089e3922660313fe27758d477e171d9c220054aec72567d648924aa9b51a",
+      "baseline_sha256": "6ea3089e3922660313fe27758d477e171d9c220054aec72567d648924aa9b51a"
+    },
+    {
+      "section": "Main checkout",
+      "program": "no3_run_scripts/control_adapter/ios_runtime/main_checkout_1.sh",
+      "sha256": "995795b3019322c246034ecf33b8396ec9536b25ddaf9deccaaba4559168cf16",
+      "baseline_sha256": "995795b3019322c246034ecf33b8396ec9536b25ddaf9deccaaba4559168cf16"
+    },
+    {
+      "section": "QA build",
+      "program": "no3_run_scripts/control_adapter/ios_runtime/build_1.sh",
+      "sha256": "60ab298555096fd0a160bf04c25a2b6927e30729e81d7b8a8c1eb56843476fae",
+      "baseline_sha256": "86e9b802951c084a2d9846f9e0978f4c2ddb44642c4b9b3bb9002e9030534fdc"
+    },
+    {
+      "section": "QA build",
+      "program": "no3_run_scripts/control_adapter/ios_runtime/build_2.sh",
+      "sha256": "df18fe9c42defc5e7acfa7b93659e126e690fe9ec3bdee5693006c7dee36d29f",
+      "baseline_sha256": "86c7e49fb30047e206d17a3f855b75596b4a7301c65c113dfbf7e3792d6f16b6"
+    },
+    {
+      "section": "SQLite-local bundle binding",
+      "program": "no3_run_scripts/control_adapter/ios_runtime/sqlite_binding_1.sh",
+      "sha256": "9f7290f0c3cf56c40899272acbd737d8374c68edc99210c520b46847fb4879c7",
+      "baseline_sha256": "c646d6a63603da6870e717a327a78e9283424aac289450bda5adb63a175c4899"
+    },
+    {
+      "section": "Metro",
+      "program": "no3_run_scripts/control_adapter/ios_runtime/metro_1.sh",
+      "sha256": "ba861e1c319f4a1dd510e273f7026cbb9fb2d728088750275e281e93a99ce1f6",
+      "baseline_sha256": "b94073a8c6fa742ceabe5a77c8c63037d5ec461b925085d62829a7656018dfa7"
+    },
+    {
+      "section": "QA session proof",
+      "program": "no3_run_scripts/control_adapter/ios_runtime/session_proof_1.sh",
+      "sha256": "0cd38ca008527a7d31ce3f3075c62dd4fed684464d7c7607a9b3b5563b4e7864",
+      "baseline_sha256": "905f844160ac18150549cc1775df15586eaed9e4c42aa98f934d3ed106e50816"
+    },
+    {
+      "section": "No-write capability bootstrap",
+      "program": "no3_run_scripts/control_adapter/ios_runtime/bootstrap_1.sh",
+      "sha256": "c6bc0a15e8eac23df7fc02a4c658d50f2f647547942659e7dad06dbbffd5e840",
+      "baseline_sha256": "7f9a3a6e8955f3e1b94b49dea4429f185bb4a4164bbdfcc9c2407f5d93487abb"
+    },
+    {
+      "section": "Firestore probe 身分綁定",
+      "program": "no3_run_scripts/control_adapter/ios_runtime/firestore_binding_1.sh",
+      "sha256": "f1d71ea1212b2b3d80b104a30bb892bc6b4507838358aa36db7d2aa6fd22d653",
+      "baseline_sha256": "426cbfe98c203b802b3b32a444cf9ad8da4b2793fd5a5397394800deb9c8679b"
+    },
+    {
+      "section": "自動 QA command",
+      "program": "no3_run_scripts/control_adapter/ios_runtime/operation_1.sh",
+      "sha256": "3c06d70607a8018b882595204b0da07e605aad5a2aad69c86e54619010862551",
+      "baseline_sha256": "3c06d70607a8018b882595204b0da07e605aad5a2aad69c86e54619010862551"
+    },
+    {
+      "section": "Manual-only App operation",
+      "program": "no3_run_scripts/control_adapter/ios_runtime/manual_operation_1.sh",
+      "sha256": "ebfeade3fbe22fbfe7e89cb8af9cdc1d855dbe43ef5f93a1de4977f418404464",
+      "baseline_sha256": "ebfeade3fbe22fbfe7e89cb8af9cdc1d855dbe43ef5f93a1de4977f418404464"
+    },
+    {
+      "section": "Firestore probe 啟用",
+      "program": "no3_run_scripts/control_adapter/ios_runtime/firestore_probe_1.sh",
+      "sha256": "a76d9efb695424bb82c515d0365de74104c2564807d97f6cbe9376cd4e246a00",
+      "baseline_sha256": "a76d9efb695424bb82c515d0365de74104c2564807d97f6cbe9376cd4e246a00"
+    },
+    {
+      "section": "Firestore probe 啟用",
+      "program": "no3_run_scripts/control_adapter/ios_runtime/firestore_probe_2.sh",
+      "sha256": "afde1a6f75f577108b18f44c70088ac51180a60c1c5614b8cc4bb216e405e39b",
+      "baseline_sha256": "afde1a6f75f577108b18f44c70088ac51180a60c1c5614b8cc4bb216e405e39b"
+    },
+    {
+      "section": "伴跑",
+      "program": "no3_run_scripts/control_adapter/ios_runtime/accompany_1.sh",
+      "sha256": "f871e7ad910d197c61b5d3509d0dd6dc369ce183e749ad20ce9a820f857f376f",
+      "baseline_sha256": "f871e7ad910d197c61b5d3509d0dd6dc369ce183e749ad20ce9a820f857f376f"
+    },
+    {
+      "section": "伴跑",
+      "program": "no3_run_scripts/control_adapter/ios_runtime/accompany_2.sh",
+      "sha256": "55c9c8c5c222297a72697eebe3fcf72943f542bfa26c4acdda7b2a1a044cb7be",
+      "baseline_sha256": "91cef8d3ccf302f93475546fdd4b5e056f0a146a25450cd3de18cfb73725ce07"
+    },
+    {
+      "section": "QA identity disposal",
+      "program": "no3_run_scripts/control_adapter/ios_runtime/disposal_1.sh",
+      "sha256": "45f05a798adf91c5befec4c8400fbd0062c6eb68b84f9f34eda3dfb93ba082b7",
+      "baseline_sha256": "45f05a798adf91c5befec4c8400fbd0062c6eb68b84f9f34eda3dfb93ba082b7"
+    },
+    {
+      "section": "還原",
+      "program": "no3_run_scripts/control_adapter/ios_runtime/restore_1.sh",
+      "sha256": "3df69dd6ff5c2c879c6ef6b808ce7dfed6af41785bb8ffea7a063b65c26461e5",
+      "baseline_sha256": "642210f6871d51671b8697da5cf02514c2b0150224b682cf4fdad52137a2f1dd"
+    },
+    {
+      "section": "SQLite-local bundle binding",
+      "program": "no3_run_scripts/control_adapter/ios_runtime/storekit_1.sh",
+      "sha256": "c79a026539fac25b473ae8b738a673fa990c077ee5c307d91ad5bb8727cdc507",
+      "baseline_sha256": "49a01be5e4bb752a9f49124248d6a4696e116606b8f97d23bbf9716377239e06"
+    }
+  ],
+  "programs": [
+    {
+      "program": "no3_run_scripts/control_adapter/programs/qa-first-launch.py",
+      "sha256": "29dba0f9c528e07665d54e31db6386bce17cb99ab7a0323f44c0507ee03c4125"
+    },
+    {
+      "program": "no3_run_scripts/control_adapter/programs/qa-firebase-auth-absence.py",
+      "sha256": "37240a62f7751ea75205ce7fbb51482dc1a53fe1da3717aad9354ac4322c8493"
+    },
+    {
+      "program": "no3_run_scripts/control_adapter/programs/qa-firebase-project.sh",
+      "sha256": "ea589fb96036b247ce10617464287b1ed5d46dec17ba0a0e693f321ea03a10ea"
+    },
+    {
+      "program": "no3_run_scripts/control_adapter/programs/qa-firestore-read.py",
+      "sha256": "e26a38d6f55832972bd88acbf4b9847f145dcc2aa759368eaa35434c2bd1f4c8"
+    },
+    {
+      "program": "no3_run_scripts/control_adapter/programs/qa-fixture-write-policy.sh",
+      "sha256": "6fef13a7366c595d30208bcf12ef74256a073949902dc749b89703d4db1a3dd1"
+    },
+    {
+      "program": "no3_run_scripts/control_adapter/programs/qa-quality-golden.py",
+      "sha256": "fb9333f04c03e7f48001bb81c9fae977f08f1a0009190ce122e809f2821e8b70"
+    },
+    {
+      "program": "no3_run_scripts/control_adapter/programs/qa-runtime-phase.py",
+      "sha256": "9db0647e4f4b4ce606f072fec8f8fc2dbc444fc78a56923fe0766028916086e1"
+    },
+    {
+      "program": "no3_run_scripts/control_adapter/programs/qa-runtime-selection.py",
+      "sha256": "95792d7f466c182a2c622db99a62e691f232f05939554a6d764f904f86e7b9c4"
+    },
+    {
+      "program": "no3_run_scripts/control_adapter/programs/qa-safe-marker-filter.py",
+      "sha256": "15cb204aa1d63f61d95fff4c34c8e2e311ba855c0de9a46b9b6c488c68efa923"
+    },
+    {
+      "program": "no3_run_scripts/control_adapter/programs/qa-session-runtime.sh",
+      "sha256": "6c7f2e620ef2246457b0cb8ef101faadebb5a41f54acc8238ec5487ccc802850"
+    },
+    {
+      "program": "no3_run_scripts/control_adapter/ios_runbook.md",
+      "sha256": "3ad51b32a0197481ba46f0f6e80bd67fafd57eb0998d8094400f8b8086e25a03"
+    },
+    {
+      "program": "no3_run_scripts/control_adapter/handoff_contract.md",
+      "role": "single_product_handoff_contract",
+      "sha256": "a05c7070597dc91e36b896985d55efed3990147e8b85cf7430fbce6633dc67d0"
+    },
+    {
+      "program": "no3_run_scripts/control_adapter/identity_contract.md",
+      "role": "single_identity_contract",
+      "sha256": "45771db20a66f920d3a38c86ea092d7b8c2c958630af838c04b6167d33fb4256"
+    }
+  ],
+  "repository": "https://github.com/almightyken0425/susugigi-quality-no2-accounting-app.git",
+  "adapter_root": "no3_run_scripts/control_adapter"
+}

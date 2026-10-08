@@ -1,0 +1,29 @@
+﻿序,測項,類型,動作,預期,驗證者,手段,已驗,說明
+1,,建置,確認起點同 R07 終點、裝置連網、活躍帳戶為錢包與日幣帳戶、類別作用中六個,狀態與 R07 終點一致、可連外,使用者,manual-ui,,
+2,AS-08,建置,進偏好設定逐列記下當前主題、語系、時區、週起始日與主要貨幣五個原值，並確認只顯示使用分析開關,五個原值已記下、使用分析開關沒有說明文字、財務分析開關不顯示,使用者,manual-ui,,本場還原列一律以本步記下的原值為準
+3,AS-01,操作,進設定頁、逐一點入類別管理、帳戶管理、資料管理、偏好設定後各返回、再捲動至最下方查看版本號,四個入口各導航至對應畫面、返回後皆回設定頁、App 版本號錨定底部且符合待驗版 Marketing Version,使用者,manual-ui,AS-01 各入口導航至對應畫面並可返回，App 版本號錨定底部且符合待驗版 Marketing Version,
+4,AS-01,操作,點設定頁的升級入口、看畢返回,導向付費牆畫面、返回後回到設定頁,使用者,manual-ui,AS-01 免費版顯示升級入口並導向付費牆，牆內行為屬 PM 分冊,牆內行為屬 PM 分冊、由 R10 承載
+5,AS-02,操作,開主題設定 Modal、點選 theme2 卡片確認右上出現勾選 overlay 後點完成,theme2 卡片右上出現勾選 overlay、點完成後全 App 即時換為 theme2 配色、設定頁與首頁一併換色,使用者,manual-ui,AS-02 點選卡片右上出現勾選 overlay，完成後全 App 即時換色,
+6,AS-02,操作,再開主題設定 Modal、點選 theme3 卡片、點關閉,回設定頁維持 theme2 配色、theme3 未套用,使用者,manual-ui,AS-02 點關閉不套用選取中的變更,
+7,AS-03,操作,進偏好設定點啟動模式、選支出、點完成,支出選項顯示選取標記、偏好設定的啟動模式列顯示支出,使用者,manual-ui,AS-03 選項顯示選取標記，偏好設定列顯示當前模式,
+8,AS-04,Claude節點,Claude 將 QA_SESSION_UID 只經 stdin 傳給 query_local_db.sh --bundle-id com.almightyken0425.susugigiapp.qa --session-uid-stdin profile r08_original_language、完整單行 stdout 只由 command substitution 私下捕獲並取 language 為 QA_R08_ORIGINAL_LANGUAGE、不另寫檔或輸出,canonical snapshot 中同 UID 的 live Settings row exact-one 且語系代碼已保存在 session shell memory、deleted tombstone 不納入、後續還原與 golden 對帳只引用該值,Claude,sqlite-local,,必須早於首次手動語系變更、不得接受 candidate RESULT 或 facts
+9,AS-04,操作,進偏好設定點語系、於搜尋框輸入日本、改輸入 zzz、清空後重輸日本、選日本語、點完成,目前選取語系置於清單最前、輸入日本即時篩選出日本語、輸入 zzz 顯示空狀態、介面文字立即切為日文,使用者,manual-ui,AS-04 語系列表目前選取置頂，搜尋依代碼或原生名稱即時篩選，無結果顯示空狀態,
+10,AS-04、AS-08,操作,進時區選 Asia/Tokyo 點完成、進週起始日選週一點完成、把使用分析切為開,時區列顯示 Asia/Tokyo、週起始日列顯示週一、使用分析為開,使用者,manual-ui,AS-04 完成後介面立即切為所選語系，時區與週起始日列顯示新值,
+11,AS-02、AS-03、AS-04、AS-08,Claude節點,simulator route 由 sim-review terminate app、沿用同一 token 產生未重複的 open-app- 加三十二字元小寫十六進位 requestId 並重新 launch,收到同 requestId READY、不得使用無 launch arguments 的 icon 重開,Claude,qa-markers,,physical-device route 由 game-test 建立等價 launch checkpoint
+12,AS-02、AS-03、AS-04、AS-08,操作,關閉重新 launch 後落地的交易編輯器、回偏好設定逐列查看,落地畫面為支出模式的交易編輯器、非首頁、關閉後回主畫面首頁、主題 theme2、啟動模式支出、語系日本語、時區 Asia/Tokyo、週起始日週一、使用分析開六值全數沿用、財務分析開關不顯示,使用者,manual-ui,AS-02 重開後沿用所選主題；AS-03 重開落點為支出模式的交易編輯器，關閉後回主畫面；AS-04 重開後主題、啟動模式、語系、時區與週起始日全數沿用；AS-08 偏好頁只留使用分析開關且無說明，財務分析開關不顯示，切換與重啟沿用,本場唯一冷啟、四個持久化面同批收下
+13,AS-03,Claude節點,Claude 自本次 Debug console 擷取 QA BOOT resolve 列,輸出啟動落點解析標記、landing 值為所設的支出模式,Claude,qa-markers,AS-03 啟動落點解析輸出 QA BOOT resolve 標記，landing 值為所設模式,
+14,AS-08,操作,回設定頁點升級入口進付費牆、看畢返回,付費牆正常顯示、返回後回設定頁,使用者,manual-ui,,使用分析已開、用 paywall_viewed 形成已送出事件
+15,CS-01,Claude節點,Claude 以 gcloud Firestore OAuth 經 firestore-read 精確查 users/${QA_SESSION_UID} 的根層 updatedAt、以 bounded Python process memory parse 原始回應且不落盤、shell 只由 command substitution 接收 allowlisted scalar 為 QA_R08_CS01_BASELINE_UPDATED_AT、可見 uid 固定遮罩為 [QA_SESSION_UID],文件 exact-one 且 updatedAt 為有效 timestamp、baseline 只留 session shell memory,Claude,firestore-read,,必須早於 CS-01 第一個偏好變更、不得輸出 baseline 原值
+16,CS-01,操作,開主題設定 Modal、點選 theme3 卡片、點完成,全 App 即時換為 theme3 配色,使用者,manual-ui,,本步起連續三個偏好變更供上傳觀測
+17,CS-01,操作,進語系設定、選回開場記下的原語系、點完成,介面文字回到原語系,使用者,manual-ui,,語系變更兼作 AS-04 的語系還原
+18,CS-01,操作,進貨幣設定把主要貨幣改為 USD,主要貨幣列即時顯示 USD、首頁合計改以 USD 顯示,使用者,manual-ui,,
+19,CS-01,操作,停留前景片刻讓背景上傳完成、回設定頁逐列複查,主題 theme3、語系原語系、主要貨幣 USD 三值不變、無任何值被雲端覆蓋回舊值,使用者,manual-ui,CS-01 設定畫面即時反映變更，雲端值永不回套本機,
+20,CS-01,Claude節點,Claude 自本次 Debug console 擷取 QA PREF 列,標記列出本次上傳欄位含 theme、language 與 currency、lastSyncedAt 未因偏好上傳而更新,Claude,qa-markers,CS-01 QA PREF 標記列出上傳欄位，lastSyncedAt 不受偏好上傳影響,
+21,CS-01,Claude節點,Claude 以 gcloud Firestore OAuth 經 firestore-read 精確查 users/${QA_SESSION_UID} 的 preferences 欄與根層 metadata、以 bounded Python process memory parse 原始回應且不落盤、shell 只接收 allowlisted profile verdict、可見 uid 固定遮罩為 [QA_SESSION_UID],依 no1_fixture_golden.json 的 r08_preferences profile 驗 theme3、原語系代碼、currency USD、根層 updatedAt 存在且嚴格晚於序 15 private baseline、backup watermark 不變,Claude,firestore-read,CS-01 雲端 preferences 逐欄更新，文件根層 updatedAt 同步更新,
+22,,還原,進貨幣設定把主要貨幣改回 TWD,主要貨幣列顯示 TWD、金額回以 TWD 顯示,使用者,manual-ui,,fixture 主要貨幣驗畢還原 TWD
+23,,還原,開主題設定 Modal 選回開場記下的原主題卡片、點完成,全 App 回到原主題配色,使用者,manual-ui,,
+24,AS-08,還原,進時區選回原時區、進週起始日選回原值、把使用分析切為關、再進啟動模式選首頁、點完成,偏好列顯示回開場原值、使用分析顯示關、啟動模式列顯示首頁,使用者,manual-ui,,啟動模式還原首頁、使用分析關閉、屬本場終點狀態契約
+25,AS-08,Claude節點,Claude 自本次 Debug console 擷取 QA ANALYTICS 列,依序命中提示顯示、拒絕決定、停用時 paywall_viewed 略過、啟用蒐集、啟用時 paywall_viewed 送出、最後停用、全部標記不含 uid 與帳目內容,Claude,qa-markers,AS-08 QA ANALYTICS 依序記錄提示、決定、蒐集狀態與事件結果，且不含 uid 或帳目內容,
+26,CS-04,操作,進資料管理點匯入收入支出、來源時區維持預設、選 assets/import_quota.csv 後前進、確認欄位對應後前進、內容比對確認帳戶錢包與類別餐飲皆為既有後前進、核對預覽摘要後送出,六欄依匯入範本自動對應無缺、顯示已匯入 2100 筆、略過 0 筆、清單出現大量餐飲交易,使用者,manual-ui,,匯入精靈本身的驗證由 AS-05 承載、R10 執行
+27,CS-04,操作,停留前景等背景備份跑完、再將 app 退至背景滿 5 分鐘後回前景,app 正常恢復、無錯誤提示、無阻塞,使用者,manual-ui,,第二次回前景為配額耗盡後的再觸發
+28,CS-04,Claude節點,Claude 自本次 Debug console 擷取 QA QUOTA gate 與 QA BACKUP skip 兩列,gate 列 allowed=false 且 todayTotal 達 2000 上限、skip 列 reason=quota,Claude,qa-markers,CS-04 寫入禁止時備份跳過，等待跨日重置,checkQuota 回禁止與跨日歸零的單元判定由 R00 序 12 承載；配額於 R10 序 2 以 Debug 工具重置

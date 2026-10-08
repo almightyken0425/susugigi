@@ -1,0 +1,392 @@
+---
+schema_version: '1.0'
+status: candidate_for_representative_cases
+quality_owner: SuSuGiGi/no2_accounting_app
+serialization:
+  format: YAML 1.2 JSON-compatible values
+  encoding: UTF-8
+  duplicates: reject
+  aliases: reject
+  unknown_fields: reject_in_executable_records
+  timestamps: RFC3339 with explicit offset
+  numbers: finite only
+  paths: repository-relative or configured root-relative, never implicit cwd
+identity:
+  scope: unique within locked Quality definition bundle
+  patterns:
+    source: "^SRC-[a-zA-Z0-9-]+$"
+    context: "^CTX-[a-zA-Z0-9-]+$"
+    node: "^N-[a-zA-Z0-9-]+$"
+    requirement: "^R-[a-zA-Z0-9-]+$"
+    factor: "^F-[a-z0-9-]+$"
+    data: "^D-[a-z0-9-]+$"
+    state: "^S-[a-z0-9-]+$"
+    action: "^A-[a-z0-9-]+$"
+    route: "^RT-[a-z0-9-]+$"
+    baseline: "^B-[a-z0-9-]+$"
+    gap: "^GAP-[0-9]{3,}$"
+    representative_case: "^REP-[a-z0-9-]+$"
+  reference: Store the complete ID. Resolve against exactly one locked definition
+    bundle.
+  lifecycle: Keep IDs across moves and wording changes. Semantic split/merge/delete
+    records retired_ids with replacement IDs. Never renumber or recycle IDs.
+source_dispositions:
+- requirement
+- basis
+- out_of_scope
+requirement_states:
+- pending_factors
+- source_gap
+source_gap_states:
+- open
+- resolved
+node_kinds:
+- requirement
+- element
+- data
+- state
+- interaction
+- shared_rule
+- context
+- diagram
+record_fields:
+  factor:
+    required:
+    - id
+    - requirement_refs
+    - source_refs
+    - data_refs
+    - condition
+    - checkpoint
+    - expected
+    - evidence_requirements
+    rules:
+    - One independently decidable result per factor.
+    - Condition cannot require this factor to pass.
+    - checkpoint defines event and invalidation boundary.
+    - expected contains one predicate, not an action or list of independent outcomes.
+  data:
+    required:
+    - id
+    - source_refs
+    - target
+    - constraints
+    - value_or_recipe
+    - selection_reason
+    - isolation
+    - cleanup_ref
+    rules:
+    - Use a concrete value or reproducible recipe.
+    - Production accounts and personal records are never default fixtures.
+    - Runtime observations are not fixed input data.
+  state:
+    required:
+    - id
+    - source_refs
+    - condition
+    - scope
+    - fact_requirements
+    rules:
+    - condition is a predicate AST.
+    - Human description supplements but cannot replace condition.
+    - State validity is observed, not inferred from expected_after.
+  action:
+    required:
+    - id
+    - source_refs
+    - target
+    - data_refs
+    - requires
+    - steps
+    - completion
+    - expected_after
+    - capability_refs
+    - cost
+    rules:
+    - completion is a tool acknowledgement or independently bounded observation opportunity.
+    - Product success belongs to expected_after or factors.
+    - Expose locate, scroll, input, wait and observe operations.
+    - SUT behavior must not be replaced with direct fixture writes.
+  route:
+    required:
+    - id
+    - definition_lock
+    - factor_set
+    - entry
+    - capability_refs
+    - steps
+    - baselines
+    - cost
+    - cleanup
+    - resume
+    rules:
+    - Fix factor_set before optimizing.
+    - Each step has id, action_ref, data_bindings, requires, captures, checks and
+      continue_if.
+    - Each check has factor_ref, checkpoint, observations and evidence requirements.
+    - All baselines acquired before use in the same valid scope.
+  manifest:
+    required:
+    - run_id
+    - kind
+    - quality_owner
+    - started_at
+    - status
+    - source_lock
+    - definition_lock
+    - subject_lock
+    - environment
+    - selection
+    - storage
+    - initial_observations
+    - events
+    - cleanup
+    rules:
+    - kind is product or drill. Drills never count as product results.
+    - subject_lock includes actual commit/tree/build and deployed backend version
+      where used.
+    - definition_lock includes retrievable content and hashes, not just a branch name.
+    - No pending capability or placeholder required for the selected path at execution.
+  result_attempt:
+    required:
+    - run_id
+    - factor_ref
+    - route_ref
+    - step_id
+    - attempt
+    - recorded_at
+    - actual_condition
+    - checkpoint
+    - action_event_refs
+    - observation_refs
+    - baseline_refs
+    - verdict
+    - reason
+    - evidence_refs
+    - validity
+    rules:
+    - Append attempts, never overwrite.
+    - pass/fail require true condition, correct checkpoint, complete verified evidence.
+    - Validity changes do not erase original verdict.
+  evidence:
+    required:
+    - id
+    - run_id
+    - attempt
+    - step_id
+    - acquired_at
+    - scope
+    - path
+    - sha256
+    - media_type
+    - supports
+    rules:
+    - Paths stay inside the run root. Reject traversal and escaping symlinks.
+    - Evidence records refer to factor IDs or baseline IDs.
+    - Whole-list assertions need whole-list evidence.
+predicate:
+  grammar:
+    all: non-empty predicate list
+    any: non-empty predicate list
+    not: one predicate
+    eq: two typed operands
+    ne: two typed operands
+    lt: two numeric or timestamp operands
+    lte: two numeric or timestamp operands
+    gt: two numeric or timestamp operands
+    gte: two numeric or timestamp operands
+    contains: collection operand and scalar operand
+    set_eq: two collection operands
+    sequence_eq: two ordered collection operands
+    exists: one declared reference operand
+  operand_forms:
+  - literal
+  - fact
+  - data
+  - baseline
+  fact_record_fields:
+  - value
+  - type
+  - observed_at
+  - event_ref
+  - scope
+  - evidence_refs
+  scope_dimensions:
+  - run_id
+  - attempt
+  - subject_lock
+  - screen_visit_id
+  - dataset_id
+  evaluation:
+  - 'true'
+  - 'false'
+  - unknown
+  semantics:
+    missing: unknown including exists when the observer could not establish presence
+    'null': a known JSON null value, distinct from missing
+    type_mismatch: invalid definition, block before execution
+    all: false if any child false, true if all true, otherwise unknown
+    any: true if any child true, false if all false, otherwise unknown
+    not: unknown stays unknown
+    exists: false only when valid observation confirms absence
+    collection_comparison: no implicit sorting, case folding, deduplication or locale
+      assumptions
+  state_transition: Evaluate actual observations for successor prerequisites. An action
+    acknowledgement does not assert product post-state.
+  structure_rules:
+  - Exactly one operator per predicate object.
+  - Exactly one operand form per operand.
+  - eq/ne/lt/lte/gt/gte/contains/set_eq/sequence_eq each take exactly two operands.
+  - all/any contain non-empty predicate lists. not contains one predicate. exists
+    contains one reference operand.
+  - data/baseline names resolve via explicit route bindings to D-/B- IDs and fields.
+    fact names resolve through typed capability declarations.
+verdicts:
+  pass: Valid condition and checkpoint, complete evidence, expected predicate is true.
+  fail: Valid condition and checkpoint, complete evidence, expected predicate is false.
+  blocked: Known missing prerequisite or capability prevents the check from starting
+    or continuing.
+  inconclusive: Action executed but necessary observation, baseline or evidence cannot
+    establish the result.
+  not_run: Check not performed and no confirmed blocker yet.
+timeout_policy: Classify cause first. A tool wait limit is not a product time requirement.
+  Preserve the attempt and missing evidence.
+result_selection:
+  attempts: preserve all
+  headline: last valid attempt for each selected factor in the same locked run, ordered
+    by attempt number
+  invalidated: display separately, never use to claim current pass
+  counts: all selected factors, including blocked/inconclusive/not_run
+  cleanup: separate status, never silently change factor verdicts
+cost:
+  unit: counts plus measured seconds
+  categories:
+  - prepare
+  - locate
+  - scroll
+  - input
+  - navigate
+  - observe
+  - wait
+  - restore
+  - cleanup
+  unknown: null with reason, never zero
+  optimization: compare only routes covering the same factor_set and valid checkpoints.
+    No global optimum claim without proof.
+generation:
+  authoritative:
+  - sources.yaml
+  - factors/
+  - execution/
+  - routes/
+  derived:
+  - generated/
+  - run/report.md
+  stamp:
+  - generator_version
+  - input_sha256
+  - source_lock
+  - definition_lock
+  coverage:
+  - requirements_to_factors
+  - factors_to_routes
+  - run_verdicts
+  invalidation: Any relevant source/definition change invalidates derived files until
+    regenerated and reviewed.
+run_storage:
+  root: "~/Doc/quality_runs/susugigi/no2_accounting_app"
+  run_id: YYYYMMDDTHHMMSSZ-<random-8-hex>
+  required:
+  - manifest.yaml
+  - results.yaml
+  - report.md
+  - evidence/
+  permissions: owner-only where supported
+  retention_days: 30
+  retention_clock: ended_at, or last_activity_at for interrupted runs
+  expiry: mark expired_pending_review and stop using the evidence for current conclusions.
+    Do not automatically delete.
+  hold: unresolved failure, interrupted run or incomplete cleanup creates a hold until
+    explicitly reviewed
+  resume: recheck source/definition/subject/environment/data locks and observe current
+    state. Re-entered screens recapture visit baselines.
+  changed_locks: new linked run with resumed_from, original attempts retained
+  deletion: only after explicit authorization for listed run paths and known losses,
+    record deletion receipt outside removed directory
+  preflight:
+  - resolve absolute root and confirm outside every Git checkout and non-temporary
+  - verify writable storage and free capacity
+  - record concrete retained_until and hold policy
+  - lock isolated test identities/datasets and capability methods
+  - confirm candidate build and backend versions
+source_record_fields:
+  index:
+  - schema_version
+  - quality_owner
+  - created_on
+  - scope
+  - repositories
+  - excluded_files
+  - sources
+  - references
+  - gaps
+  - retired_ids
+  - external_references
+  repository:
+  - id
+  - checkout_hint
+  - remote
+  - commit
+  - scope
+  - inventory_mode
+  source:
+  - id
+  - repository
+  - path
+  - sha256
+  - blob
+  - domain
+  - line_count
+  - title
+  - scope
+  - contexts
+  - nodes
+  context:
+  - id
+  - section
+  - line_start
+  - line_end
+  - quote
+  node:
+  - id
+  - kind
+  - disposition
+  - reason
+  - section
+  - line_start
+  - line_end
+  - quote
+  - context_ref
+  - ancestors
+  - claims
+  - gap_refs
+  claim:
+  - id
+  - text
+  - status
+  - gap_refs
+  gap:
+  - id
+  - title
+  - type
+  - status
+  - owner
+  - explanation
+  - node_refs
+  - impact
+  - resolution_needed
+cleanup_states:
+- pending
+- complete
+- failed
+- not_applicable

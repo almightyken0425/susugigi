@@ -1,0 +1,4 @@
+transaction_datetime,category,account,amount,currency,note
+2026-07-04 09:00:00,餐飲,錢包,100,TWD,合法列
+2026-07-06 10:00:00,餐飲,錢包,,TWD,金額空值列
+2026-07-09 11:00:00,交通,錢包,60,TWD,合法列

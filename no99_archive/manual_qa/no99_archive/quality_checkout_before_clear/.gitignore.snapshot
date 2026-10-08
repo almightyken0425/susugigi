@@ -1,0 +1,18 @@
+# 對賬工具置於 no2_qa_tools/，憑證絕不進 git
+no2_qa_tools/serviceAccountKey.json
+no2_qa_tools/*.key.json
+
+# 場次產出含真實使用者資料的資料庫快照，絕不進 git
+no2_qa_tools/runs/
+
+# 設定含本機絕對路徑，跨機無效
+no2_qa_tools/config.json
+
+# 臨時比對腳本，不進 git
+no2_qa_tools/.scratch/
+
+# macOS 目錄雜碎
+.DS_Store
+
+# 產品適配包的 Python 執行快取留在本機
+no3_run_scripts/control_adapter/**/__pycache__/

@@ -1,0 +1,376 @@
+# 首頁報表與搜尋分冊
+
+- 區碼 `HD`，對應整合層 Product Map 的 HomeDashboard
+- 涵蓋期間切換與導覽、篩選、環形圖與報表聚合、逐筆清單與分頁、搜尋、大型歷史資料
+
+---
+
+## HD-01 期間切換與儀表板導覽
+
+- **QA metadata:**
+    - feature_links: `app/home_dashboard`
+    - risk_tags: `period-navigation`、`reporting`
+    - capabilities: `manual-ui`、`jest-app`
+    - tier: `standard`
+    - runtime_route: `simulator-or-physical-device`
+    - driver: `game-test`
+    - seed: `none`
+    - inspect: `none`
+    - evidence: `manual-ui`、`jest-app`
+
+- **範圍:** 於首頁以滑動與切換器瀏覽不同時間區間，含捲動時的環形圖顯隱
+- **規格依據:**
+    - `no2_home_screen.md ## 互動`
+    - `no22_home_period_state_logic.md ## getPeriodDates`
+- **前置:**
+    - 已有橫跨兩個以上時間區間的交易紀錄
+    - jest-app 條件為本機 node_modules 完整
+- **步驟:**
+    - 開啟首頁，確認時間區間標題為當期
+    - 向過去方向水平滑動數頁再滑回當期
+    - 於篩選設定將時間粒度切為全部後點完成
+    - 向上捲動逐筆清單再捲回頂端
+- **檢查點:**
+    - **水平滑動逐期切換，可滑範圍涵蓋最早至最晚紀錄期間**
+        - 層: UI ／ 驗證者: 使用者 ／ 手段: manual-ui
+        - 實作錨: `src/screens/Home/HomeScreen.tsx`
+    - **期間起訖依時區與週起始日推導，偏移 0 為當期**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 依據: `no22_home_period_state_logic.md ## getPeriodDates`
+        - 實作錨: `src/utils/timeHelper.ts`
+    - **切換時區或週起始日後，可見期間與載入目標同步回到當期**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 依據: `no2_home_screen.md ## 互動`
+        - 實作錨: `src/screens/Home/HomeScreen.test.tsx`
+    - **時間粒度為全部時僅一頁、不可滑動**
+        - 層: UI ／ 驗證者: 使用者 ／ 手段: manual-ui
+    - **向上捲動環形圖區塊消失，捲回起點重新顯示**
+        - 層: UI ／ 驗證者: 使用者 ／ 手段: manual-ui
+
+---
+
+## HD-02 首頁篩選調整與跨啟動保留
+
+- **QA metadata:**
+    - feature_links: `app/home_dashboard`
+    - risk_tags: `filter`、`persistence`
+    - capabilities: `manual-ui`、`jest-app`
+    - tier: `standard`
+    - runtime_route: `simulator-or-physical-device`
+    - driver: `game-test`
+    - seed: `none`
+    - inspect: `none`
+    - evidence: `manual-ui`、`jest-app`
+
+- **範圍:** 自首頁 header 進入篩選 modal 調整粒度、分組與帳戶選取，重啟後驗證保留
+- **規格依據:**
+    - `no3_home_filter_screen.md`
+    - `header_policy.md ## 模式分類`
+    - `no22_home_period_state_logic.md ## syncAccountSelection`
+    - `no22_home_period_state_logic.md ## persistHomeDisplayState`
+- **前置:**
+    - 已有兩個以上未停用帳戶，且當期有紀錄
+    - jest-app 條件為本機 node_modules 完整
+- **步驟:**
+    - 點首頁 header 篩選按鈕開啟 modal
+    - 點時間粒度卡與分組方式卡各一次
+    - 點關閉動作後重新開啟
+    - 逐一取消帳戶選取至僅剩一個
+    - 點完成動作套用草稿
+    - 完全關閉 app 後重開
+- **檢查點:**
+    - **粒度與分組只更新草稿，關閉後丟棄且首頁不變**
+        - 層: UI ／ 驗證者: 使用者 ／ 手段: manual-ui
+        - 實作錨: `src/screens/Home/HomeFilterScreen.tsx`
+    - **點帳戶卡切換選中狀態，僅剩一個被選取時該卡不可點按**
+        - 層: UI ／ 驗證者: 使用者 ／ 手段: manual-ui
+    - **帳戶清單初始全選，停用帳戶自動移除、清單變空回退全選**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 依據: `no22_home_period_state_logic.md ## syncAccountSelection`
+        - 實作錨: `src/contexts/reconcileAccountSelection.ts`
+    - **完成後一次套用三值，重開後保留且焦點重設為支出**
+        - 層: 本地資料 ／ 驗證者: 使用者 ／ 手段: manual-ui
+        - 依據: `no22_home_period_state_logic.md ## persistHomeDisplayState`
+    - **非法持久值回退預設 day 與 category，讀取失敗不寫回**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 實作錨: `src/contexts/homeFilterPersistence.ts`
+    - **首頁顯示狀態準備完成前，完成動作不可點按**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 實作錨: `src/screens/Home/HomeFilterScreen.tsx`
+    - **首頁顯示狀態準備完成前不掛載期間頁**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 實作錨: `src/screens/Home/HomeScreen.tsx`
+    - **未變更草稿點完成時不重繪首頁且不寫回設定**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 實作錨: `src/contexts/HomeFilterContext.tsx`
+
+---
+
+## HD-03 環形圖繪製與報表聚合
+
+- **QA metadata:**
+    - feature_links: `app/home_dashboard`
+    - risk_tags: `aggregation`、`chart`
+    - capabilities: `manual-ui`、`jest-app`
+    - tier: `standard`
+    - runtime_route: `simulator-or-physical-device`
+    - driver: `game-test`
+    - seed: `none`
+    - inspect: `none`
+    - evidence: `manual-ui`、`jest-app`
+
+- **範圍:** 檢視當期環形圖、餘額與收支合計，對照聚合與繪製規則
+- **規格依據:**
+    - `no2_home_screen.md ## 佈局`
+    - `no13_home_report_logic.md ## buildChartData`
+    - `no13_home_report_logic.md ## buildPeriodSummary`
+- **前置:**
+    - 當期同時有支出與收入，含金額懸殊的多個類別
+    - jest-app 條件為本機 node_modules 完整
+- **步驟:**
+    - 開啟首頁停在當期
+    - 對照環形圖兩弧與焦點卡的兩側合計
+    - 檢視環形圖中心餘額
+- **檢查點:**
+    - **兩弧同時呈現支出與收入，長度比例對應納入分組的金額合計**
+        - 層: UI ／ 驗證者: 使用者 ／ 手段: manual-ui
+    - **低於 10/360 門檻的分組不繪製，其餘依比例重新填滿一圈**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 實作錨: `src/components/DonutChart.tsx`
+    - **色票依 5/6 截止門檻分配，截止外分組合併為其他**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 依據: `no13_home_report_logic.md ## buildChartData`
+        - 實作錨: `src/services/homeReportLogic.ts`
+    - **停用帳戶或停用分類的交易不列入聚合**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 依據: `no13_home_report_logic.md ## buildPeriodSummary`
+        - 實作錨: `src/stores/PeriodDataStore.ts`
+    - **中心餘額為收入合計減支出合計，焦點卡分列兩側合計**
+        - 層: UI ／ 驗證者: 使用者 ／ 手段: manual-ui
+
+---
+
+## HD-04 焦點切換與逐筆清單導覽
+
+- **QA metadata:**
+    - feature_links: `app/home_dashboard`
+    - risk_tags: `navigation`、`reporting`
+    - capabilities: `manual-ui`、`jest-app`
+    - tier: `standard`
+    - runtime_route: `simulator-or-physical-device`
+    - driver: `game-test`
+    - seed: `none`
+    - inspect: `none`
+    - evidence: `manual-ui`、`jest-app`
+
+- **範圍:** 切換支出收入焦點，檢視兩種分組模式的逐筆清單並點入編輯畫面
+- **規格依據:**
+    - `no2_home_screen.md ## 互動`
+    - `no13_home_report_logic.md ## buildPeriodSummary`
+    - `no13_home_report_logic.md ## buildPeriodDetailPage`
+    - `no22_home_period_state_logic.md ## fetchPeriodDetailPage`
+    - `list_policy.md ## 模式分類`
+- **前置:**
+    - 當期有多類別交易、至少一筆轉帳與一筆非主要貨幣帳戶的紀錄
+    - jest-app 條件為本機 node_modules 完整
+- **步驟:**
+    - 點收入焦點卡再點回支出焦點卡
+    - 點分組標題列展開再收合
+    - 於篩選 modal 將分組方式切為日期後點完成
+    - 點一筆一般交易列與一筆轉帳列
+- **檢查點:**
+    - **焦點卡選取與逐筆清單於同次互動完成切換，分組重置收合，點當前啟用卡不變更**
+        - 層: UI ／ 驗證者: 使用者 ／ 手段: manual-ui
+        - 實作錨: `src/screens/Home/PeriodPage.tsx`
+    - **焦點切換只使用已載資料，摘要與明細取得次數皆不增加**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 實作錨: `src/screens/Home/PeriodPage.test.tsx`、`src/screens/Home/homeFocusList.test.ts`
+    - **焦點切換只提交當前期間頁清單，非當前頁提交為零，成為當前頁時同步焦點並重置分組**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 實作錨: `src/screens/Home/PeriodPage.test.tsx`、`src/screens/Home/hooks/usePeriodPageTransition.test.tsx`
+    - **報表更新後分組收合，再展開取得新明細，舊回應不覆寫目前明細或載入狀態**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 依據: `no22_home_period_state_logic.md ## fetchPeriodDetailPage`
+        - 實作錨: `src/screens/Home/PeriodPage.test.tsx`
+    - **短暫明細等待不顯示骨架，持續等待的首次與續頁顯示骨架，降低動態時骨架保持靜態**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 依據: `no2_home_screen.md ## 載入狀態`
+        - 實作錨: `src/screens/Home/components/TxSectionDetailSkeleton.test.tsx`、`src/screens/Home/PeriodPage.test.tsx`
+    - **類別分組依金額由大到小，日期分組依日期由新到舊**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 實作錨: `src/stores/PeriodDataStore.ts`
+    - **轉帳依已選帳戶分側，兩端皆選或皆未選略過、轉出在選內列支出**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 實作錨: `src/stores/PeriodDataStore.ts`
+    - **多幣別模式下非主要貨幣紀錄顯示 `≈` 換算副文字，單幣別不顯示**
+        - 層: UI ／ 驗證者: 使用者 ／ 手段: manual-ui
+    - **點一般交易列進 TransactionEditorScreen，轉帳列進 TransferEditorScreen**
+        - 層: UI ／ 驗證者: 使用者 ／ 手段: manual-ui
+
+---
+
+## HD-05 期間報表快取生命週期
+
+- **QA metadata:**
+    - feature_links: `app/home_dashboard`
+    - risk_tags: `cache`、`stale-data`
+    - capabilities: `manual-ui`、`jest-app`
+    - tier: `standard`
+    - runtime_route: `simulator-or-physical-device`
+    - driver: `game-test`
+    - seed: `none`
+    - inspect: `none`
+    - evidence: `manual-ui`、`jest-app`
+
+- **範圍:** 連續切換期間觸發快取與淘汰，編輯紀錄後返回首頁驗證清空重載
+- **規格依據:**
+    - `no22_home_period_state_logic.md ## fetchPeriodSummary`
+    - `no22_home_period_state_logic.md ## fetchPeriodDetailPage`
+    - `no22_home_period_state_logic.md ## clearPeriodReportCache`
+- **前置:**
+    - 已有跨多期間的紀錄
+    - jest-app 條件為本機 node_modules 完整
+- **步驟:**
+    - 於首頁連續向過去滑動超過十五個期間
+    - 滑回先前檢視過的期間
+    - 點入一筆交易修改金額後返回首頁
+- **檢查點:**
+    - **摘要快取命中直接回傳，同鍵查詢共用且不重複**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 實作錨: `src/stores/PeriodDataStore.ts`
+    - **摘要超過十五筆時淘汰最久未存取項目**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 實作錨: `src/stores/PeriodDataStore.ts`
+    - **摘要鍵含使用者與篩選，不含焦點來源**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 實作錨: `src/stores/PeriodDataStore.ts`、`src/screens/Home/hooks/usePeriodPageTransition.test.tsx`
+    - **交易異動後快取清空，返回首頁報表反映修改**
+        - 層: UI ／ 驗證者: 使用者 ／ 手段: manual-ui
+        - 依據: `no2_home_screen.md ## 互動`
+
+---
+
+## HD-06 Note 全文搜尋與結果導覽
+
+- **QA metadata:**
+    - feature_links: `app/home_dashboard`
+    - risk_tags: `search`、`filtering`
+    - capabilities: `manual-ui`、`jest-app`
+    - tier: `standard`
+    - runtime_route: `simulator-or-physical-device`
+    - driver: `game-test`
+    - seed: `none`
+    - inspect: `none`
+    - evidence: `manual-ui`、`jest-app`
+
+- **範圍:** 自首頁進入搜尋 modal，以關鍵字搜尋備註並自結果點入編輯後返回
+- **規格依據:**
+    - `no4_search_screen.md`
+    - `search_policy.md ## 互動規則`
+    - `list_policy.md ## 互動規則`
+- **前置:**
+    - 已有含特定關鍵字備註的交易與轉帳，另備停用帳戶下的含關鍵字紀錄
+    - jest-app 條件為本機 node_modules 完整
+- **步驟:**
+    - 點首頁 header 搜尋按鈕開啟 modal
+    - 輸入關鍵字等待結果
+    - 改輸入無符合的字串
+    - 重輸關鍵字，點一筆結果修改備註後返回
+- **檢查點:**
+    - **進入時輸入框 autoFocus，搜尋框為空顯示輸入提示**
+        - 層: UI ／ 驗證者: 使用者 ／ 手段: manual-ui
+        - 實作錨: `src/screens/Search/SearchScreen.tsx`
+    - **輸入後 debounce 自動搜尋，結果備註以 highlight 標示關鍵字**
+        - 層: UI ／ 驗證者: 使用者 ／ 手段: manual-ui
+    - **無符合結果顯示找不到結果，副標回顯關鍵字**
+        - 層: UI ／ 驗證者: 使用者 ／ 手段: manual-ui
+        - 依據: `list_policy.md ## 互動規則`
+    - **交易與轉帳各自最多 50 筆、日期由新到舊，LIKE 特殊字元不作萬用字元**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 實作錨: `src/services/localDbService.ts`
+    - **停用帳戶或停用分類的紀錄不列入結果**
+        - 層: UI ／ 驗證者: 使用者 ／ 手段: manual-ui
+        - 實作錨: `src/screens/Search/SearchScreen.tsx`
+    - **點結果列導航對應編輯器，返回時重新搜尋反映變動**
+        - 層: UI ／ 驗證者: 使用者 ／ 手段: manual-ui
+
+---
+
+## HD-07 大型歷史資料報表
+
+- **QA metadata:**
+    - feature_links: `app/home_dashboard`
+    - risk_tags: `performance`、`large-data`
+    - capabilities: `manual-ui`、`jest-app`、`qa-command`、`qa-markers`、`qa-probe`
+    - tier: `extended`
+    - runtime_route: `simulator-or-physical-device`
+    - driver: `game-test`
+    - seed: `r06_large_history`
+    - inspect: `accounting.large-history-overlay`
+    - evidence: `manual-ui`、`jest-app`、`qa-markers`、`qa-probe:large-history-overlay`
+
+- **範圍:** 以二萬筆生成交易與四百筆生成轉帳驗證全部粒度
+- **規格依據:**
+    - `no2_home_screen.md ## 佈局`
+    - `no13_home_report_logic.md ## buildPeriodSummary`
+    - `no13_home_report_logic.md ## buildPeriodDetailPage`
+    - `no22_home_period_state_logic.md ## fetchPeriodSummary`
+    - `no22_home_period_state_logic.md ## fetchPeriodDetailPage`
+    - `no23_local_database_logic.md ## getHomePeriodSummary`
+    - `no23_local_database_logic.md ## getHomeDetailPage`
+- **前置:**
+    - 使用二萬筆交易與四百筆轉帳的大型歷史資料組，日期跨度為一千八百二十五天
+    - jest-app 條件為本機 node_modules 完整
+    - qa-markers 由 Metro 或實機 Debug console 擷取
+    - overlay Load 前必須確認裝置離線
+    - qa-command 與 qa-probe 只在同 requestId 與 session proof 的匿名 READY 成立後取得當次 promotion
+- **驗證分工:**
+    - fallback 大型金標由 `src/services/homeLargeHistoryRegression.test.ts` 使用固定生成資料驗證
+    - Native SQL 契約由 `src/services/homeReportRepository.native.test.ts` 驗證單次摘要、綁定範圍、頁面上限與穩定游標
+    - session 鎖定裝置由 R06 載入 user-scoped additive overlay
+    - simulator route 由 qa-probe 核對 overlay counts 與一千八百二十五天日期跨度
+    - physical-device route 由 QA Debug UI 的 Load 成功判準核對相同內容
+    - physical-device route 由 QA Debug UI 的 Remove 成功判準核對 marker rows 歸零
+- **步驟:**
+    - 確認離線後載入大型歷史 overlay
+    - 核對 overlay counts 與日期跨度
+    - 取得全部粒度摘要
+    - 支出與收入焦點交替切換二十次
+    - 逐一展開四個分組
+    - 依游標取得所有後續頁面
+    - 清除 overlay 後確認原狀態鏈仍在
+    - 恢復裝置網路
+- **檢查點:**
+    - **一次摘要查詢同時供應支出與收入焦點**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 實作錨: `src/stores/PeriodDataStore.ts`、`src/services/homeReportRepository.native.ts`
+    - **所有分組收合時不建立任何明細列**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 實作錨: `src/screens/Home/homeDetailList.ts`
+    - **展開分組只取得第一頁明細**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 實作錨: `src/screens/Home/PeriodPage.tsx`、`src/screens/Home/PeriodPage.test.tsx`、`src/stores/PeriodDataStore.ts`
+    - **每頁明細筆數不超過輸入上限**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 實作錨: `src/services/homeReportRepository.native.ts`、`src/services/homeLargeHistoryRegression.test.ts`
+    - **依序取得後續頁面時明細不遺漏且不重複**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 實作錨: `src/services/homeReportRepository.native.ts`、`src/services/homeLargeHistoryRegression.test.ts`
+    - **大型摘要符合雙側一百零一萬與二萬零四百筆金標**
+        - 層: 單元測試 ／ 驗證者: Claude ／ 手段: jest-app
+        - 實作錨: `src/services/homeLargeHistoryRegression.test.ts`
+    - **二十次焦點交替皆不顯示載入中狀態**
+        - 層: UI ／ 驗證者: 使用者 ／ 手段: manual-ui
+        - 實作錨: `src/screens/Home/PeriodPage.tsx`
+    - **二十次焦點交替的可見清單換面 p95 不超過 100ms，最大值不超過 150ms**
+        - 層: 日誌 ／ 驗證者: Claude ／ 手段: qa-markers
+        - 實作錨: `src/screens/Home/PeriodPage.tsx`
+    - **二十次焦點交替的完整視覺動畫皆不超過 250ms**
+        - 層: 日誌 ／ 驗證者: Claude ／ 手段: qa-markers
+        - 實作錨: `src/screens/Home/PeriodPage.tsx`、`src/screens/Home/hooks/usePeriodPageTransition.ts`
+    - **二十次焦點交替區間不出現摘要查詢標記**
+        - 層: 日誌 ／ 驗證者: Claude ／ 手段: qa-markers
+        - 實作錨: `src/stores/PeriodDataStore.ts`、`src/screens/Home/PeriodPage.tsx`
+    - **session 鎖定裝置載入大型歷史 overlay 後，摘要可呈現且篩選、焦點與明細操作可完成**
+        - 層: UI ／ 驗證者: 使用者 ／ 手段: manual-ui
+        - 實作錨: `src/screens/Home/PeriodPage.tsx`、`src/screens/Home/HomeFilterScreen.tsx`

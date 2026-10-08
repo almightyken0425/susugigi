@@ -1,0 +1,20 @@
+---
+name: test-run
+description: 協調並判定已確認 ai-company 產品的功能或回歸測試。承接 game-test。未支援的環境列缺口，不推定可執行。
+---
+
+# 測試協調與判定
+
+開始前依 [共同前置政策](../../references/workflow_requirements.md) 核對本次輸入。
+有效成果沿用。缺口回到成果主人。交付前核對本責任的完成條件。
+
+核對候選、有效定義、可用執行能力及本次測試意圖。
+讀 [測試執行方法](../../references/quality/test_execution.md)。
+先鎖定選集與預期證據。缺定義交 test-define。
+依[執行分工](../../references/quality/execution_assignment.md)安排準備、操作、取證與檢視。
+沿用使用者偏好，以當次工具能力安排操作。接手不改變測項判定標準。
+iOS 環境與觀測交 test-ios。其他平台只使用已驗證的專案執行器。
+接回同一候選與定義的實際證據後才判定。
+證據完整才可判 pass 或 fail。缺證據判 inconclusive。無法執行判 blocked。
+清理及還原結果獨立回報。環境就緒不能當成測項通過。
+產品缺陷回 product-scope。定義缺口回 test-define。環境先回原執行器。

@@ -1,0 +1,9 @@
+---
+name: test-define
+description: 測項、場次、能力與基線。詳讀同名共用 Skill 後處理已確認任務。
+---
+
+# test-define
+
+讀 `~/.agents/skills/test-define/SKILL.md`。
+該檔持有方法、前置與成果。此入口只轉接 Claude 原生工具。

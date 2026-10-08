@@ -1,0 +1,16 @@
+﻿序,測項,類型,動作,預期,驗證者,手段,已驗,說明
+1,LD-01,操作,安裝舊版 build 並開啟、建立帳戶測試帳戶、新增一筆餐飲支出 100,舊版正常記帳,使用者,manual-ui,,舊版 build 不可得時跳過本段、LD-01 的 UI 檢查點標記本次未驗
+2,LD-01,操作,完全關閉 app、安裝新版 build 覆蓋升級,,使用者,manual-ui,,
+3,LD-01,操作,開啟 app、逐一檢視首頁清單與帳戶管理,開啟不閃退、測試帳戶與 100 支出完整可見,使用者,manual-ui,LD-01 升級後開啟不閃退，既有資料完整呈現,
+4,,建置,切到當前 session 已完成匿名 READY 的專用 QA 裝置,裝置只有當前 proof 綁定的匿名身分、本機記帳資料為空,使用者,manual-ui,,不得在 READY 後清除 keychain 或容器
+5,AU-01,操作,保持連網並開啟 app,進入載入後落地 HomeScreen、全程無登入畫面、首頁就緒後出現使用分析提示,使用者,manual-ui,AU-01 全程無帳號 UI 與登入畫面，直接落地；AU-01 預設啟動模式下落點為 HomeScreen,使用當前 session 的 token-bound 匿名 READY
+6,AS-08,操作,核對使用分析提示文案與兩個按鈕、點不要分享、進偏好頁確認使用分析開關為關,標題與兩行訊息正確、拒絕後提示關閉、偏好頁使用分析開關為關,使用者,manual-ui,,停下等待 sim-review 執行 token-bound 重開
+7,AS-08,Claude節點,simulator route 由 sim-review terminate app、沿用同一 token 產生未重複的 open-app- 加三十二字元小寫十六進位 requestId 並重新 launch,收到同 requestId READY、不得使用無 launch arguments 的 icon 重開,Claude,qa-markers,,physical-device route 由 game-test 建立等價 launch checkpoint
+8,AS-08,操作,檢查重開後首頁與偏好頁,使用分析提示不再顯示、偏好頁使用分析開關維持關,使用者,manual-ui,AS-08 尚未決定時首頁就緒後顯示同意提示，拒絕後重啟不再顯示且偏好開關為關,
+9,AU-01,操作,檢視帳戶列表、類別列表與首頁清單,帳戶為現金與信用卡、類別為餐飲交通購物薪資獎金、首頁無交易、無轉帳與排程,使用者,manual-ui,AU-01 首次初始化建立兩個主要貨幣帳戶與五個本機語系類別，且不建立交易、轉帳或排程,
+10,AU-01,操作,逐一開啟設定頁與各入口畫面目視,任何畫面無 uid 字樣,使用者,manual-ui,AU-01 uid 不曝露於任何畫面,
+11,AU-01,Claude節點,Claude 以 gcloud Firestore OAuth 經 firestore-read 精確查 users/${QA_SESSION_UID}、以 bounded Python process memory parse 原始回應且不落盤、shell 只接收 allowlisted 欄位與 verdict、可見 uid 固定遮罩為 [QA_SESSION_UID]，並將 createdAt、lastLoginAt、updatedAt baseline 只保存於 session shell memory,依 no1_fixture_golden.json 的 r01_anonymous_user profile 驗文件存在、provider 為 anonymous、email 為空值，三個 timestamp 欄位存在且 baseline 不進 argv、log、可見輸出或檔案,Claude,firestore-read,AU-01 雲端 users 文件建立，provider 為 anonymous、email 為空值,
+12,AU-03,Claude節點,simulator route 由 sim-review terminate app、沿用同一 token 產生未重複的 open-app- 加三十二字元小寫十六進位 requestId 並重新 launch,收到同 requestId READY、相同 requestId 不得重用、不得使用無 launch arguments 的 icon 重開,Claude,qa-markers,,沿用序 11 的 exact users 文件作身分不變式比對、physical-device route 由 game-test 建立等價 launch checkpoint
+13,AU-03,操作,檢查重新 launch 後落地,不出現重試畫面、直接落地主畫面,使用者,manual-ui,AU-03 不出現重試畫面，直接落地主畫面路線,
+14,AU-03,Claude節點,Claude 自同一份 Debug console 擷取冷啟後的 QA BOOT 列,resolve 恰一次、冷啟動委派工作各恰一次,Claude,qa-markers,AU-03 身分事件去重，冷啟動工作不重跑,
+15,AU-03,Claude節點,Claude 以 gcloud Firestore OAuth 經 firestore-read 精確查 users/${QA_SESSION_UID}、以 bounded Python process memory parse 原始回應且不落盤、shell 只接收 allowlisted verdict、可見 uid 固定遮罩為 [QA_SESSION_UID],依 no1_fixture_golden.json 的 r01_user_unchanged profile 驗同一 users path 與 identityHash、provider anonymous、email null、createdAt 不變，lastLoginAt 與 updatedAt 欄位存在且皆不早於序 11 private baseline,Claude,firestore-read,AU-03 沿用 READY identityHash 綁定的同一 users path，provider 為 anonymous、email 為空值且 createdAt 不變；lastLoginAt 與 updatedAt 可依規格推進且不納入 identity digest,偏好不屬 AU-03 比較面

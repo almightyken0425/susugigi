@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "capabilities": [
+    {
+      "group": "決策研究",
+      "name": "decision-interview",
+      "planning_name": "decision-interview",
+      "outcome": "已確認選擇與未解取捨。",
+      "skill": "skills/decision-interview/SKILL.md"
+    },
+    {
+      "group": "決策研究",
+      "name": "decision-research",
+      "planning_name": "research",
+      "outcome": "來源、事實、推論與未知。",
+      "skill": "skills/decision-research/SKILL.md"
+    },
+    {
+      "group": "產品規劃",
+      "name": "product-plan",
+      "planning_name": "product-planning",
+      "outcome": "定位、需求、方案與規劃成果。",
+      "skill": "skills/product-plan/SKILL.md"
+    },
+    {
+      "group": "產品規劃",
+      "name": "product-scope",
+      "planning_name": "product-change",
+      "outcome": "改動範圍、上游依據與涉及責任。",
+      "skill": "skills/product-scope/SKILL.md"
+    },
+    {
+      "group": "規格與程式",
+      "name": "code-spec",
+      "planning_name": "spec-work",
+      "outcome": "公開行為規格或唯讀審查。",
+      "skill": "skills/code-spec/SKILL.md"
+    },
+    {
+      "group": "規格與程式",
+      "name": "code-design",
+      "planning_name": "codebase-design",
+      "outcome": "程式責任與介面方案。",
+      "skill": "skills/code-design/SKILL.md"
+    },
+    {
+      "group": "規格與程式",
+      "name": "code-tdd",
+      "planning_name": "tdd",
+      "outcome": "行為測試先行的實作。",
+      "skill": "skills/code-tdd/SKILL.md"
+    },
+    {
+      "group": "介面設計",
+      "name": "ui-system",
+      "planning_name": "design-system",
+      "outcome": "視覺角色與設計系統判準。",
+      "skill": "skills/ui-system/SKILL.md"
+    },
+    {
+      "group": "介面設計",
+      "name": "ui-design",
+      "planning_name": "interface-design",
+      "outcome": "畫面、狀態、導航與文案。",
+      "skill": "skills/ui-design/SKILL.md"
+    },
+    {
+      "group": "介面設計",
+      "name": "ui-build",
+      "planning_name": "interface-build",
+      "outcome": "可運行介面與元件。",
+      "skill": "skills/ui-build/SKILL.md"
+    },
+    {
+      "group": "介面設計",
+      "name": "ui-review",
+      "planning_name": "interface-review",
+      "outcome": "體驗與技術問題清單。",
+      "skill": "skills/ui-review/SKILL.md"
+    },
+    {
+      "group": "介面設計",
+      "name": "ui-live",
+      "planning_name": "interface-live",
+      "outcome": "瀏覽器變體、來源回寫與清理。",
+      "skill": "skills/ui-live/SKILL.md"
+    },
+    {
+      "group": "Markdown 文件",
+      "name": "doc-markdown",
+      "planning_name": "markdown-work",
+      "outcome": "整合修訂與路徑檢查。",
+      "skill": "skills/doc-markdown/SKILL.md"
+    },
+    {
+      "group": "測試驗證",
+      "name": "test-define",
+      "planning_name": "test-definition",
+      "outcome": "測項、場次、能力與基線。",
+      "skill": "skills/test-define/SKILL.md"
+    },
+    {
+      "group": "測試驗證",
+      "name": "test-run",
+      "planning_name": "game-test",
+      "outcome": "選集、證據需求與測試判定。",
+      "skill": "skills/test-run/SKILL.md"
+    },
+    {
+      "group": "測試驗證",
+      "name": "test-ios",
+      "planning_name": "sim-review",
+      "outcome": "iOS 驗證環境、觀測與還原。",
+      "skill": "skills/test-ios/SKILL.md"
+    },
+    {
+      "group": "工作保存",
+      "name": "game-start",
+      "planning_name": "game-start",
+      "outcome": "下行同步與主題接回。",
+      "skill": "skills/game-start/SKILL.md"
+    },
+    {
+      "group": "工作保存",
+      "name": "game-over",
+      "planning_name": "game-over",
+      "outcome": "唯讀盤點或已授權保存。",
+      "skill": "skills/game-over/SKILL.md"
+    },
+    {
+      "group": "工作保存",
+      "name": "game-stop",
+      "planning_name": "game-stop",
+      "outcome": "WIP 整理或完整收尾。",
+      "skill": "skills/game-stop/SKILL.md"
+    },
+    {
+      "group": "工作保存",
+      "name": "game-clear",
+      "planning_name": "game-clear",
+      "outcome": "核對損失後放棄主題。",
+      "skill": "skills/game-clear/SKILL.md"
+    },
+    {
+      "group": "控制維護",
+      "name": "control-review",
+      "planning_name": "game-review",
+      "outcome": "控制來源或指定對話診斷。",
+      "skill": "skills/control-review/SKILL.md"
+    }
+  ],
+  "boundary": "登錄本地維護的正式候選入口。外部與專案入口各由原生載入管理。"
+}

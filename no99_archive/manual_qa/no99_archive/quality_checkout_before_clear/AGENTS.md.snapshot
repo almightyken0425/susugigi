@@ -1,0 +1,15 @@
+# 記帳 App 品質重做指令
+
+- 本 repo 是 susugigi 的 Module Quality Git。
+- module id 為 `no2_accounting_app`。
+- 目前只完成舊資料封存，新版定義與方法尚未建立。
+- 重做依 `~/Doc/ai-company/susugigi_quality_rebuild_plan.md` 與同目錄的架構稿進行。
+- 後續工作從最新 main 建立隔離工作區，依實際修改的 Git 建立同名分支。
+- 完成新版驗收前，封存只供完整性核對，不讀取舊內容作為新方法依據。
+- 封存中的 `.snapshot` 檔案是歷史資料，不是有效指令。
+- 不執行封存的測試、檢查器或平台程式。
+- 本階段以封存雜湊、清單與模式核對取代舊計劃檢查。
+- 新版定義、路徑與場次判定依新契約驗收。
+- 執行結果與證據另存於持久場次目錄，不進入本 Git。
+- Git 身分、資料保全、平台操作與正式切換仍遵守共同政策。
+- 不主動啟動 Metro、build 或操作 simulator。

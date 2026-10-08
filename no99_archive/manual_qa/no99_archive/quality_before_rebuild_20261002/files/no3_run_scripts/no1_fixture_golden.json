@@ -1,0 +1,372 @@
+{
+  "schema": "susugigi.qa.fixture-golden/v1",
+  "scenes": {
+    "r02_end": {
+      "fingerprint": "r02_end:a3:c7:t9:f0:s0:v1",
+      "inspectCheckId": "accounting.fixture-summary",
+      "requiredFactKeys": [
+        "scope.user",
+        "settings.base-currency",
+        "accounts.live-count",
+        "accounts.tombstone-count",
+        "accounts.signature",
+        "categories.live-count",
+        "categories.tombstone-count",
+        "categories.signature",
+        "transactions.live-count",
+        "transactions.tombstone-count",
+        "transactions.signature",
+        "transfers.live-count",
+        "transfers.tombstone-count",
+        "transfers.signature",
+        "currency-rates.live-count",
+        "currency-rates.tombstone-count",
+        "currency-rates.signature",
+        "currency-rates.history-order",
+        "schedules.live-count",
+        "schedules.tombstone-count",
+        "schedules.signature",
+        "schedule-instances.valid",
+        "references.valid",
+        "currency-configs.count"
+      ],
+      "expectedCounts": {
+        "accounts": 3,
+        "categories": 7,
+        "transactions": 9,
+        "transfers": 0,
+        "currencyRates": 1,
+        "schedules": 0,
+        "tombstones": 0,
+        "currencyConfigs": 0
+      },
+      "signatureIds": {
+        "accounts.signature": "accounting-accounts-v1",
+        "categories.signature": "accounting-categories-v1",
+        "transactions.signature": "r02-transactions-relative-date-v1",
+        "transfers.signature": "empty-transfers-v1",
+        "currency-rates.signature": "placeholder-jpy-twd-v1",
+        "schedules.signature": "empty-schedules-v1"
+      },
+      "independentProfileId": "r03_initial_backup",
+      "requiredRelations": [
+        "remote-subtree-absent-before-prepare",
+        "all-rows-belong-to-session-identity",
+        "base-currency-is-901",
+        "all-references-resolve",
+        "schedule-instance-dates-are-unique",
+        "rate-history-order-is-valid",
+        "candidate-signatures-are-consistency-only",
+        "final-verdict-requires-independent-profile"
+      ]
+    },
+    "r09_stale_schedule": {
+      "fingerprint": "r09_stale_schedule:a3:c7:t9:f2:s1:v1",
+      "inspectCheckId": "accounting.fixture-summary",
+      "requiredFactKeys": [
+        "scope.user",
+        "settings.base-currency",
+        "accounts.live-count",
+        "accounts.tombstone-count",
+        "accounts.signature",
+        "categories.live-count",
+        "categories.tombstone-count",
+        "categories.signature",
+        "transactions.live-count",
+        "transactions.tombstone-count",
+        "transactions.signature",
+        "transfers.live-count",
+        "transfers.tombstone-count",
+        "transfers.signature",
+        "currency-rates.live-count",
+        "currency-rates.tombstone-count",
+        "currency-rates.signature",
+        "currency-rates.history-order",
+        "schedules.live-count",
+        "schedules.tombstone-count",
+        "schedules.signature",
+        "schedule-instances.valid",
+        "references.valid",
+        "currency-configs.count"
+      ],
+      "expectedCounts": {
+        "accounts": 3,
+        "categories": 7,
+        "transactions": 9,
+        "transfers": 2,
+        "currencyRates": 5,
+        "schedules": 1,
+        "tombstones": 0,
+        "currencyConfigs": 0
+      },
+      "signatureIds": {
+        "accounts.signature": "accounting-accounts-v1",
+        "categories.signature": "accounting-categories-v1",
+        "transactions.signature": "r09-stale-schedule-transactions-relative-date-v1",
+        "transfers.signature": "r03-transfers-final-relative-date-v1",
+        "currency-rates.signature": "placeholder-plus-4.4-4.5-bidirectional-v1",
+        "schedules.signature": "daily-breakfast-stale-schedule-v1"
+      },
+      "independentProfileId": "r13_schedule_backfill",
+      "requiredRelations": [
+        "remote-subtree-absent-before-prepare",
+        "all-rows-belong-to-session-identity",
+        "base-currency-is-901",
+        "all-references-resolve",
+        "schedule-instance-dates-are-unique",
+        "rate-4.5-is-newer-than-4.4",
+        "stale-schedule-has-only-start-instance",
+        "candidate-signatures-are-consistency-only",
+        "final-verdict-requires-independent-profile"
+      ]
+    }
+  },
+  "firestoreProfiles": {
+    "r01_anonymous_user": {
+      "checkpointKey": "R01:11",
+      "resourceKind": "user-document",
+      "sceneId": null,
+      "inspectCheckId": null,
+      "requiredFields": {
+        "provider": "anonymous",
+        "email": null,
+        "createdAt": "present-timestamp",
+        "lastLoginAt": "present-timestamp",
+        "updatedAt": "present-timestamp"
+      },
+      "expectedCounts": {
+        "documents": 1
+      },
+      "requiredRelations": [
+        "path-belongs-to-session-identity",
+        "timestamp-baseline-is-private-shell-memory"
+      ]
+    },
+    "r01_user_unchanged": {
+      "checkpointKey": "R01:15",
+      "resourceKind": "user-document",
+      "sceneId": null,
+      "inspectCheckId": null,
+      "requiredFields": {
+        "provider": "anonymous",
+        "email": null,
+        "createdAt": "present-timestamp",
+        "lastLoginAt": "present-timestamp",
+        "updatedAt": "present-timestamp"
+      },
+      "expectedCounts": {
+        "documents": 1
+      },
+      "requiredRelations": [
+        "path-belongs-to-session-identity",
+        "identity-hash-equals-r01-ready",
+        "created-at-equals-r01-bootstrap",
+        "identity-digest-excludes-last-login-at-and-updated-at",
+        "last-login-at-not-earlier-than-r01-11-private-baseline",
+        "updated-at-not-earlier-than-r01-11-private-baseline",
+        "preferences-are-out-of-scope"
+      ]
+    },
+    "r03_initial_backup": {
+      "checkpointKey": "R03:9",
+      "resourceKind": "user-subcollections",
+      "sceneId": "r02_end",
+      "inspectCheckId": "accounting.fixture-summary",
+      "requiredFields": {
+        "breakfastAmount": 150
+      },
+      "expectedCounts": {
+        "accounts": 3,
+        "categories": 7,
+        "transactions": 9,
+        "transfers": 0,
+        "currencyRates": 1,
+        "schedules": 0
+      },
+      "requiredRelations": [
+        "path-belongs-to-session-identity",
+        "result-facts-match-scene-golden",
+        "sync-suspension-reason-is-qa-fixture-reset",
+        "sync-suspended-through-prepare-and-inspect",
+        "remote-subtree-absent-before-prepare",
+        "watermark-null-before-initial-backup",
+        "open-app-resumes-sync",
+        "initial-backup-does-not-skip-for-device-cooldown",
+        "initial-backup-marker-follows-open-app"
+      ]
+    },
+    "r03_incremental_backup": {
+      "checkpointKey": "R03:21",
+      "resourceKind": "user-subcollection",
+      "sceneId": null,
+      "inspectCheckId": null,
+      "requiredFields": {
+        "incrementalNote": "增量備份",
+        "incrementalAmount": 200,
+        "sameCurrencyAmountFrom": 2000,
+        "sameCurrencyAmountTo": 2000,
+        "crossCurrencyAmountFrom": 1000,
+        "crossCurrencyAmountTo": 4500
+      },
+      "expectedCounts": {
+        "transactions": 10,
+        "transfers": 2
+      },
+      "requiredRelations": [
+        "path-belongs-to-session-identity",
+        "incremental-row-is-additive",
+        "existing-r02-rows-remain",
+        "transfer-pairs-match-r03-final",
+        "transactions-have-zero-extra-live-rows",
+        "transfers-have-zero-extra-live-rows"
+      ]
+    },
+    "r03_updated_backup": {
+        "checkpointKey": "R03:24",
+        "resourceKind": "user-subcollection",
+        "sceneId": null,
+        "inspectCheckId": null,
+        "requiredFields": {
+            "incrementalNote": "增量備份已修改",
+            "incrementalAmount": 275
+        },
+        "expectedCounts": {
+            "transactions": 10,
+            "transactionTombstones": 0,
+            "transfers": 2
+        },
+        "requiredRelations": [
+            "path-belongs-to-session-identity",
+            "existing-r02-rows-remain",
+            "transfer-pairs-match-r03-final",
+            "updated-row-replaces-original-values",
+            "transactions-have-zero-extra-live-rows"
+        ]
+    },
+    "r03_deleted_backup": {
+        "checkpointKey": "R03:27",
+        "resourceKind": "user-subcollection",
+        "sceneId": null,
+        "inspectCheckId": null,
+        "requiredFields": {
+            "deletedNote": "增量備份已修改",
+            "deletedAmount": 275,
+            "deletedOn": "present-timestamp"
+        },
+        "expectedCounts": {
+            "transactions": 9,
+            "transactionTombstones": 1,
+            "transfers": 2
+        },
+        "requiredRelations": [
+            "path-belongs-to-session-identity",
+            "existing-r02-rows-remain",
+            "transfer-pairs-match-r03-final",
+            "deleted-row-has-tombstone",
+            "transactions-have-zero-extra-live-rows"
+        ]
+    },
+    "r08_preferences_baseline": {
+      "checkpointKey": "R08:15",
+      "resourceKind": "user-document",
+      "sceneId": null,
+      "inspectCheckId": null,
+      "requiredFields": {
+        "updatedAt": "present-timestamp"
+      },
+      "expectedCounts": {
+        "documents": 1
+      },
+      "requiredRelations": [
+        "path-belongs-to-session-identity",
+        "baseline-precedes-first-cs01-change",
+        "timestamp-baseline-is-private-shell-memory"
+      ]
+    },
+    "r08_preferences": {
+      "checkpointKey": "R08:21",
+      "resourceKind": "user-document",
+      "sceneId": null,
+      "inspectCheckId": null,
+      "requiredFields": {
+        "theme": "theme3",
+        "currency": "USD"
+      },
+      "expectedCounts": {
+        "documents": 1
+      },
+      "requiredRelations": [
+        "path-belongs-to-session-identity",
+        "language-equals-private-sqlite-baseline",
+        "root-updated-at-is-later-than-r08-15-private-baseline",
+        "backup-watermark-unchanged"
+      ]
+    }
+  },
+  "sqliteProfiles": {
+    "r08_original_language": {
+      "checkpointKey": "R08:8",
+      "sceneId": null,
+      "inspectCheckId": null,
+      "requiredFactKeys": [
+        "language"
+      ],
+      "expectedValues": {
+        "sourceTable": "settings",
+        "sourceColumn": "language",
+        "liveRowCount": 1
+      },
+      "requiredRelations": [
+        "canonical-qa-sqlite-only",
+        "session-uid-from-stdin-only",
+        "live-settings-row-exact-one",
+        "captured-before-first-manual-language-change",
+        "private-shell-memory-only"
+      ]
+    },
+    "r13_schedule_backfill": {
+      "checkpointKey": "R13:6",
+      "sceneId": "r09_stale_schedule",
+      "inspectCheckId": "accounting.schedule-backfill",
+      "requiredFactKeys": [
+        "schedule-backfill.anchor-valid",
+        "schedule-backfill.schedule-count",
+        "schedule-backfill.schedule-contract",
+        "schedule-backfill.expected-start",
+        "schedule-backfill.expected-sequence-valid",
+        "schedule-backfill.sequence",
+        "schedule-backfill.unique",
+        "schedule-backfill.tombstone-count",
+        "schedule-backfill.template-match",
+        "schedule-backfill.generated-count"
+      ],
+      "expectedValues": {
+        "scheduleCount": 1,
+        "frequency": "DAILY",
+        "interval": 1,
+        "startMonthOffset": -1,
+        "startDay": 5,
+        "endOn": null,
+        "isTransfer": false,
+        "templateNote": "早餐",
+        "templateCategoryName": "餐飲",
+        "templateAccountName": "錢包",
+        "templateAmount": 150,
+        "tombstoneCount": 0
+      },
+      "requiredRelations": [
+        "global-session-identity-bound-before-prepare",
+        "remote-subtree-absent-before-prepare",
+        "canonical-qa-sqlite-only",
+        "sync-suspension-reason-is-qa-fixture-reset",
+        "due-dates-are-daily-and-inclusive-through-now",
+        "schedule-fixture-semantics-match-quality-literals",
+        "distinct-instance-date-count-equals-live-count",
+        "generated-count-equals-live-count-minus-seed",
+        "all-live-instances-match-quality-literals",
+        "result-facts-match-sqlite-aggregation",
+        "cleanup-uses-same-session-identity"
+      ]
+    }
+  }
+}

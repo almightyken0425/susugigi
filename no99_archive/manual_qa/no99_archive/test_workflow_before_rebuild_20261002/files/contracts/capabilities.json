@@ -1,0 +1,609 @@
+{
+  "schema_version": 1,
+  "capabilities": [
+    {
+      "name": "decision-interview",
+      "required_inputs": [
+        {
+          "name": "goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "question",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "known_answers",
+          "may_be_inapplicable": true
+        }
+      ],
+      "required_outcomes": [
+        "result",
+        "verification"
+      ]
+    },
+    {
+      "name": "decision-research",
+      "required_inputs": [
+        {
+          "name": "goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "question",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "source_scope",
+          "may_be_inapplicable": false
+        }
+      ],
+      "required_outcomes": [
+        "result",
+        "verification"
+      ]
+    },
+    {
+      "name": "product-plan",
+      "required_inputs": [
+        {
+          "name": "goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "product_intent",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "upstream",
+          "may_be_inapplicable": true
+        }
+      ],
+      "required_outcomes": [
+        "result",
+        "verification"
+      ]
+    },
+    {
+      "name": "product-scope",
+      "required_inputs": [
+        {
+          "name": "goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "product_identity",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "behavior",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "upstream",
+          "may_be_inapplicable": true
+        }
+      ],
+      "required_outcomes": [
+        "result",
+        "verification"
+      ]
+    },
+    {
+      "name": "code-spec",
+      "required_inputs": [
+        {
+          "name": "goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "behavior",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "document_scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "layer_policy",
+          "may_be_inapplicable": true
+        }
+      ],
+      "required_outcomes": [
+        "result",
+        "verification"
+      ]
+    },
+    {
+      "name": "code-design",
+      "required_inputs": [
+        {
+          "name": "goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "behavior",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "interface_scope",
+          "may_be_inapplicable": false
+        }
+      ],
+      "required_outcomes": [
+        "result",
+        "verification"
+      ]
+    },
+    {
+      "name": "code-tdd",
+      "required_inputs": [
+        {
+          "name": "goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "behavior",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "test_interface",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "verification_method",
+          "may_be_inapplicable": false
+        }
+      ],
+      "required_outcomes": [
+        "red_evidence",
+        "implementation",
+        "verification"
+      ]
+    },
+    {
+      "name": "ui-system",
+      "required_inputs": [
+        {
+          "name": "goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "design_goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "medium",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "existing_design",
+          "may_be_inapplicable": true
+        }
+      ],
+      "required_outcomes": [
+        "result",
+        "verification"
+      ]
+    },
+    {
+      "name": "ui-design",
+      "required_inputs": [
+        {
+          "name": "goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "behavior",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "content",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "design_basis",
+          "may_be_inapplicable": true
+        }
+      ],
+      "required_outcomes": [
+        "result",
+        "verification"
+      ]
+    },
+    {
+      "name": "ui-build",
+      "required_inputs": [
+        {
+          "name": "goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "behavior",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "states",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "design_basis",
+          "may_be_inapplicable": true
+        },
+        {
+          "name": "code_scope",
+          "may_be_inapplicable": false
+        }
+      ],
+      "required_outcomes": [
+        "result",
+        "verification"
+      ]
+    },
+    {
+      "name": "ui-review",
+      "required_inputs": [
+        {
+          "name": "goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "review_scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "candidate",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "design_basis",
+          "may_be_inapplicable": true
+        }
+      ],
+      "required_outcomes": [
+        "result",
+        "verification"
+      ]
+    },
+    {
+      "name": "ui-live",
+      "required_inputs": [
+        {
+          "name": "goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "page_source_identity",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "design_basis",
+          "may_be_inapplicable": true
+        },
+        {
+          "name": "selection",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "resource_owner",
+          "may_be_inapplicable": false
+        }
+      ],
+      "required_outcomes": [
+        "source_result",
+        "event_result",
+        "cleanup_result"
+      ]
+    },
+    {
+      "name": "doc-markdown",
+      "required_inputs": [
+        {
+          "name": "goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "document_scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "source_content",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "preservation_rules",
+          "may_be_inapplicable": true
+        }
+      ],
+      "required_outcomes": [
+        "result",
+        "verification"
+      ]
+    },
+    {
+      "name": "test-define",
+      "required_inputs": [
+        {
+          "name": "goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "behavior",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "source_modules",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "baseline",
+          "may_be_inapplicable": true
+        }
+      ],
+      "required_outcomes": [
+        "result",
+        "verification"
+      ]
+    },
+    {
+      "name": "test-run",
+      "required_inputs": [
+        {
+          "name": "goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "candidate",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "test_definition",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "execution_capability",
+          "may_be_inapplicable": false
+        }
+      ],
+      "required_outcomes": [
+        "execution_evidence",
+        "verdict",
+        "cleanup_result"
+      ]
+    },
+    {
+      "name": "test-ios",
+      "required_inputs": [
+        {
+          "name": "goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "candidate",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "selection",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "execution_config",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "resource_owner",
+          "may_be_inapplicable": false
+        }
+      ],
+      "required_outcomes": [
+        "observations",
+        "cleanup_result",
+        "restoration_result"
+      ]
+    },
+    {
+      "name": "game-start",
+      "required_inputs": [
+        {
+          "name": "goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "repositories",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "current_git_state",
+          "may_be_inapplicable": false
+        }
+      ],
+      "required_outcomes": [
+        "operation_result"
+      ]
+    },
+    {
+      "name": "game-over",
+      "required_inputs": [
+        {
+          "name": "goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "operation_mode",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "repositories",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "current_git_state",
+          "may_be_inapplicable": false
+        }
+      ],
+      "required_outcomes": [
+        "operation_result"
+      ]
+    },
+    {
+      "name": "game-stop",
+      "required_inputs": [
+        {
+          "name": "goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "operation_mode",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "topic_identity",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "current_git_state",
+          "may_be_inapplicable": false
+        }
+      ],
+      "required_outcomes": [
+        "operation_result",
+        "verification"
+      ]
+    },
+    {
+      "name": "game-clear",
+      "required_inputs": [
+        {
+          "name": "goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "topic_identity",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "loss_scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "discard_authority",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "preservation",
+          "may_be_inapplicable": false
+        }
+      ],
+      "required_outcomes": [
+        "preservation_result",
+        "operation_result"
+      ]
+    },
+    {
+      "name": "control-review",
+      "required_inputs": [
+        {
+          "name": "goal",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "review_scope",
+          "may_be_inapplicable": false
+        },
+        {
+          "name": "source_identity",
+          "may_be_inapplicable": false
+        }
+      ],
+      "required_outcomes": [
+        "result",
+        "verification"
+      ]
+    }
+  ],
+  "boundary": "只檢查必要欄位及可觀察來源。不能以資料檔代替使用者授權或內容審查。"
+}
