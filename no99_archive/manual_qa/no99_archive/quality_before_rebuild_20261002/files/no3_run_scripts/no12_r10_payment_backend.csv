@@ -1,0 +1,28 @@
+﻿序,測項,類型,動作,預期,驗證者,手段,已驗,說明
+1,,建置,於實機開啟 app 落地主畫面、確認設定內 Apple ID 為 sandbox-buyer、帳號與密碼由使用者自填,首頁顯示既有交易、帳戶管理列錢包與日幣帳戶兩個活躍帳戶、類別管理列六個活躍類別,使用者,manual-ui,,承接 R08 終點；sandbox 購買需實機
+2,,建置,進設定頁點 Mock Data、於 Regression Fixtures 區塊點 Reset write quota,顯示配額已歸零的成功提示,使用者,manual-ui,,R08 收場配額已耗盡；不重置則本場至 R12 的備份全被擋、R12 的雲端滅盡比對無資料可比
+3,,建置,進設定頁點帳戶管理、點新增帳戶、名稱輸入 現金備用、幣別選 TWD 後點儲存,帳戶管理出現現金備用、活躍帳戶數為 3,使用者,manual-ui,,湊滿 LEVEL_0 帳戶上限
+4,,建置,進設定頁點類別管理、點新增類別、類型選支出、名稱輸入 訂閱費 後點儲存,類別管理出現訂閱費、活躍類別數為 7,使用者,manual-ui,,湊滿 LEVEL_0 類別上限
+5,PM-01,操作,回設定頁點升級入口、於訂閱選項載入完成前注視方案區與訂閱按鈕、依序點隱私政策與使用條款並於每次開啟後返回 app,付費牆以 Modal 呈現、可見功能列表與方案區與自動續訂揭露與頁腳連結、載入中訂閱按鈕呈不可點按、隱私政策開啟官方支援頁、使用條款開啟 Apple 標準 EULA,使用者,manual-ui,PM-01 付費牆以 Modal 呈現，含功能列表、方案區、自動續訂揭露與頁腳連結；PM-01 載入中或未選方案時訂閱按鈕不可點按；PM-01 隱私政策開啟官方支援頁，使用條款開啟 Apple 標準 EULA,
+6,PM-01,操作,等待訂閱選項載入完成、檢視年度與月度兩方案,顯示動態年價與月價、預設選取年度方案並帶優惠標示、訂閱按鈕轉為可點按,使用者,manual-ui,PM-01 載入完成顯示動態年價與月價，預設選取年度方案並帶優惠標示,
+7,PM-01,操作,點選月度方案後再點回年度方案,選取標記隨點選切換、同時僅一個方案被選取,使用者,manual-ui,,
+8,PM-04,操作,關閉付費牆回設定頁、進帳戶管理點新增帳戶、名稱輸入 投資、幣別選 TWD 後點儲存,新增被擋、自動導向付費牆、投資未出現於帳戶管理,使用者,manual-ui,PM-04 帳戶觸頂新增被擋並導向付費牆,此為第 4 個帳戶
+9,PM-04,操作,關閉付費牆、進類別管理點新增類別、類型選收入、名稱輸入 禮金 後點儲存,新增被擋、自動導向付費牆、禮金未出現於類別管理,使用者,manual-ui,PM-04 類別觸頂新增被擋並導向付費牆,此為第 8 個類別
+10,PM-04,操作,關閉付費牆、首頁點新增並選支出、金額輸入 100、類別選餐飲、帳戶選錢包、備註輸入閘控探針後點完成,交易新增成功、清單出現閘控探針 100、全程不出現付費牆,使用者,manual-ui,,本筆為觸頂探針交易、fixture 未列
+11,PM-04,操作,首頁點新增並選轉帳、轉出帳戶選錢包、轉入帳戶選現金備用、轉出金額輸入 100 後點完成,轉帳新增成功、列表出現該筆、全程不出現付費牆,使用者,manual-ui,PM-04 總數等於上限時交易與轉帳仍允許新增,本筆為觸頂探針轉帳、fixture 未列
+12,PM-02,操作,進設定頁點升級入口、待載入完成後點選月度方案、點訂閱按鈕,按鈕轉為載入狀態且重複點按無反應、系統購買對話框跳出,使用者,manual-ui,PM-02 處理中按鈕顯示載入狀態且不可重複觸發,方案取月度；sandbox 週期壓縮供 R11 續訂
+13,PM-02,操作,於系統購買對話框點取消,不出現購買失敗對話框、留在付費牆、等級仍為 LEVEL_0,使用者,manual-ui,PM-02 使用者取消不顯示購買失敗對話框，留在付費牆,
+14,PM-02,操作,再點訂閱按鈕、於系統對話框由使用者自行輸入 sandbox-buyer 密碼完成購買確認,購買成功、等級即時升過發起基準、付費牆 Modal 自動關閉,使用者,manual-ui,PM-02 購買成功即 StoreKit 生效，等級升過發起基準後 Modal 自動關閉,帳密不落檔、由使用者當場自填
+15,PM-02,操作,回設定頁捲動檢視升級入口位置,升級入口自動隱藏、等級呈現為付費,使用者,manual-ui,PM-02 升級後設定頁升級入口自動隱藏,
+16,CF-01,Claude節點,Claude 呼叫 capture_qa_original_transaction_id_from_session_entitlement 以 firestore-read 精確查 entitlements/${QA_SESSION_UID}、原始回應留暫存並由 command substitution 捕獲 original_transaction_id、只在 shell memory 設定 QA_ORIGINAL_TRANSACTION_ID 與 QA_ORIGINAL_TRANSACTION_ID_PROVENANCE=session-entitlement-exact-doc 且 ID 必須是 5 至 32 位十進位數字、同步設定 QA_ORIGINAL_TRANSACTION_OWNER_HASH=READY identityHash、再以單一 present mode 呼叫 run_qa_txn_index_exact_doc_probe 並在本機確認 owner uid SHA-256 同時等於 READY identityHash 與 capture owner hash、可見 uid 固定遮罩為 [QA_SESSION_UID]、不記錄 transaction ID 後刪除暫存,entitlements 欄位齊備且 environment 為 sandbox、txnIndex owner hash 與 READY identityHash 相同,Claude,firestore-read,CF-01 entitlements/${QA_SESSION_UID} 寫入，tier、status、environment、original_transaction_id 符合資料模型；CF-01 txnIndex/${QA_ORIGINAL_TRANSACTION_ID} 的 uid hash 符合 READY identityHash,購買後 client 背景送出登記呼叫、狀態此刻可觀測
+17,CF-01,Claude節點,Claude 以 cloud-logging 查 verifyTransaction 的 functions log,有執行成功訊息、log 無未捕捉錯誤,Claude,cloud-logging,CF-01 verifyTransaction 執行成功，log 無未捕捉錯誤,
+18,PM-04,操作,進帳戶管理點新增帳戶、名稱輸入 投資、幣別選 TWD 後點儲存,新增成功、不出現付費牆、活躍帳戶數為 4,使用者,manual-ui,,解鎖後補建第 4 帳戶
+19,PM-04,操作,進類別管理點新增類別、類型選收入、名稱輸入 禮金 後點儲存,新增成功、不出現付費牆、活躍類別數為 8,使用者,manual-ui,PM-04 升級後新增不再被擋，付費牆不再出現,解鎖後補建第 8 類別
+20,AS-05,操作,進設定頁點資料管理、點匯入收入支出、於首步點下載範本並於分享面板儲存,系統分享面板開啟、範本檔儲存成功、欄位序為 transaction_datetime、category、account、amount、currency、note,使用者,manual-ui,,
+21,AS-05,操作,於同一步點下載說明檔並於分享面板儲存,說明檔產出成功、所述欄位與匯入接受格式同源,使用者,manual-ui,AS-05 範本與說明經系統分享面板產出，欄位與匯入接受格式同源,
+22,AS-05,操作,於選檔步驟選一個非 CSV 檔、如剛儲存的說明檔,顯示僅支援 CSV 格式對話框、不進入下一步,使用者,manual-ui,AS-05 選非 CSV 檔顯示僅支援 CSV 格式對話框,
+23,AS-05,操作,來源時區維持預設、改選 assets 的 import_bad.csv 後前進,進入欄位對應、amount 欄因該欄含空值不入候選、無法完成必填對應而擋在本步,使用者,manual-ui,,import_bad.csv 三列資料含一列金額空值；判定點由場尾單元測試承載
+24,AS-05,操作,退回選檔步驟、改選 assets 的 import_small.csv 後前進、確認欄位對應無缺後前進,六欄自動對應無缺、順利進入內容比對,使用者,manual-ui,,
+25,AS-05,操作,於內容比對逐列檢視帳戶與類別清單,僅列當前使用者活躍紀錄、錢包與餐飲與交通與薪資標為既有、悠遊卡與教育標為新、已刪除的銀行與醫療不在列,使用者,manual-ui,AS-05 內容比對僅列當前使用者活躍紀錄，同名不同幣別帳戶各自一列,
+26,AS-05,操作,為悠遊卡與教育各選新建後前進、核對預覽摘要後點送出,預覽摘要列 10 筆待匯入、送出後顯示已匯入 9 筆與略過 1 筆,使用者,manual-ui,AS-05 送出成功顯示已匯入與略過筆數，確認後關閉 Modal、交易入清單,略過的 1 筆為金額 99999999999 的超額列
+27,AS-05,操作,於結果對話框點確認、回交易清單並進帳戶管理與類別管理檢視,Modal 關閉、清單出現匯入早餐 120 等 9 筆、帳戶管理出現悠遊卡共五個帳戶、類別管理出現教育共九個類別、匯入超額列不在清單,使用者,manual-ui,,

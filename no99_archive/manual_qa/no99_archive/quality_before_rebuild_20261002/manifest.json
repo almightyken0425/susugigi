@@ -1,0 +1,1117 @@
+{
+  "schema_version": 1,
+  "kind": "quality",
+  "date": "2026-10-02",
+  "branch": "feat/susugigi-quality-rebuild",
+  "source_commit": "c783a9380ab67b6d1558d286476c330c9be36c7a",
+  "archive_directory": "no99_archive/quality_before_rebuild_20261002",
+  "entries": [
+    {
+      "source_path": ".gitattributes",
+      "archive_path": "files/.gitattributes.snapshot",
+      "disposition": "snapshot_retained",
+      "kind": "file",
+      "sha256": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
+      "bytes": 19,
+      "mode": 420
+    },
+    {
+      "source_path": ".gitignore",
+      "archive_path": "files/.gitignore.snapshot",
+      "disposition": "snapshot_retained",
+      "kind": "file",
+      "sha256": "6888c81ac3c5e578d0f32deb9d8263f970dc069139a29c3c3a647389aea507c4",
+      "bytes": 473,
+      "mode": 420
+    },
+    {
+      "source_path": "AGENTS.md",
+      "archive_path": "files/AGENTS.md.snapshot",
+      "disposition": "replace_notice",
+      "kind": "file",
+      "sha256": "a4f4a9cf3abc73451a9aad1abef091b2d4a173b8e1f00ef6791575ec6d24eb1f",
+      "bytes": 1234,
+      "mode": 420
+    },
+    {
+      "source_path": "CLAUDE.md",
+      "archive_path": "files/CLAUDE.md.snapshot",
+      "disposition": "snapshot_retained",
+      "kind": "file",
+      "sha256": "c006ecf1df562d5f23fa0c1d44cb346bc7ceee636ea4dc00ec9f7fc0db4b340e",
+      "bytes": 168,
+      "mode": 420
+    },
+    {
+      "source_path": "no1_capability_profile.md",
+      "archive_path": "files/no1_capability_profile.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "6eaca2eacb23f135f07fbd90bc62f366d3daa51cb5c2ba9c8cac9a8fc4a57f89",
+      "bytes": 42590,
+      "mode": 420
+    },
+    {
+      "source_path": "no2_qa_tools/check_fixture_golden.py",
+      "archive_path": "files/no2_qa_tools/check_fixture_golden.py",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "f2232363f00fe90afff98e1512f77470358274748bb8bca94f8d71a20ab30dcf",
+      "bytes": 22464,
+      "mode": 420
+    },
+    {
+      "source_path": "no2_qa_tools/check_plan.sh",
+      "archive_path": "files/no2_qa_tools/check_plan.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "2f40b1bc212914234c554c9187c360fee7ae1162d887a88f36d4f2db9d043ffe",
+      "bytes": 245819,
+      "mode": 420
+    },
+    {
+      "source_path": "no2_qa_tools/check_runtime_entrypoints.py",
+      "archive_path": "files/no2_qa_tools/check_runtime_entrypoints.py",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "3f302cc0f925b1bccbc0bc7b339105fae6b6bdbf4fdc8f4db63b9b7af9d12491",
+      "bytes": 3437,
+      "mode": 420
+    },
+    {
+      "source_path": "no2_qa_tools/cleanup_qa_fixtures.sh",
+      "archive_path": "files/no2_qa_tools/cleanup_qa_fixtures.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "4c226ff65933296badb612be0be01d26cf90ac477cb954d532432327ffe9d257",
+      "bytes": 5443,
+      "mode": 420
+    },
+    {
+      "source_path": "no2_qa_tools/delete_qa_fixture_subtree.py",
+      "archive_path": "files/no2_qa_tools/delete_qa_fixture_subtree.py",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "4f534e03611ff0bf92106b06cd81fdc086f7f819d652fc37a74b7199f64c9d29",
+      "bytes": 18875,
+      "mode": 420
+    },
+    {
+      "source_path": "no2_qa_tools/query_local_db.sh",
+      "archive_path": "files/no2_qa_tools/query_local_db.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "c816c9f8fab1910deedbef074c7d9c53fab80192841b1070f478bcd5aba1cb6d",
+      "bytes": 37149,
+      "mode": 420
+    },
+    {
+      "source_path": "no2_qa_tools/tests/cleanup_qa_fixtures_test.sh",
+      "archive_path": "files/no2_qa_tools/tests/cleanup_qa_fixtures_test.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "96e772eee4e1f749ab4affa6405fb1ef90d891f701637a21f99ba77dfd7bdc84",
+      "bytes": 17473,
+      "mode": 420
+    },
+    {
+      "source_path": "no2_qa_tools/tests/delete_qa_fixture_subtree_test.py",
+      "archive_path": "files/no2_qa_tools/tests/delete_qa_fixture_subtree_test.py",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "428d3123d1d4cb343359f7b86f9b2d68a37e6a593048ecc335c70ac612c98db1",
+      "bytes": 21675,
+      "mode": 420
+    },
+    {
+      "source_path": "no2_qa_tools/tests/r13_prepare_order_test.py",
+      "archive_path": "files/no2_qa_tools/tests/r13_prepare_order_test.py",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "e3a2364b930235cb9e323af718f86c78d8c86b7af7a0cd91cc391a8567c4f7fb",
+      "bytes": 1637,
+      "mode": 420
+    },
+    {
+      "source_path": "no2_regression_plan/no0_index.md",
+      "archive_path": "files/no2_regression_plan/no0_index.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "68dd70e1f8fe80263bf6808f5156f26294e6fa5a0ac958746077780f16c47e22",
+      "bytes": 13365,
+      "mode": 420
+    },
+    {
+      "source_path": "no2_regression_plan/no10_cloud_functions.md",
+      "archive_path": "files/no2_regression_plan/no10_cloud_functions.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "f12479dc2ed7d64421233e15ca76351330ddf4d1739911aa7f25f63ba48e9b77",
+      "bytes": 8239,
+      "mode": 420
+    },
+    {
+      "source_path": "no2_regression_plan/no1_auth_bootstrap.md",
+      "archive_path": "files/no2_regression_plan/no1_auth_bootstrap.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "18745ed4e93db8a28886ce8317f47e6e917acc92fc0dd96d1cb67219ba2ac537",
+      "bytes": 6414,
+      "mode": 420
+    },
+    {
+      "source_path": "no2_regression_plan/no2_recording_core.md",
+      "archive_path": "files/no2_regression_plan/no2_recording_core.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "bfc03f69436a3a8856a5cc9401bc2ee08cf4526b13e783ee41927921c0996bfa",
+      "bytes": 14245,
+      "mode": 420
+    },
+    {
+      "source_path": "no2_regression_plan/no3_home_dashboard.md",
+      "archive_path": "files/no2_regression_plan/no3_home_dashboard.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "32b4ed45d4cd3fa7882cc7cbc644297292a05a094d7c384e53af1793950c113c",
+      "bytes": 19135,
+      "mode": 420
+    },
+    {
+      "source_path": "no2_regression_plan/no4_entity_management.md",
+      "archive_path": "files/no2_regression_plan/no4_entity_management.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "628f5dbcf00e894c20928fa2ecdec978359a6d8be00a62d20e2e2540bc8afd81",
+      "bytes": 9643,
+      "mode": 420
+    },
+    {
+      "source_path": "no2_regression_plan/no5_currency.md",
+      "archive_path": "files/no2_regression_plan/no5_currency.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "8fb12fc80bf514537c41683488a8c4c238ad3c631ad47ba56b1948b9575334f6",
+      "bytes": 9830,
+      "mode": 420
+    },
+    {
+      "source_path": "no2_regression_plan/no6_app_setting.md",
+      "archive_path": "files/no2_regression_plan/no6_app_setting.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "1cde613d8d8f12e3a058d5a7afd3ba3b9f6dcbb0c896e29ee1df9d8fd306fae1",
+      "bytes": 17512,
+      "mode": 420
+    },
+    {
+      "source_path": "no2_regression_plan/no7_cloud_sync.md",
+      "archive_path": "files/no2_regression_plan/no7_cloud_sync.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "06ecf3cd434d85c62801efc91f19e045829661602e804c2da82038ac015f06e1",
+      "bytes": 9711,
+      "mode": 420
+    },
+    {
+      "source_path": "no2_regression_plan/no8_payment.md",
+      "archive_path": "files/no2_regression_plan/no8_payment.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "accb5b4c1bafd85f8a3c1880aa08cce1e24f57b00679225a5cd23202b798cf3f",
+      "bytes": 21321,
+      "mode": 420
+    },
+    {
+      "source_path": "no2_regression_plan/no9_local_database.md",
+      "archive_path": "files/no2_regression_plan/no9_local_database.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "e8e41f08717c5bbf1ff51cd04c25523a8a13fb042a5d6e3c5cbc542098873001",
+      "bytes": 5290,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/assets/import_bad.csv",
+      "archive_path": "files/no3_run_scripts/assets/import_bad.csv",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "6e0429ac539004d1bd07df4203b3f67e2ccf46283276356f3bb978325c82e5e2",
+      "bytes": 217,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/assets/import_quota.csv",
+      "archive_path": "files/no3_run_scripts/assets/import_quota.csv",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "28f257853e2bc72b969fe050cfc64624d30ebfbcebd575444a9e43710de897c7",
+      "bytes": 116012,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/assets/import_small.csv",
+      "archive_path": "files/no3_run_scripts/assets/import_small.csv",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "0efb011637432d6b12e14dc4cee511eb1ee794ca519d920c00dbed9a0cdf16f2",
+      "bytes": 628,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/README.md",
+      "archive_path": "files/no3_run_scripts/control_adapter/README.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "e79a2ca55caa80c7cba2b8ed6f95b316205d00e2a9b08171d84178dd0ab7d721",
+      "bytes": 1490,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/handoff_contract.md",
+      "archive_path": "files/no3_run_scripts/control_adapter/handoff_contract.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "a05c7070597dc91e36b896985d55efed3990147e8b85cf7430fbce6633dc67d0",
+      "bytes": 22125,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/identity_contract.md",
+      "archive_path": "files/no3_run_scripts/control_adapter/identity_contract.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "45771db20a66f920d3a38c86ea092d7b8c2c958630af838c04b6167d33fb4256",
+      "bytes": 5865,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runbook.md",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runbook.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "3ad51b32a0197481ba46f0f6e80bd67fafd57eb0998d8094400f8b8086e25a03",
+      "bytes": 50543,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runtime/accompany_1.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runtime/accompany_1.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "f871e7ad910d197c61b5d3509d0dd6dc369ce183e749ad20ce9a820f857f376f",
+      "bytes": 78,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runtime/accompany_2.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runtime/accompany_2.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "55c9c8c5c222297a72697eebe3fcf72943f542bfa26c4acdda7b2a1a044cb7be",
+      "bytes": 1259,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runtime/blocked_scenes_1.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runtime/blocked_scenes_1.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "a51b65e1ae9bbc49c5d22cbc81a13bcee4294a33bcacba22592987b467585307",
+      "bytes": 181,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runtime/bootstrap_1.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runtime/bootstrap_1.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "c6bc0a15e8eac23df7fc02a4c658d50f2f647547942659e7dad06dbbffd5e840",
+      "bytes": 141,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runtime/build_1.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runtime/build_1.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "60ab298555096fd0a160bf04c25a2b6927e30729e81d7b8a8c1eb56843476fae",
+      "bytes": 1622,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runtime/build_2.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runtime/build_2.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "df18fe9c42defc5e7acfa7b93659e126e690fe9ec3bdee5693006c7dee36d29f",
+      "bytes": 4932,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runtime/disposal_1.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runtime/disposal_1.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "45f05a798adf91c5befec4c8400fbd0062c6eb68b84f9f34eda3dfb93ba082b7",
+      "bytes": 233,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runtime/firestore_binding_1.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runtime/firestore_binding_1.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "f1d71ea1212b2b3d80b104a30bb892bc6b4507838358aa36db7d2aa6fd22d653",
+      "bytes": 23315,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runtime/firestore_probe_1.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runtime/firestore_probe_1.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "a76d9efb695424bb82c515d0365de74104c2564807d97f6cbe9376cd4e246a00",
+      "bytes": 733,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runtime/firestore_probe_2.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runtime/firestore_probe_2.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "afde1a6f75f577108b18f44c70088ac51180a60c1c5614b8cc4bb216e405e39b",
+      "bytes": 604,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runtime/main_checkout_1.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runtime/main_checkout_1.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "995795b3019322c246034ecf33b8396ec9536b25ddaf9deccaaba4559168cf16",
+      "bytes": 743,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runtime/manual_operation_1.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runtime/manual_operation_1.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "ebfeade3fbe22fbfe7e89cb8af9cdc1d855dbe43ef5f93a1de4977f418404464",
+      "bytes": 49,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runtime/metro_1.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runtime/metro_1.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "ba861e1c319f4a1dd510e273f7026cbb9fb2d728088750275e281e93a99ce1f6",
+      "bytes": 5553,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runtime/operation_1.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runtime/operation_1.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "3c06d70607a8018b882595204b0da07e605aad5a2aad69c86e54619010862551",
+      "bytes": 40,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runtime/restore_1.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runtime/restore_1.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "3df69dd6ff5c2c879c6ef6b808ce7dfed6af41785bb8ffea7a063b65c26461e5",
+      "bytes": 3156,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runtime/session_cleanup_1.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runtime/session_cleanup_1.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "af7ce52c32c5f16c37e8229dcbde7bb322bee06cd1663f02ebf46bd81d858e8e",
+      "bytes": 37253,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runtime/session_proof_1.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runtime/session_proof_1.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "0cd38ca008527a7d31ce3f3075c62dd4fed684464d7c7607a9b3b5563b4e7864",
+      "bytes": 205,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runtime/sqlite_binding_1.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runtime/sqlite_binding_1.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "9f7290f0c3cf56c40899272acbd737d8374c68edc99210c520b46847fb4879c7",
+      "bytes": 628,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runtime/storekit_1.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runtime/storekit_1.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "c79a026539fac25b473ae8b738a673fa990c077ee5c307d91ad5bb8727cdc507",
+      "bytes": 1405,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runtime/synthetic_target_1.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runtime/synthetic_target_1.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "6ea3089e3922660313fe27758d477e171d9c220054aec72567d648924aa9b51a",
+      "bytes": 1120,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/ios_runtime/target_1.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/ios_runtime/target_1.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "705851bdcb195178b0059498e1e1d07c8583cc16c39debaa70656c04c38e47f2",
+      "bytes": 7387,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/programs/qa-firebase-auth-absence.py",
+      "archive_path": "files/no3_run_scripts/control_adapter/programs/qa-firebase-auth-absence.py",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "37240a62f7751ea75205ce7fbb51482dc1a53fe1da3717aad9354ac4322c8493",
+      "bytes": 12029,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/programs/qa-firebase-project.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/programs/qa-firebase-project.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "ea589fb96036b247ce10617464287b1ed5d46dec17ba0a0e693f321ea03a10ea",
+      "bytes": 2637,
+      "mode": 493
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/programs/qa-firestore-read.py",
+      "archive_path": "files/no3_run_scripts/control_adapter/programs/qa-firestore-read.py",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "e26a38d6f55832972bd88acbf4b9847f145dcc2aa759368eaa35434c2bd1f4c8",
+      "bytes": 27849,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/programs/qa-first-launch.py",
+      "archive_path": "files/no3_run_scripts/control_adapter/programs/qa-first-launch.py",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "29dba0f9c528e07665d54e31db6386bce17cb99ab7a0323f44c0507ee03c4125",
+      "bytes": 8103,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/programs/qa-fixture-write-policy.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/programs/qa-fixture-write-policy.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "6fef13a7366c595d30208bcf12ef74256a073949902dc749b89703d4db1a3dd1",
+      "bytes": 900,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/programs/qa-quality-golden.py",
+      "archive_path": "files/no3_run_scripts/control_adapter/programs/qa-quality-golden.py",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "fb9333f04c03e7f48001bb81c9fae977f08f1a0009190ce122e809f2821e8b70",
+      "bytes": 30044,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/programs/qa-runtime-phase.py",
+      "archive_path": "files/no3_run_scripts/control_adapter/programs/qa-runtime-phase.py",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "9db0647e4f4b4ce606f072fec8f8fc2dbc444fc78a56923fe0766028916086e1",
+      "bytes": 17659,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/programs/qa-runtime-selection.py",
+      "archive_path": "files/no3_run_scripts/control_adapter/programs/qa-runtime-selection.py",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "95792d7f466c182a2c622db99a62e691f232f05939554a6d764f904f86e7b9c4",
+      "bytes": 3648,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/programs/qa-safe-marker-filter.py",
+      "archive_path": "files/no3_run_scripts/control_adapter/programs/qa-safe-marker-filter.py",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "15cb204aa1d63f61d95fff4c34c8e2e311ba855c0de9a46b9b6c488c68efa923",
+      "bytes": 37687,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/programs/qa-session-runtime.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/programs/qa-session-runtime.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "6c7f2e620ef2246457b0cb8ef101faadebb5a41f54acc8238ec5487ccc802850",
+      "bytes": 19461,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/runtime_manifest.json",
+      "archive_path": "files/no3_run_scripts/control_adapter/runtime_manifest.json",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "b62f9194101711138541eef08d7b2b71ff1ca94b4d07ab960dcabdf804a7ab79",
+      "bytes": 9160,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/tests/qa-config-empty-values-test.py",
+      "archive_path": "files/no3_run_scripts/control_adapter/tests/qa-config-empty-values-test.py",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "3ba4e09d157ee7dba0af293f5384ec26dbcd624b4b8894be17de5f8ebd52bf87",
+      "bytes": 8918,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/tests/qa-firebase-project-test.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/tests/qa-firebase-project-test.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "f7a155c17312cfd0bfc9509f13f797465c848ba3cc9333aa5655150c24f6547f",
+      "bytes": 10194,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/tests/qa-firebase-rest-probe-test.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/tests/qa-firebase-rest-probe-test.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "fd9d606abd9ee5b6471e073245e01cef281160619164459f387025f0711ff352",
+      "bytes": 6941,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/tests/qa-firestore-semantic-profile-test.py",
+      "archive_path": "files/no3_run_scripts/control_adapter/tests/qa-firestore-semantic-profile-test.py",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "a836fb12a14139750e668178b5622cf50c38a710fb995eff5b8391c1f66bb2f8",
+      "bytes": 16221,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/tests/qa-first-launch-test.py",
+      "archive_path": "files/no3_run_scripts/control_adapter/tests/qa-first-launch-test.py",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "ce2ee07970b9685f62dd5d54b776ae08cdf1449037136d6f5aa5f2c2db479d09",
+      "bytes": 8404,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/tests/qa-fixture-write-policy-test.sh",
+      "archive_path": "files/no3_run_scripts/control_adapter/tests/qa-fixture-write-policy-test.sh",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "3b2306de9294fc7bd2e6ecaf6e92782cb6a7dbecbb500701838dcc10696cb85b",
+      "bytes": 1894,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/tests/qa-quality-golden-contract-test.py",
+      "archive_path": "files/no3_run_scripts/control_adapter/tests/qa-quality-golden-contract-test.py",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "874e130589aff72f474387e368277fd1b8491d4c12a3c47b7cf5409eccfdcdc8",
+      "bytes": 23996,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/tests/qa-runtime-phase-test.py",
+      "archive_path": "files/no3_run_scripts/control_adapter/tests/qa-runtime-phase-test.py",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "9c7341dd05cefff3cf1fa5b7e1b22ddc08b200ceebbedbb23d32b7b645185859",
+      "bytes": 17213,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/control_adapter/tests/qa-runtime-selection-test.py",
+      "archive_path": "files/no3_run_scripts/control_adapter/tests/qa-runtime-selection-test.py",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "35ca65f1aa51bf1e949a8ee7a8a0da25e9c35115e1d43b6067b4b9c1bedce5fe",
+      "bytes": 2065,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no0_index.md",
+      "archive_path": "files/no3_run_scripts/no0_index.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "e0a379d6690b57b692a6a7583add5dd15a989f5ddb668182fcfeb2f3f9cff5c1",
+      "bytes": 11274,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no10_r08_preference_sync.csv",
+      "archive_path": "files/no3_run_scripts/no10_r08_preference_sync.csv",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "29ac6a20beb99d6337368122f6b5331a08b617ab7a3c6c7d11bdabe15a9bfbf3",
+      "bytes": 9032,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no10_r08_preference_sync.md",
+      "archive_path": "files/no3_run_scripts/no10_r08_preference_sync.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "e130628a3fc7c577f2c28d9dc9864389d40b8f28dc7a925e9a04d84bd81d0d8c",
+      "bytes": 1929,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no12_r10_payment_backend.csv",
+      "archive_path": "files/no3_run_scripts/no12_r10_payment_backend.csv",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "ecc797f0fedab9301bd02b5797802b431e05ce387675b06055db1b0b0f54d295",
+      "bytes": 8376,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no12_r10_payment_backend.md",
+      "archive_path": "files/no3_run_scripts/no12_r10_payment_backend.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "99cc2ac49dadd6b9003b1c98a6355576a632e093e5b05d09488bac2e37a172fd",
+      "bytes": 1302,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no13_r11_subscription_lifecycle.csv",
+      "archive_path": "files/no3_run_scripts/no13_r11_subscription_lifecycle.csv",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "4accbf13af5068dee62255ab5603b6827ca3dda4f680d4ffd51bc70e6f71114c",
+      "bytes": 4247,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no13_r11_subscription_lifecycle.md",
+      "archive_path": "files/no3_run_scripts/no13_r11_subscription_lifecycle.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "2d22fdb9cf49f77c16ac33481156c0c509ea6e1a73b09035746f173e28a891ef",
+      "bytes": 1165,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no14_r12_teardown_rebirth.csv",
+      "archive_path": "files/no3_run_scripts/no14_r12_teardown_rebirth.csv",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "549c3d44fd1948e4b9f2997ace6a3b9ceb3d798e078ecf7b1c3d3376f2424a91",
+      "bytes": 5170,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no14_r12_teardown_rebirth.md",
+      "archive_path": "files/no3_run_scripts/no14_r12_teardown_rebirth.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "3b10acaa0652ed94ce24f13a68465ec665b0415c78321162eecaee1897a72188",
+      "bytes": 1935,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no15_r13_backfill_verification.csv",
+      "archive_path": "files/no3_run_scripts/no15_r13_backfill_verification.csv",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "adb8267ec1947fc66fbbdf35513f1bff5a37d9b157b27c0428d9a967e772605f",
+      "bytes": 3705,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no15_r13_backfill_verification.md",
+      "archive_path": "files/no3_run_scripts/no15_r13_backfill_verification.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "2b313661a0e2ca91c08feda8e6d398fc6dd00ba56b803b1d0b89ebdc4b1ab7f1",
+      "bytes": 5644,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no16_r14_pre_identity_offline_launch.csv",
+      "archive_path": "files/no3_run_scripts/no16_r14_pre_identity_offline_launch.csv",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "42eba1ea54033ea0766206b688fad3a3eb686909f1042e07483eda1db0c13aaf",
+      "bytes": 1592,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no16_r14_pre_identity_offline_launch.md",
+      "archive_path": "files/no3_run_scripts/no16_r14_pre_identity_offline_launch.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "e6bf463e79d0a4e73ce2d48c561041b3ea0d130d0bf510c6982ce487d029b631",
+      "bytes": 3214,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no17_r15_local_storekit.csv",
+      "archive_path": "files/no3_run_scripts/no17_r15_local_storekit.csv",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "9f5b91b7644b0019337aa578879038a48585df601ffa53bbf4ca6cdf7c7095ae",
+      "bytes": 32826,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no17_r15_local_storekit.md",
+      "archive_path": "files/no3_run_scripts/no17_r15_local_storekit.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "deb6ca0dd0257eb4a1dd26dd726839b1ed818ba2c91abe58fd026e21d6945917",
+      "bytes": 8229,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no17_r15_user_steps.md",
+      "archive_path": "files/no3_run_scripts/no17_r15_user_steps.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "f532ed8bddb267d9889c34bb2d20f5186865398ffca96b6f2150b325143dde80",
+      "bytes": 24072,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no1_fixture_golden.json",
+      "archive_path": "files/no3_run_scripts/no1_fixture_golden.json",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "6290beb3294a1d9abaf0f631deb538a42e3bbab24e421c4ecc7555685fd9ede7",
+      "bytes": 12192,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no1_fixtures.md",
+      "archive_path": "files/no3_run_scripts/no1_fixtures.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "a81839f4733c4f9d165946cf658a66e6f91b43d189d97069f2cfcfadb95f09eb",
+      "bytes": 13357,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no2_r00_static_verification.csv",
+      "archive_path": "files/no3_run_scripts/no2_r00_static_verification.csv",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "6727e76481f0e2b55a5e5696adbb73d5ee4af959b450bebbb2a052621746015a",
+      "bytes": 14163,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no2_r00_static_verification.md",
+      "archive_path": "files/no3_run_scripts/no2_r00_static_verification.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "06c6f32b382ac9c5b3c3110cb424a7a7b1b73cb76d3f4cb3c404e3d239510a33",
+      "bytes": 1688,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no3_r01_bootstrap_identity.csv",
+      "archive_path": "files/no3_run_scripts/no3_r01_bootstrap_identity.csv",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "e8357b4bdf9fd4a11ff6078b921ea1f32edca03ac40ab78ea6e4fbb8ee6d38ef",
+      "bytes": 4658,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no3_r01_bootstrap_identity.md",
+      "archive_path": "files/no3_run_scripts/no3_r01_bootstrap_identity.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "a3f77de4290e5d6452146313daf8b9ca24d5858a85b64fea249c7dcf37504a81",
+      "bytes": 1996,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no4_r02_entity_recording.csv",
+      "archive_path": "files/no3_run_scripts/no4_r02_entity_recording.csv",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "bc998f2e0065564cff36ac4d5cbf71ca5c9b3aff34dfdd23858b0c87d79cbaac",
+      "bytes": 7794,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no4_r02_entity_recording.md",
+      "archive_path": "files/no3_run_scripts/no4_r02_entity_recording.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "d292b4b040ebf9c84de5e2f733a2c84070a626da85fab0cf73dc1c5ca2ff60fd",
+      "bytes": 2029,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no4_r02_user_steps.md",
+      "archive_path": "files/no3_run_scripts/no4_r02_user_steps.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "9c42df3b677254df32807dd21221870ecf4fcf914b502347727465f13c6180c5",
+      "bytes": 3887,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no5_r03_backup_export.csv",
+      "archive_path": "files/no3_run_scripts/no5_r03_backup_export.csv",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "95cc693cbd2633363bc943955e666ea9595e69459ffd2756a5114a5cd8b078b9",
+      "bytes": 9439,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no5_r03_backup_export.md",
+      "archive_path": "files/no3_run_scripts/no5_r03_backup_export.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "b011ef703529a555c618ec2e39db3cd1273578636c921292208eef9edc9518b3",
+      "bytes": 7334,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no6_r04_recurring.csv",
+      "archive_path": "files/no3_run_scripts/no6_r04_recurring.csv",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "81efaf5513475cd04d3cfd6702ba47b7782c22611d98579ec19719f38674c063",
+      "bytes": 2744,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no6_r04_recurring.md",
+      "archive_path": "files/no3_run_scripts/no6_r04_recurring.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "a7b0ff63ba4f0dc7baba7535befe056c438c5ad090459587ba5ad6c9d4e65675",
+      "bytes": 716,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no7_r05_currency.csv",
+      "archive_path": "files/no3_run_scripts/no7_r05_currency.csv",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "3822042a78c604b23c713f29a2ebbe74b88d1d39826c4c5a5973b08c37d5230e",
+      "bytes": 5019,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no7_r05_currency.md",
+      "archive_path": "files/no3_run_scripts/no7_r05_currency.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "69a9b767309a47ce915d7bb8d6a0126cf09c469ea902b251ab608c88d6ca103d",
+      "bytes": 817,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no8_r06_dashboard.csv",
+      "archive_path": "files/no3_run_scripts/no8_r06_dashboard.csv",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "5b7881c09181b5d1b49b757092db14e395ec24a17a1c5800744a46a14eb16761",
+      "bytes": 10237,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no8_r06_dashboard.md",
+      "archive_path": "files/no3_run_scripts/no8_r06_dashboard.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "0ec33877e93c436bfdb002a40f70b1471179e2dad0f760fe0d8b36e7076ed9b6",
+      "bytes": 2783,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no9_r07_list_governance.csv",
+      "archive_path": "files/no3_run_scripts/no9_r07_list_governance.csv",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "52c3140305cda9030b6a2d6eae2c2201cf398e408998017c75407b0c385b83b5",
+      "bytes": 6255,
+      "mode": 420
+    },
+    {
+      "source_path": "no3_run_scripts/no9_r07_list_governance.md",
+      "archive_path": "files/no3_run_scripts/no9_r07_list_governance.md",
+      "disposition": "remove_after_verified",
+      "kind": "file",
+      "sha256": "eb64490c93418afe8b85a49d3b97eedd3e3baf38b187b392ceeaf9dfcbcab88f",
+      "bytes": 851,
+      "mode": 420
+    }
+  ],
+  "source_directories": [
+    ".",
+    "no2_qa_tools",
+    "no2_qa_tools/tests",
+    "no2_regression_plan",
+    "no3_run_scripts",
+    "no3_run_scripts/assets",
+    "no3_run_scripts/control_adapter",
+    "no3_run_scripts/control_adapter/ios_runtime",
+    "no3_run_scripts/control_adapter/programs",
+    "no3_run_scripts/control_adapter/tests"
+  ],
+  "excluded": [
+    "untracked and ignored files",
+    "credentials",
+    ".git metadata"
+  ],
+  "status": "verified_and_retired_in_candidate",
+  "retirement": {
+    "removed": [
+      "no1_capability_profile.md",
+      "no2_qa_tools/check_fixture_golden.py",
+      "no2_qa_tools/check_plan.sh",
+      "no2_qa_tools/check_runtime_entrypoints.py",
+      "no2_qa_tools/cleanup_qa_fixtures.sh",
+      "no2_qa_tools/delete_qa_fixture_subtree.py",
+      "no2_qa_tools/query_local_db.sh",
+      "no2_qa_tools/tests/cleanup_qa_fixtures_test.sh",
+      "no2_qa_tools/tests/delete_qa_fixture_subtree_test.py",
+      "no2_qa_tools/tests/r13_prepare_order_test.py",
+      "no2_regression_plan/no0_index.md",
+      "no2_regression_plan/no10_cloud_functions.md",
+      "no2_regression_plan/no1_auth_bootstrap.md",
+      "no2_regression_plan/no2_recording_core.md",
+      "no2_regression_plan/no3_home_dashboard.md",
+      "no2_regression_plan/no4_entity_management.md",
+      "no2_regression_plan/no5_currency.md",
+      "no2_regression_plan/no6_app_setting.md",
+      "no2_regression_plan/no7_cloud_sync.md",
+      "no2_regression_plan/no8_payment.md",
+      "no2_regression_plan/no9_local_database.md",
+      "no3_run_scripts/assets/import_bad.csv",
+      "no3_run_scripts/assets/import_quota.csv",
+      "no3_run_scripts/assets/import_small.csv",
+      "no3_run_scripts/control_adapter/README.md",
+      "no3_run_scripts/control_adapter/handoff_contract.md",
+      "no3_run_scripts/control_adapter/identity_contract.md",
+      "no3_run_scripts/control_adapter/ios_runbook.md",
+      "no3_run_scripts/control_adapter/ios_runtime/accompany_1.sh",
+      "no3_run_scripts/control_adapter/ios_runtime/accompany_2.sh",
+      "no3_run_scripts/control_adapter/ios_runtime/blocked_scenes_1.sh",
+      "no3_run_scripts/control_adapter/ios_runtime/bootstrap_1.sh",
+      "no3_run_scripts/control_adapter/ios_runtime/build_1.sh",
+      "no3_run_scripts/control_adapter/ios_runtime/build_2.sh",
+      "no3_run_scripts/control_adapter/ios_runtime/disposal_1.sh",
+      "no3_run_scripts/control_adapter/ios_runtime/firestore_binding_1.sh",
+      "no3_run_scripts/control_adapter/ios_runtime/firestore_probe_1.sh",
+      "no3_run_scripts/control_adapter/ios_runtime/firestore_probe_2.sh",
+      "no3_run_scripts/control_adapter/ios_runtime/main_checkout_1.sh",
+      "no3_run_scripts/control_adapter/ios_runtime/manual_operation_1.sh",
+      "no3_run_scripts/control_adapter/ios_runtime/metro_1.sh",
+      "no3_run_scripts/control_adapter/ios_runtime/operation_1.sh",
+      "no3_run_scripts/control_adapter/ios_runtime/restore_1.sh",
+      "no3_run_scripts/control_adapter/ios_runtime/session_cleanup_1.sh",
+      "no3_run_scripts/control_adapter/ios_runtime/session_proof_1.sh",
+      "no3_run_scripts/control_adapter/ios_runtime/sqlite_binding_1.sh",
+      "no3_run_scripts/control_adapter/ios_runtime/storekit_1.sh",
+      "no3_run_scripts/control_adapter/ios_runtime/synthetic_target_1.sh",
+      "no3_run_scripts/control_adapter/ios_runtime/target_1.sh",
+      "no3_run_scripts/control_adapter/programs/qa-firebase-auth-absence.py",
+      "no3_run_scripts/control_adapter/programs/qa-firebase-project.sh",
+      "no3_run_scripts/control_adapter/programs/qa-firestore-read.py",
+      "no3_run_scripts/control_adapter/programs/qa-first-launch.py",
+      "no3_run_scripts/control_adapter/programs/qa-fixture-write-policy.sh",
+      "no3_run_scripts/control_adapter/programs/qa-quality-golden.py",
+      "no3_run_scripts/control_adapter/programs/qa-runtime-phase.py",
+      "no3_run_scripts/control_adapter/programs/qa-runtime-selection.py",
+      "no3_run_scripts/control_adapter/programs/qa-safe-marker-filter.py",
+      "no3_run_scripts/control_adapter/programs/qa-session-runtime.sh",
+      "no3_run_scripts/control_adapter/runtime_manifest.json",
+      "no3_run_scripts/control_adapter/tests/qa-config-empty-values-test.py",
+      "no3_run_scripts/control_adapter/tests/qa-firebase-project-test.sh",
+      "no3_run_scripts/control_adapter/tests/qa-firebase-rest-probe-test.sh",
+      "no3_run_scripts/control_adapter/tests/qa-firestore-semantic-profile-test.py",
+      "no3_run_scripts/control_adapter/tests/qa-first-launch-test.py",
+      "no3_run_scripts/control_adapter/tests/qa-fixture-write-policy-test.sh",
+      "no3_run_scripts/control_adapter/tests/qa-quality-golden-contract-test.py",
+      "no3_run_scripts/control_adapter/tests/qa-runtime-phase-test.py",
+      "no3_run_scripts/control_adapter/tests/qa-runtime-selection-test.py",
+      "no3_run_scripts/no0_index.md",
+      "no3_run_scripts/no10_r08_preference_sync.csv",
+      "no3_run_scripts/no10_r08_preference_sync.md",
+      "no3_run_scripts/no12_r10_payment_backend.csv",
+      "no3_run_scripts/no12_r10_payment_backend.md",
+      "no3_run_scripts/no13_r11_subscription_lifecycle.csv",
+      "no3_run_scripts/no13_r11_subscription_lifecycle.md",
+      "no3_run_scripts/no14_r12_teardown_rebirth.csv",
+      "no3_run_scripts/no14_r12_teardown_rebirth.md",
+      "no3_run_scripts/no15_r13_backfill_verification.csv",
+      "no3_run_scripts/no15_r13_backfill_verification.md",
+      "no3_run_scripts/no16_r14_pre_identity_offline_launch.csv",
+      "no3_run_scripts/no16_r14_pre_identity_offline_launch.md",
+      "no3_run_scripts/no17_r15_local_storekit.csv",
+      "no3_run_scripts/no17_r15_local_storekit.md",
+      "no3_run_scripts/no17_r15_user_steps.md",
+      "no3_run_scripts/no1_fixture_golden.json",
+      "no3_run_scripts/no1_fixtures.md",
+      "no3_run_scripts/no2_r00_static_verification.csv",
+      "no3_run_scripts/no2_r00_static_verification.md",
+      "no3_run_scripts/no3_r01_bootstrap_identity.csv",
+      "no3_run_scripts/no3_r01_bootstrap_identity.md",
+      "no3_run_scripts/no4_r02_entity_recording.csv",
+      "no3_run_scripts/no4_r02_entity_recording.md",
+      "no3_run_scripts/no4_r02_user_steps.md",
+      "no3_run_scripts/no5_r03_backup_export.csv",
+      "no3_run_scripts/no5_r03_backup_export.md",
+      "no3_run_scripts/no6_r04_recurring.csv",
+      "no3_run_scripts/no6_r04_recurring.md",
+      "no3_run_scripts/no7_r05_currency.csv",
+      "no3_run_scripts/no7_r05_currency.md",
+      "no3_run_scripts/no8_r06_dashboard.csv",
+      "no3_run_scripts/no8_r06_dashboard.md",
+      "no3_run_scripts/no9_r07_list_governance.csv",
+      "no3_run_scripts/no9_r07_list_governance.md"
+    ],
+    "replaced_with_notice": [
+      "AGENTS.md"
+    ],
+    "retained": [
+      ".gitattributes",
+      ".gitignore",
+      "CLAUDE.md"
+    ],
+    "main_or_installed_changed": false
+  }
+}

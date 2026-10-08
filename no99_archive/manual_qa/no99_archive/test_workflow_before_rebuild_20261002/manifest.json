@@ -1,0 +1,486 @@
+{
+  "schema_version": 1,
+  "kind": "control",
+  "date": "2026-10-02",
+  "branch": "feat/susugigi-quality-rebuild",
+  "source_commit": "cefead9aa5d2446ca37226b24a3b66ab349db52a",
+  "archive_directory": "no99_archive/test_workflow_before_rebuild_20261002",
+  "entries": [
+    {
+      "source_path": "contracts/capabilities.json",
+      "archive_path": "files/contracts/capabilities.json",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "e9bfbe923e1f1df9ec182538967f6c30f0488e5c4015f0e37d22becacd6d6092",
+      "bytes": 12912,
+      "mode": 420
+    },
+    {
+      "source_path": "hooks/capability-probe.sh",
+      "archive_path": "files/hooks/capability-probe.sh",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "06d8205b8e453531b178a63c814eb25e5db63910405c6439cd9a288fc15683f2",
+      "bytes": 3694,
+      "mode": 420
+    },
+    {
+      "source_path": "hooks/tests/impl-jest-hint-test.sh",
+      "archive_path": "files/hooks/tests/impl-jest-hint-test.sh",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "9447761887a6170c7608a4298e8fb27817cd1dda43f7656b1882bc4df95c8c60",
+      "bytes": 6053,
+      "mode": 420
+    },
+    {
+      "source_path": "hooks/tests/impl-scene-hint-test.sh",
+      "archive_path": "files/hooks/tests/impl-scene-hint-test.sh",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "6f2c98fc7127ff201422437f13fd9866fc311b0b115bd4a34955081a3f9bb0cf",
+      "bytes": 12146,
+      "mode": 420
+    },
+    {
+      "source_path": "manifests/capabilities.json",
+      "archive_path": "files/manifests/capabilities.json",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "0c391535ea26888e13c4eb70cb1451b483186c716ac6de59f956f431a278634e",
+      "bytes": 4611,
+      "mode": 420
+    },
+    {
+      "source_path": "manifests/qa_adapters.json",
+      "archive_path": "files/manifests/qa_adapters.json",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "da3768f5b8f0310e91da342948107fa9a70fdc0ce02b0e673eca36bb3bba91fd",
+      "bytes": 457,
+      "mode": 420
+    },
+    {
+      "source_path": "references/quality/capability_profile.md",
+      "archive_path": "files/references/quality/capability_profile.md",
+      "disposition": "replace_notice",
+      "kind": "file",
+      "sha256": "03bf9d67c50cdf1ff051eca1ff93c82c34d612e470de3668d6d896228c95acf1",
+      "bytes": 3760,
+      "mode": 420
+    },
+    {
+      "source_path": "references/quality/execution_assignment.md",
+      "archive_path": "files/references/quality/execution_assignment.md",
+      "disposition": "replace_notice",
+      "kind": "file",
+      "sha256": "9ae9f18431c5d076d4345dc0a1c627291c003b9ffe0a7a96a877a6c9d2bfaa5c",
+      "bytes": 4035,
+      "mode": 420
+    },
+    {
+      "source_path": "references/quality/generation_procedure.md",
+      "archive_path": "files/references/quality/generation_procedure.md",
+      "disposition": "replace_notice",
+      "kind": "file",
+      "sha256": "a922a1b188adff6547d021ea857a04cc3113c3f20c714cab819605b53884eafe",
+      "bytes": 5102,
+      "mode": 420
+    },
+    {
+      "source_path": "references/quality/ios_execution.md",
+      "archive_path": "files/references/quality/ios_execution.md",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "fbe5a0d085a591b4367c75ef81b0e129da58f42972a21e37340ec006e4f4c1fc",
+      "bytes": 3475,
+      "mode": 420
+    },
+    {
+      "source_path": "references/quality/maintenance_procedure.md",
+      "archive_path": "files/references/quality/maintenance_procedure.md",
+      "disposition": "replace_notice",
+      "kind": "file",
+      "sha256": "0a68c5ca4e82b0210350bb3246fab5f879fdb1e98febbd04d892d6bf7b4a95c5",
+      "bytes": 1167,
+      "mode": 420
+    },
+    {
+      "source_path": "references/quality/plan_format.md",
+      "archive_path": "files/references/quality/plan_format.md",
+      "disposition": "replace_notice",
+      "kind": "file",
+      "sha256": "98bd58bfb8fdb2b50b55cdc439adbef54ef4451f5fd6e256123edbb2e2c24952",
+      "bytes": 6215,
+      "mode": 420
+    },
+    {
+      "source_path": "references/quality/run_script_format.md",
+      "archive_path": "files/references/quality/run_script_format.md",
+      "disposition": "replace_notice",
+      "kind": "file",
+      "sha256": "e179b50cbc21d2b300c70f1f538b26b86d621c7038b06a867756f20c76705947",
+      "bytes": 2782,
+      "mode": 420
+    },
+    {
+      "source_path": "references/quality/test_definition.md",
+      "archive_path": "files/references/quality/test_definition.md",
+      "disposition": "replace_notice",
+      "kind": "file",
+      "sha256": "8dcb4536883e15055cbb029b8e8529e725b0b85691c430180ae58a612c0a368b",
+      "bytes": 4866,
+      "mode": 420
+    },
+    {
+      "source_path": "references/quality/test_execution.md",
+      "archive_path": "files/references/quality/test_execution.md",
+      "disposition": "replace_notice",
+      "kind": "file",
+      "sha256": "b53d60827e439183505247d4c1587c0f4476e127c7f64078efac3195cff0103a",
+      "bytes": 9080,
+      "mode": 420
+    },
+    {
+      "source_path": "references/quality/test_step_authoring.md",
+      "archive_path": "files/references/quality/test_step_authoring.md",
+      "disposition": "replace_notice",
+      "kind": "file",
+      "sha256": "b68f3acfd0edcd395f8039e98dcb48c5124a79df367a3c3fe5bfeee443ad8768",
+      "bytes": 6156,
+      "mode": 420
+    },
+    {
+      "source_path": "references/quality/test_step_examples.md",
+      "archive_path": "files/references/quality/test_step_examples.md",
+      "disposition": "replace_notice",
+      "kind": "file",
+      "sha256": "e2011dd2ca7088352740a31e51360c167ebb145b7de3cbb6c1ed0c82654c3b1e",
+      "bytes": 6209,
+      "mode": 420
+    },
+    {
+      "source_path": "references/quality/test_step_template.md",
+      "archive_path": "files/references/quality/test_step_template.md",
+      "disposition": "replace_notice",
+      "kind": "file",
+      "sha256": "d98c0bc715e2f08bf414872a4c2b2847f7a936023b39021fd967d74c9b18a30d",
+      "bytes": 2368,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/qa-app-delegate-guard.py",
+      "archive_path": "files/scripts/qa-app-delegate-guard.py",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "7109a8bf66407dcd46522d78b9f2888813f4de9ab00be7c2897ef177558d3b03",
+      "bytes": 2619,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/qa-launch-registry.py",
+      "archive_path": "files/scripts/qa-launch-registry.py",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "a7c0f19e92af756746a2e0f6354363ec5b64d17045772ecb6f1c19c04ccb46d7",
+      "bytes": 5369,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/qa-repo-snapshot.py",
+      "archive_path": "files/scripts/qa-repo-snapshot.py",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "ac3c4f33dda0197e5e16b15c14ad9d01d19a989d9e752ff4e9569f603dca5eb3",
+      "bytes": 15893,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/qa-runtime-input.py",
+      "archive_path": "files/scripts/qa-runtime-input.py",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "8e5db8b07152bd979ad8917f5bc9cb82d7f6fa2600105cd35552092ff6ed7bad",
+      "bytes": 1080,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/qa-safe-child-env.py",
+      "archive_path": "files/scripts/qa-safe-child-env.py",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "daa5226b6a6aad9d21d6660e303d604838061c9524f78fe7bf270317bfdd43d3",
+      "bytes": 8448,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/qa_adapter.py",
+      "archive_path": "files/scripts/qa_adapter.py",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "b25fa7338a72cc64a786948e011795215cecad34cd4c62c83c743b7bf808dfb3",
+      "bytes": 4339,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/quality_alignment_audit.py",
+      "archive_path": "files/scripts/quality_alignment_audit.py",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "ee1ea6803673cd6f2755e52680092916445ae39cc57cd902e30ccc08b3726cbb",
+      "bytes": 26229,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/quality_owner_resolver.py",
+      "archive_path": "files/scripts/quality_owner_resolver.py",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "d56de0d34910b4ce194206741ef50f9915fca8cb7ddac97d090743db3b9e4add",
+      "bytes": 12874,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/render_qa_contract.py",
+      "archive_path": "files/scripts/render_qa_contract.py",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "f2eec79764b4af501621b1e2871bd3ea7d06c56543e51c3471de8c8370e0d3e6",
+      "bytes": 1476,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/tests/qa-binding-retention-test.py",
+      "archive_path": "files/scripts/tests/qa-binding-retention-test.py",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "b6c0f833c4abf4b81483f1293ed8d9c3a84578ac40b99a463189111bbf6aaf2e",
+      "bytes": 4714,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/tests/qa-cleanup-recovery-test.py",
+      "archive_path": "files/scripts/tests/qa-cleanup-recovery-test.py",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "35f6ad0749932a6994d34e1c0fa0b046a15e5202f476dc30b9985049f2b8b41f",
+      "bytes": 11278,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/tests/qa-firebase-isolation-contract-test.sh",
+      "archive_path": "files/scripts/tests/qa-firebase-isolation-contract-test.sh",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "9bf5ad6690b1489c5915a6efdccf94a2f8c9936338893c0c1d6b243f208c3c85",
+      "bytes": 95180,
+      "mode": 493
+    },
+    {
+      "source_path": "scripts/tests/qa-repo-snapshot-test.py",
+      "archive_path": "files/scripts/tests/qa-repo-snapshot-test.py",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "a41f1904c2a709745a7d340db7222c7435e5f030940a5f03e8c7ac5a5a646e60",
+      "bytes": 17914,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/tests/qa-runtime-final-integration-contract-test.sh",
+      "archive_path": "files/scripts/tests/qa-runtime-final-integration-contract-test.sh",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "a0efe8cad9abec9fd6dddf2db8cdc47e23d3cfcf516a040c4d151905e62433af",
+      "bytes": 7796,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/tests/qa-runtime-final-security-contract-test.sh",
+      "archive_path": "files/scripts/tests/qa-runtime-final-security-contract-test.sh",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "acbf2d291bc58cba5bba08a965037283a56d7f15e4866c6d8e36df6ebe12d340",
+      "bytes": 17590,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/tests/qa-runtime-hardening-contract-test.sh",
+      "archive_path": "files/scripts/tests/qa-runtime-hardening-contract-test.sh",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "e2bbd39de0d4173317f176ec159c87efedfab7338fa6d67efe86c2ab4e089374",
+      "bytes": 9796,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/tests/qa-runtime-materialization-test.py",
+      "archive_path": "files/scripts/tests/qa-runtime-materialization-test.py",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "3182b4b142429fd0e29974a3b0ea1bc8f237c62a40372ebf82f7e141e4c1f6e9",
+      "bytes": 9375,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/tests/qa-runtime-second-round-contract-test.sh",
+      "archive_path": "files/scripts/tests/qa-runtime-second-round-contract-test.sh",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "a1805f856d56d1d157ba16539d23c1fa7fa1e0aea40c6eca8a683edc538da245",
+      "bytes": 19908,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/tests/qa-safe-child-env-contract-test.sh",
+      "archive_path": "files/scripts/tests/qa-safe-child-env-contract-test.sh",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "347e9e66ce811b1195d299e14d2d31d532029247d5419d6188d8c172714819a6",
+      "bytes": 4874,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/tests/qa-session-runtime-test.py",
+      "archive_path": "files/scripts/tests/qa-session-runtime-test.py",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "14936220fbdc3997a0609117d60fc57ae118e942f6e0b3bd2ce42e64ade911d8",
+      "bytes": 5969,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/tests/quality-alignment-audit-test.sh",
+      "archive_path": "files/scripts/tests/quality-alignment-audit-test.sh",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "82cd70b90ffe2bffb33f90f057033fb2e0395529a1fb70a53ed93c3dfb192650",
+      "bytes": 70340,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/tests/quality-owner-resolver-test.sh",
+      "archive_path": "files/scripts/tests/quality-owner-resolver-test.sh",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "02cbb20d7f6aee8ac77b57d2c688f507877091cc7964a0b7616cda83bcec7c3c",
+      "bytes": 10213,
+      "mode": 420
+    },
+    {
+      "source_path": "scripts/tests/test-plan-direct-case-selector-contract-test.sh",
+      "archive_path": "files/scripts/tests/test-plan-direct-case-selector-contract-test.sh",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "789cc0a64ead0e8dda76b2e9137ecc36b2e43805987675e31caea46c1cce7ba1",
+      "bytes": 3379,
+      "mode": 493
+    },
+    {
+      "source_path": "scripts/tests/test_qa_launch_registry.py",
+      "archive_path": "files/scripts/tests/test_qa_launch_registry.py",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "22a6158ee5056e8dbbc90fc4b4f09546293b95e7fd9bb84a0d847479622ded98",
+      "bytes": 9796,
+      "mode": 420
+    },
+    {
+      "source_path": "skills/test-define/SKILL.md",
+      "archive_path": "files/skills/test-define/SKILL.md.snapshot",
+      "disposition": "replace_notice",
+      "kind": "file",
+      "sha256": "b1c45441d9b7b80767efbe80978bc38464d7a60b060a86946aece0469a001567",
+      "bytes": 1341,
+      "mode": 420
+    },
+    {
+      "source_path": "skills/test-ios/SKILL.md",
+      "archive_path": "files/skills/test-ios/SKILL.md.snapshot",
+      "disposition": "shared_snapshot_retained",
+      "kind": "file",
+      "sha256": "a471c5107b4a481d1528ed770b5339ed15b462016bdf699543ca57cfba5ff9fd",
+      "bytes": 1126,
+      "mode": 420
+    },
+    {
+      "source_path": "skills/test-run/SKILL.md",
+      "archive_path": "files/skills/test-run/SKILL.md.snapshot",
+      "disposition": "replace_notice",
+      "kind": "file",
+      "sha256": "820d3c67bf866322fddc77f302b181ba275d597241fee9b247c68a70f42dcb9a",
+      "bytes": 1209,
+      "mode": 420
+    }
+  ],
+  "source_directories": [
+    "contracts",
+    "hooks",
+    "hooks/tests",
+    "manifests",
+    "references/quality",
+    "scripts",
+    "scripts/tests",
+    "skills/test-define",
+    "skills/test-ios",
+    "skills/test-run"
+  ],
+  "excluded": [
+    "untracked and ignored files",
+    "credentials",
+    ".git metadata"
+  ],
+  "status": "verified_and_retired_in_candidate",
+  "retirement": {
+    "removed": [],
+    "replaced_with_notice": [
+      "references/quality/capability_profile.md",
+      "references/quality/execution_assignment.md",
+      "references/quality/generation_procedure.md",
+      "references/quality/maintenance_procedure.md",
+      "references/quality/plan_format.md",
+      "references/quality/run_script_format.md",
+      "references/quality/test_definition.md",
+      "references/quality/test_execution.md",
+      "references/quality/test_step_authoring.md",
+      "references/quality/test_step_examples.md",
+      "references/quality/test_step_template.md",
+      "skills/test-define/SKILL.md",
+      "skills/test-run/SKILL.md"
+    ],
+    "retained": [
+      "contracts/capabilities.json",
+      "hooks/capability-probe.sh",
+      "hooks/tests/impl-jest-hint-test.sh",
+      "hooks/tests/impl-scene-hint-test.sh",
+      "manifests/capabilities.json",
+      "manifests/qa_adapters.json",
+      "references/quality/ios_execution.md",
+      "scripts/qa-app-delegate-guard.py",
+      "scripts/qa-launch-registry.py",
+      "scripts/qa-repo-snapshot.py",
+      "scripts/qa-runtime-input.py",
+      "scripts/qa-safe-child-env.py",
+      "scripts/qa_adapter.py",
+      "scripts/quality_alignment_audit.py",
+      "scripts/quality_owner_resolver.py",
+      "scripts/render_qa_contract.py",
+      "scripts/tests/qa-binding-retention-test.py",
+      "scripts/tests/qa-cleanup-recovery-test.py",
+      "scripts/tests/qa-firebase-isolation-contract-test.sh",
+      "scripts/tests/qa-repo-snapshot-test.py",
+      "scripts/tests/qa-runtime-final-integration-contract-test.sh",
+      "scripts/tests/qa-runtime-final-security-contract-test.sh",
+      "scripts/tests/qa-runtime-hardening-contract-test.sh",
+      "scripts/tests/qa-runtime-materialization-test.py",
+      "scripts/tests/qa-runtime-second-round-contract-test.sh",
+      "scripts/tests/qa-safe-child-env-contract-test.sh",
+      "scripts/tests/qa-session-runtime-test.py",
+      "scripts/tests/quality-alignment-audit-test.sh",
+      "scripts/tests/quality-owner-resolver-test.sh",
+      "scripts/tests/test-plan-direct-case-selector-contract-test.sh",
+      "scripts/tests/test_qa_launch_registry.py",
+      "skills/test-ios/SKILL.md"
+    ],
+    "main_or_installed_changed": false
+  }
+}

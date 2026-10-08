@@ -1,0 +1,177 @@
+---
+schema_version: '1.0'
+selection_basis: susugigi_quality_rebuild_plan.md step 3
+scope_effect: 'none: all requirements remain in sources.yaml'
+cases:
+- id: REP-language-selection
+  title: 語系選取與保序
+  why: 先重現架構稿，檢查同一操作可有不同因素結果，以及完整列表基準的生命週期。
+  node_refs:
+  - N-app-screen-24-0009
+  - N-app-screen-24-0041
+  - N-app-screen-24-0014
+  - N-app-screen-24-0016
+  - N-app-screen-24-0017
+  - N-app-screen-24-0019
+  - N-app-screen-24-0037
+  - N-app-screen-24-0044
+  - N-app-screen-16-0040
+  - N-app-screen-16-0019
+  - N-app-shared-list-0096
+  - N-app-screen-24-0047
+  - N-app-screen-24-0048
+  - N-app-screen-24-0049
+  - N-app-screen-24-0050
+  required_dimensions:
+  - 繁體中文起點
+  - 改選 English 與日本語
+  - 目前項目置頂
+  - 各次選取標記獨立判定
+  - 完整順序與同次進入的初始觀察比較
+  - 選回原語系並核對清理
+  - 依本次執行環境核對原生名稱初始排序，不要求跨環境固定順序
+  source_gap_refs: []
+  capability_needs:
+  - 設定可驗起點
+  - 定位含捲動的目標列
+  - 取得完整 20 項順序
+  - 記錄順序觀察所用的執行環境
+  - 畫面訪次識別
+  - 獨立記錄操作與觀察
+  status: selected_not_defined
+  factor_refs: []
+  route_refs: []
+- id: REP-language-search
+  title: 語系代碼與原生名稱搜尋
+  why: 避免只驗包含符合項而漏掉篩選未生效。
+  node_refs:
+  - N-app-screen-24-0039
+  - N-app-screen-24-0017
+  - N-app-screen-24-0019
+  - N-app-screen-24-0046
+  - N-app-shared-search-0033
+  - N-app-shared-search-0039
+  - N-app-screen-24-0049
+  - N-app-screen-24-0050
+  - N-app-screen-24-0052
+  required_dimensions:
+  - 以 zh-Hant 搜尋
+  - 以繁體中文搜尋
+  - 兩種輸入各分列包含繁體中文與排除日本語
+  - 不以額外送出觸發篩選
+  - 清空後恢復未篩選狀態
+  - 篩選後維持同次進入的原始順序，清空後恢復該順序
+  source_gap_refs: []
+  capability_needs:
+  - 輸入與清空
+  - 收集完整結果集合
+  - 記錄順序觀察所用的執行環境
+  - 辨識觀察時點
+  status: selected_not_defined
+  factor_refs: []
+  route_refs: []
+- id: REP-home-draft
+  title: 首頁篩選草稿、套用與跨啟動保存
+  why: 檢查草稿與已套用狀態能分開觀察，取消和無變更不能寫回。
+  node_refs:
+  - N-app-screen-3-0028
+  - N-app-screen-3-0032
+  - N-app-screen-3-0036
+  - N-app-screen-3-0029
+  - N-app-screen-3-0033
+  - N-app-screen-3-0037
+  - N-app-screen-3-0043
+  - N-app-screen-3-0052
+  - N-app-screen-3-0054
+  - N-app-logic-22-0057
+  - N-app-logic-22-0058
+  - N-app-logic-22-0059
+  - N-app-logic-22-0068
+  - N-app-logic-22-0071
+  - N-app-logic-22-0085
+  - N-app-logic-22-0086
+  - N-app-logic-22-0109
+  - N-app-logic-22-0111
+  required_dimensions:
+  - 時間粒度、分組、帳戶各自修改
+  - 關閉取消
+  - 相同草稿完成
+  - 有變更草稿一次套用
+  - 跨啟動保留三值
+  - 未準備完成時不套用
+  - 圖表來源每次啟動重設
+  source_gap_refs: []
+  capability_needs:
+  - UI 與本機持久狀態分別觀察
+  - 可控制 App 重啟
+  - 不以直接資料寫入代替套用動作
+  status: selected_not_defined
+  factor_refs: []
+  route_refs: []
+- id: REP-recurring-undo
+  title: 定期交易月底、重入與復原快照
+  why: 檢查跨時間資料與副作用，復原不能重查後誤復活先前自行刪除的實例。
+  node_refs:
+  - N-app-logic-10-0117
+  - N-app-logic-10-0118
+  - N-app-logic-10-0119
+  - N-app-logic-10-0102
+  - N-app-logic-10-0129
+  - N-app-logic-10-0064
+  - N-app-logic-10-0094
+  - N-app-logic-10-0069
+  - N-app-logic-10-0077
+  - N-app-logic-10-0088
+  - N-app-logic-1-0057
+  required_dimensions:
+  - 月末 31 日跨 2 月後回到原日號
+  - 閏年與年度頻率
+  - 重複與並行補產生分列
+  - 既有已軟刪實例不再生成
+  - 截斷前快照與原 endOn 復原
+  - 先前自行刪除者保持刪除
+  - 原子性與使用者隔離
+  source_gap_refs: []
+  capability_needs:
+  - 可控制測試時鐘
+  - 隔離交易與轉帳資料
+  - 重入呼叫能力
+  - 完整實例集合觀察
+  - 故障注入與復原觀察
+  status: selected_not_defined
+  factor_refs: []
+  route_refs: []
+- id: REP-backend-ordering
+  title: 後端通知亂序與清除閘門
+  why: 檢查同一路徑對競態、拒絕和持久結果的各自判定。
+  node_refs:
+  - N-cloud-logic-1-0090
+  - N-cloud-logic-1-0091
+  - N-cloud-logic-1-0086
+  - N-cloud-logic-1-0088
+  - N-cloud-logic-1-0021
+  - N-cloud-logic-1-0022
+  - N-cloud-logic-1-0025
+  - N-cloud-logic-2-0016
+  - N-cloud-logic-2-0033
+  required_dimensions:
+  - 較新事件先到後再送舊事件
+  - 授權保持較新狀態
+  - 墓碑在驗證前已存在
+  - 檢查後與寫入前插入清除
+  - 拒絕歸戶與拒絕寫入分列
+  - 清除只刪本 UID 的索引
+  source_gap_refs: []
+  capability_needs:
+  - 隔離 Firebase 資料與身分
+  - 受支援的 Apple 事件輸入或受控替身
+  - 交易時序控制
+  - 觀察歸戶、授權與墓碑
+  - 伺服器候選版本識別
+  status: selected_not_defined
+  factor_refs: []
+  route_refs: []
+cross_case_gaps:
+- iOS test-ios 尚待新契約交接
+- 後端隔離環境、事件送入與競態觀察方法尚未確認
+- 新平台適配不能沿用封存格式取得假通過

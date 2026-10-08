@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "intents": {
+    "batch-grill-me": {
+      "capability": "decision-interview",
+      "mode": "batch"
+    },
+    "grill-me": {
+      "capability": "decision-interview",
+      "mode": "one"
+    },
+    "grilling": {
+      "capability": "decision-interview",
+      "mode": "one"
+    },
+    "research": {
+      "capability": "decision-research"
+    },
+    "decision_framework_router": {
+      "capability": "product-scope",
+      "planning_capability": "product-plan"
+    },
+    "spec_writer": {
+      "capability": "code-spec"
+    },
+    "spec-term-audit": {
+      "capability": "code-spec",
+      "mode": "review"
+    },
+    "codebase-design": {
+      "capability": "code-design"
+    },
+    "tdd": {
+      "capability": "code-tdd"
+    },
+    "impeccable": {
+      "capability": "ui-design",
+      "conditional_capabilities": [
+        "ui-system",
+        "ui-build",
+        "ui-review",
+        "ui-live"
+      ]
+    },
+    "theme-factory": {
+      "capability": "ui-system"
+    },
+    "rn-native-header": {
+      "capability": "ui-build",
+      "reference": "references/design/native_header_compatibility.md"
+    },
+    "test_plan_writer": {
+      "capability": "test-define"
+    },
+    "game-test": {
+      "capability": "test-run"
+    },
+    "sim-review": {
+      "capability": "test-ios"
+    },
+    "sync-gits": {
+      "capability": "game-start",
+      "mode": "sync"
+    },
+    "wrap-up-topic": {
+      "capability": "game-stop",
+      "mode": "compact"
+    },
+    "Codex-self-review": {
+      "capability": "control-review",
+      "mode": "conversation"
+    },
+    "game-review": {
+      "capability": "control-review",
+      "mode": "conversation"
+    },
+    "universal_writing_linter": {
+      "capability": "doc-markdown"
+    },
+    "writing-great-skills": {
+      "reference": "references/skill_authoring.md"
+    }
+  },
+  "boundary": "意圖對照不是另一套可載入 Skill。方法只由新入口持有。"
+}

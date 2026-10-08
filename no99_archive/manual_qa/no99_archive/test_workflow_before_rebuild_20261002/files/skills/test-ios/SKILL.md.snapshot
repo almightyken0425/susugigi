@@ -1,0 +1,19 @@
+---
+name: test-ios
+description: 管理 iOS simulator 驗證的單一環境與觀測生命週期。承接 sim-review 及 test-run 的已確認交接。不代表支援 Android 或實機。
+---
+
+# iOS 驗證環境
+
+開始前依 [共同前置政策](../../references/workflow_requirements.md) 核對本次輸入。
+有效成果沿用。缺口回到成果主人。交付前核對本責任的完成條件。
+
+核對候選、選集、受支援執行設定及資源主人。
+讀 [iOS 執行方法](../../references/quality/ios_execution.md)。
+只有使用者要求 iOS 驗證或 test-run 的有效委派才操作相應環境。
+單一 owner 管理 simulator、Metro、觀測、清理與還原。
+承接 test-run 的[執行分工](../../references/quality/execution_assignment.md)。UI 可由已確認有能力的 AI 或使用者操作。
+UI 接手不轉移環境 owner。保留使用者指定的畫面停點。
+產品測項與預期值從已鎖定 Quality 取得。秘密不進公開交接。
+交付原始觀測的安全摘要與清理、還原結果。
+測項判定由 test-run 持有。未支援的候選或平台回報 blocked。

@@ -1,0 +1,43 @@
+# 記帳 App 品質指令
+
+- 本 repo 是 Module Quality git。
+- module id 是 `no2_accounting_app`。
+- 本 repo 承載品質層工件。
+- 執行結果不進入本 repo。
+- 缺陷追蹤不進入本 repo。
+
+## 承載內容
+
+- 能力側寫是手段狀態真相。
+- 回歸計劃採端到端流程。
+- 場次腳本使用 Markdown 與 CSV。
+- 計劃入口是 `no0_index.md`。
+- 場次入口是 `no0_index.md`。
+- 計劃格式由 `test-define` 仲裁。
+- 封存 QA 不作現行依據。
+
+## 修改流程
+
+- 修改前使用 `product-scope`。
+- 品質工件使用 `test-define`。
+- Markdown 使用 `doc-markdown`。
+- 本 repo 不套用 `code-spec`。
+- 修改後執行 `bash no2_qa_tools/check_plan.sh`。
+- 收工前執行 `bash no2_qa_tools/check_plan.sh --selftest`。
+- 檢核器必須維持唯讀。
+
+## 上游配對
+
+- Spec 與 Impl 是雙上游。
+- 端到端流程可含後端 module。
+- 上游前進後執行基線 refresh。
+- 規格缺口只登記不代仲裁。
+- release tag 由 Release git 定義。
+- 配對規則以產品註冊表為準。
+- 跨層分支必須逐字一致。
+
+## 指令檔維護
+
+- `AGENTS.md` 是規則單一真相。
+- `CLAUDE.md` 僅保留相容入口。
+- 不在相容入口複製規則。

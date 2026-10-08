@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "profiles": {
+    "susugigi-accounting-ios-v1": {
+      "owner": "SuSuGiGi/no2_accounting_app",
+      "repository": "https://github.com/almightyken0425/susugigi-quality-no2-accounting-app.git",
+      "adapter_root": "no3_run_scripts/control_adapter",
+      "manifest": "no3_run_scripts/control_adapter/runtime_manifest.json",
+      "manifest_sha256": "b62f9194101711138541eef08d7b2b71ff1ca94b4d07ab960dcabdf804a7ab79"
+    }
+  }
+}

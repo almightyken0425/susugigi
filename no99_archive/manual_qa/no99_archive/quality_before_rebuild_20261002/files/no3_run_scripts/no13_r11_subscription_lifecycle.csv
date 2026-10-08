@@ -1,0 +1,15 @@
+﻿序,測項,類型,動作,預期,驗證者,手段,已驗,說明
+1,,建置,於實機開啟 app 落地主畫面、確認設定內 Apple ID 為 sandbox-buyer、進設定頁確認訂閱仍有效,設定頁無升級入口、等級呈現為付費,使用者,manual-ui,,承接 R10 終點；sandbox 續訂通知需實機；帳戶與類別計數已由 R10 的帳戶與類別計數列判定、本場序 2 重裝隨即清空故不重驗
+2,PM-03,操作,長按 app 圖示刪除 app、重新安裝 dev build 後開啟、落地主畫面,app 正常落地、全程無登入畫面、首頁無交易資料,使用者,manual-ui,,重裝供恢復購買成功路徑
+3,PM-03,操作,進設定頁點升級入口開啟付費牆、點恢復購買、於操作進行中注視按鈕,恢復購買按鈕轉為載入狀態,使用者,manual-ui,PM-03 操作中顯示載入狀態,
+4,PM-03,操作,等待恢復完成、關閉付費牆後回設定頁,顯示恢復成功對話框、等級即時回到付費、上限解除、設定頁無升級入口,使用者,manual-ui,PM-03 查得 Premium 商品即時生效，顯示恢復成功對話框並解鎖上限,
+5,PM-05,操作,完全關閉 app、冷啟動並注視啟動瞬間至落地全程,全程不閃現 LEVEL_0 呈現、不被導向付費牆、設定頁升級入口始終不出現,使用者,manual-ui,PM-05 付費者冷啟動不閃現 LEVEL_0 誤判、不被導向付費牆,付費狀態下的解析就緒探針
+6,PM-03,操作,於實機系統設定將 App Store sandbox 帳號切為 sandbox-empty、帳號與密碼由使用者自填、回 app 開付費牆點恢復購買,顯示無可還原購買提示、等級維持不變、不出現恢復成功對話框,使用者,manual-ui,PM-03 查無 Premium 商品顯示無可還原購買提示，等級不變,帳密不落檔、由使用者當場自填
+7,,還原,於實機系統設定將 App Store sandbox 帳號切回 sandbox-buyer、回 app 開付費牆再點恢復購買後關閉付費牆,恢復成功、等級為付費、續訂週期續行,使用者,manual-ui,,換回買方帳號保護 CF-02 續訂通知面
+8,,建置,進設定頁點資料管理、點匯入收入支出、來源時區維持預設、選 assets 的 import_small.csv 後前進,六欄自動對應無缺、進入內容比對,使用者,manual-ui,,重建小資料集供 R12 清除面
+9,,建置,於內容比對為所有標為新的帳戶與類別選新建後前進、核對預覽後送出、於結果對話框點確認,顯示已匯入 9 筆與略過 1 筆、清單出現匯入早餐 120 等 9 筆,使用者,manual-ui,,判定點已由 R10 的 AS-05 收下、本場只鋪狀態
+10,CF-02,操作,記下當下時間、將裝置維持前景片刻待背景備份完成後放置約 35 分鐘、期間保持連網且不登出 sandbox-buyer,備份無錯誤提示且操作不受阻、sandbox 月訂閱於期間自動續訂六次後自然到期,使用者,manual-ui,,資料上雲供 R12 雲端滅盡比對；續訂與到期通知由 Apple 伺服器推送、放置期可與其他事並行
+11,CF-02,Claude節點,Claude 以 cloud-logging 查 storeNotification 的 functions log,見六次續訂與一次到期的通知處理紀錄、簽章驗證通過、log 無未捕捉錯誤,Claude,cloud-logging,CF-02 通知簽章驗證通過並處理成功，log 無未捕捉錯誤,
+12,CF-02,Claude節點,Claude 以 firestore-read 精確查 entitlements/${QA_SESSION_UID}、原始回應留暫存、可見 uid 固定遮罩為 [QA_SESSION_UID] 後刪除暫存,status 與 expires_date 與 apple_signed_date 隨通知推進、expires_date 晚於 R10 購買當下、末次為到期狀態,Claude,firestore-read,CF-02 entitlements/${QA_SESSION_UID} 的 status、expires_date、apple_signed_date 隨通知更新,到期剛發生時比對、時點錯過即失真
+13,PM-05,操作,到期後將 app 自背景恢復至前景、停留片刻後進設定頁檢視,等級回落 LEVEL_0、升級入口重新出現,使用者,manual-ui,PM-05 到期後前景恢復觸發重新解析，等級回落、升級入口重新出現,
+14,PM-05,Claude節點,Claude 於 game-test 收集的實機 Debug console grep QA PREMIUM 列,見前景恢復觸發 reconcile 的標記、等級解析結果由付費轉為 LEVEL_0,Claude,qa-markers,PM-05 QA PREMIUM 標記可見 reconcile 觸發與等級解析結果,

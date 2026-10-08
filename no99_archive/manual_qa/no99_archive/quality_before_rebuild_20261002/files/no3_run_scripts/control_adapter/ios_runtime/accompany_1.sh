@@ -1,0 +1,2 @@
+readonly QA_SESSION_PAYLOAD QA_SESSION_PAYLOAD_SHA256
+qa_session_command_loop

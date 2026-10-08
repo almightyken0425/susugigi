@@ -1,0 +1,25 @@
+---
+name: test-define
+description: 維護已確認 ai-company 產品的測項、場次、能力及基線。承接 test_plan_writer 的定義、refresh 與選案。實際執行交 test-run。
+---
+
+# 產品測試定義
+
+開始前依 [共同前置政策](../../references/workflow_requirements.md) 核對本次輸入。
+有效成果沿用。缺口回到成果主人。交付前核對本責任的完成條件。
+
+核對公開行為、來源模組及 Quality 主人。
+讀 [測試定義方法](../../references/quality/test_definition.md)。
+共用品質責任需涵蓋全部 source_modules。純選案保持唯讀。
+新增或改寫步驟時使用[撰寫方法](../../references/quality/test_step_authoring.md)。
+定義保留操作與證據需求，不固定指定人或 AI。本次分工交 test-run。
+格式與生成方法按需讀取。
+
+- [計劃格式](../../references/quality/plan_format.md)。
+- [能力契約](../../references/quality/capability_profile.md)。
+- [場次格式](../../references/quality/run_script_format.md)。
+- [產出與選案](../../references/quality/generation_procedure.md)。
+- [刷新與基線](../../references/quality/maintenance_procedure.md)。
+
+交付定義、覆蓋與可重算基線。部分更新不得推進完整基線。
+原目標是執行時必須交回 test-run。定義完成不代表已測。
